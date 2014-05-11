@@ -6,11 +6,12 @@
 
             <!--end post nav -->
         	<?php $i = 1; //Start a counter outside of the loop
+
         	if(tia_get_option('tia_pages_enabled'))	{
         		include( TEMPLATEPATH . '/includes/loop-pages.php');
         	} else {
-						include( TEMPLATEPATH . '/includes/loop-posts.php');
-					}
+				include( TEMPLATEPATH . '/includes/loop-posts.php');
+			}
 
 			wp_reset_postdata(); ?>
 

@@ -4,13 +4,29 @@
 		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 		$perPage = get_option('posts_per_page');
 		//query_posts('post_type=post&orderby=menu_order&order=ASC&posts_per_page=5');
-		$args = array(
-			'post_type' => 'post',
-			'orderby' => 'menu_order',
-			'order' => 'ASC',
-			'posts_per_page' => $perPage,
-			'paged' => $paged
-		);
+
+		if (is_category()) {
+            $args = array(
+                'post_type' => 'post',
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+                'cat' => get_query_var('cat'),
+                'posts_per_page' => $perPage,
+                'paged' => $paged
+            );
+
+		} else {
+
+		    $args = array(
+                'post_type' => 'post',
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+                'posts_per_page' => $perPage,
+                'paged' => $paged
+            );
+		}
+
+
 		query_posts( $args );
 	}
 	$i = 1; while ( have_posts() ) : the_post(); 
