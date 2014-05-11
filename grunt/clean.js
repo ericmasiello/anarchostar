@@ -2,6 +2,5 @@
 
 module.exports = {
   css: [
-    './css/main.css',
-    './css/main.autoprefix.css']
+    './style.autoprefix.css']
 };

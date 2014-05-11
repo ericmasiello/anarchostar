@@ -3,11 +3,11 @@
 module.exports = {
   add_banner: {
     options: {
-      banner: '/* Eric Masiello */',
+      banner: '<%= vars.cssBanner %>',
       keepSpecialComments: 0
     },
     files: {
-      './css/main.min.css': './css/main.autoprefix.css'
+      './style.css': './style.autoprefix.css'
     }
   }
 };

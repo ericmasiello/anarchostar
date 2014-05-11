@@ -2,6 +2,18 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+
+    vars: {
+      'cssBanner': '/*\n' +
+        'Theme Name: Anarchostar\n' +
+        'Theme URI: http://anarchostar.com/\n' +
+        'Description: None\n' +
+        'Version: 1.0.0\n' +
+        'Author: Eric Masiello\n' +
+        'Author URI: http://www.synbydesign.com\n' +
+        '*/'
+    },
+
     pkg: grunt.file.readJSON('package.json'),
     compass: require('./grunt/compass.js'),
     autoprefixer: require('./grunt/autoprefixer.js'),

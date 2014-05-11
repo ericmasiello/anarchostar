@@ -3,8 +3,8 @@
 module.exports = {
     dist: {
         options: {
-            sassDir: 'scss',
-            cssDir: 'css'
+            sassDir: './scss',
+            cssDir: './'
         }
     }
 };

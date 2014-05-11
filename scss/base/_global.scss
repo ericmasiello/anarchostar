@@ -1,0 +1,69 @@
+/* ---------------------------
+02 Global
+----------------------------*/
+
+body {
+  font-size:14px;
+  font-family: Helvetica, Tahoma, Arial, Sans-Serif;
+  width:auto; height:auto;
+  padding: 0;
+  margin: 0;
+  color: #000;
+}
+
+p {
+  line-height:1.7em;
+  margin: 0 0 20px 0;
+}
+
+img {
+  margin: 0;
+}
+
+a, a:hover {
+  text-decoration: none;
+  outline: none;
+}
+
+a img {
+  border:none;
+}
+
+h1, h2{
+  font-family: 'LeagueGothicRegular', Helvetica, Arial, sans-serif;
+  color: #2c2c2c;
+  margin: 10px 0;
+}
+
+h1 {
+  font: 32px 'LeagueGothicRegular', Helvetica, Tahoma, Arial, Sans-Serif;
+  line-height:30px;
+  margin-top:10px;
+}
+
+blockquote, address {
+  margin: 0 0 30px 0;
+  padding: 0 30px 0 30px;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.6em;
+  color:#777;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.moreLink {
+  font-weight: bold;
+}
+
+input[type="text"], textarea {
+  background-color: #fefefe;
+  border: 1px solid #ddd;
+  padding: 5px;
+}

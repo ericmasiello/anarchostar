@@ -8,7 +8,7 @@ module.exports = {
     options: {
       // target-specific options go here
     },
-    src: './css/main.css',
-    dest: './css/main.autoprefix.css'
+    src: './style.css',
+    dest: './style.autoprefix.css'
   }
 };
