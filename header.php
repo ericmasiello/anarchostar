@@ -40,7 +40,7 @@
 	</script>
 			<?php } ?>
 
-<?php if (is_home()) {
+<?php if (is_home() || is_archive()) {
 $parallaxHeight=tia_get_option('tia_default_height');
 $imgMarginTop=tia_get_option('tia_scrolling_img_margin_top');
 $storyMarginTop=tia_get_option('tia_story_margin_top');
