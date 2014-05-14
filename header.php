@@ -122,4 +122,19 @@ if (!$detect->isMobile() && !tia_get_option('tia_scrollEasing_enabled') ) { ?>
 							</div>
 					</div>
          </div>
+         hello
+         <?php
+
+         $i = 1; while ( have_posts() ) : the_post();
+
+         		echo '<li id="blockLink', $i;
+         		echo '"><a href="#block', $i;
+         		echo '" class="block-link" title="', the_title();
+         		echo '">';
+         		the_title();
+         		echo '</a></li>';
+         		$i++;
+
+         	endwhile;
+         	?>
      </div>

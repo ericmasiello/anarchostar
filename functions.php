@@ -100,7 +100,6 @@ function tia_scripts() {
 
 	wp_enqueue_script('soundcloud-sdk', 'http://connect.soundcloud.com/sdk.js', '', '', true);
 	wp_enqueue_script('soundcloud-settings', get_bloginfo('template_url').'/scripts/soundcloud-settings.js', array('soundcloud-sdk'), '1.0', true);
-
 }
 
 add_action('wp_head','tia_theme_head');

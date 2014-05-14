@@ -1,6 +1,7 @@
 <?php $postType = 'post'; ?>
 	<ul id="nav"> <!-- post nav -->
-<?php if(tia_get_option('tia_reorder_enabled')) {
+<?php if( tia_get_option('tia_reorder_enabled') ) {
+
 		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 		$perPage = get_option('posts_per_page');
 		//query_posts('post_type=post&orderby=menu_order&order=ASC&posts_per_page=5');
