@@ -1,8 +1,10 @@
 .navbar {
 
   background-color: rgba( 0, 0, 0, .85 );
+  backface-visibility: hidden;
   color: #fff;
   display: table;
+  min-height: 50px;
   position: fixed;
   top: 0;
   width: 100%;
