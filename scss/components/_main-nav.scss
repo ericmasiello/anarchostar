@@ -1,0 +1,37 @@
+#mainNav {
+
+  display: inline-block;
+  float: right;
+  font-size: 21px;
+  text-transform: uppercase;
+
+  select { display: none; }
+
+  a {
+
+    display: inline-block;
+    line-height: $logoHeight;
+  }
+
+  li {
+
+    margin-left: 20px;
+    display: inline-block;
+
+    &:first-child {
+
+      margin-left: 0;
+    }
+
+    &.current,
+    &.current-cat,
+    &.current_page_item,
+    &.current-menu-item,
+    &.current-post-ancestor,
+    &.current_page_parent,
+    &:hover{
+
+    }
+  }
+}
+

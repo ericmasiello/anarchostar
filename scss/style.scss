@@ -1,3 +1,5 @@
+$logoHeight: 80px;
+
 @import 'util/reset';
 
 @import 'base/global';
@@ -16,4 +18,12 @@
 @import 'refactor/custom';
 @import 'components/grid';
 
+@import 'components/logo';
+@import 'components/navbar';
+@import 'components/parallax-nav';
+@import 'components/main-nav';
+
+@import 'refactor/collapse';
+
 @import 'util/clearfix';
+@import 'util/text';

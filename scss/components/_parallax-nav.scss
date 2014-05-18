@@ -1,0 +1,25 @@
+.parallax-nav {
+
+  display: inline-block;
+  list-style-type: none;
+
+  > li {
+
+    display: inline-block;
+  }
+
+  a {
+
+    @extend %visually-hidden;
+    background: url("images/circle-open.svg") no-repeat 0 0 transparent;
+    background-size: contain;
+    height: 20px;
+    line-height: $logoHeight;
+    width: 19px;
+
+    &.active {
+
+      background-image: url("images/circle-closed.svg");
+    }
+  }
+}

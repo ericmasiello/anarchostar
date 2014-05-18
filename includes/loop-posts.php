@@ -1,47 +1,5 @@
 <?php $postType = 'post'; ?>
-	<ul id="nav"> <!-- post nav -->
-<?php if( tia_get_option('tia_reorder_enabled') ) {
-
-		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-		$perPage = get_option('posts_per_page');
-		//query_posts('post_type=post&orderby=menu_order&order=ASC&posts_per_page=5');
-
-		if (is_category()) {
-            $args = array(
-                'post_type' => 'post',
-                'orderby' => 'menu_order',
-                'order' => 'ASC',
-                'cat' => get_query_var('cat'),
-                'posts_per_page' => $perPage,
-                'paged' => $paged
-            );
-
-		} else {
-
-		    $args = array(
-                'post_type' => 'post',
-                'orderby' => 'menu_order',
-                'order' => 'ASC',
-                'posts_per_page' => $perPage,
-                'paged' => $paged
-            );
-		}
-
-
-		query_posts( $args );
-	}
-	$i = 1; while ( have_posts() ) : the_post(); 
-	
-		echo '<li id="blockLink', $i;
-		echo '"><a href="#block', $i;
-		echo '" class="block-link" title="', the_title();
-		echo '">'; 
-		the_title();
-		echo '</a></li>';
-		$i++;
-
-	endwhile; ?>
-</ul> <!--end post nav -->
+<?php //include 'includes/loop-pagination.php'; ?>
 <?php $i = 1; // Start a counter outside of the loop
 	while (have_posts()) : the_post(); // Start the loop
 		//Grab post options

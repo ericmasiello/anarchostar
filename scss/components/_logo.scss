@@ -1,0 +1,13 @@
+#logo {
+
+  background: url("images/astar.svg") no-repeat 0 0 transparent;
+  background-size: contain;
+  display: inline-block;
+  height: $logoHeight;
+  width: $logoHeight;
+
+  > h1 {
+
+    @extend %visually-hidden-accessible;
+  }
+}

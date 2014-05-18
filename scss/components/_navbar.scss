@@ -1,0 +1,30 @@
+.navbar {
+
+  background-color: rgba( 0, 0, 0, .85 );
+  color: #fff;
+  display: table;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 300;
+
+  > .container {
+
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  a {
+
+    color: #fff;
+  }
+}
+//
+//.headerBarText {
+//  position:relative;
+//  top:-5px;
+//  margin-right:5px;
+//  font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+//  color:#888;
+//  letter-spacing: 1px;
+//}

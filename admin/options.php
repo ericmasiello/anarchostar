@@ -50,12 +50,14 @@ global $tia_theme_name, $tia_theme_version, $tia_default_slideshow_speed, $tia_o
 		
 		    <?php
 			settings_fields( 'tia_options_group' ); 
-		    $tia_options = get_option('tia_options'); 
+		    $tia_options = get_option('tia_options');
+		    //print_r( $tia_options );
 			$tia_logo = tia_get_option('tia_logo'); 
 			$tia_main_padding_top = tia_get_option('tia_main_padding_top');
 			$tia_theme_color = tia_get_option('tia_theme_color');
 			$tia_theme_bkg = tia_get_option('tia_theme_bkg');
-			$tia_rss = tia_get_option('tia_rss'); 
+			$tia_rss = tia_get_option('tia_rss');
+			$tia_theme_defaultCatId = tia_get_option('tia_theme_defaultCatId');
 			?>
 		    
 		    <div class="optionsContainer clearfix">	
@@ -103,6 +105,16 @@ global $tia_theme_name, $tia_theme_version, $tia_default_slideshow_speed, $tia_o
 					</div>					
 					<p class="instructions">After you have uploaded your logo, you may need to move the content down more. Use the slider to set the top padding.</p>									
 				</div>	 -->		
+
+                    <!-- Default Homepage Category -->
+                    <div class="adminModule">
+                    <h3 class="settingsTitle">Default Homepage Cateogry</h3>
+                        <div class="smallBottomMargin clearfix">
+                            <label class="singleLine" for="themeCategoryId">Category ID:</label>
+                            <input type="text" maxlength="5" id="themeCategoryId" name="tia_options[tia_theme_defaultCatId]" value="<?php echo $tia_theme_defaultCatId; ?>" />
+                        </div>
+                    </div>
+
                     <!-- Background -->
                     <div class="adminModule">
                     <h3 class="settingsTitle">Background</h3>
@@ -114,8 +126,6 @@ global $tia_theme_name, $tia_theme_version, $tia_default_slideshow_speed, $tia_o
                             </select>
 						</div>						
                     </div>
-                    
-                    	
                     
 					<!-- CSS -->
 					<div class="adminModule">

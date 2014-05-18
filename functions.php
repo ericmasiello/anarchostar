@@ -95,7 +95,7 @@ function tia_scripts() {
 	wp_enqueue_script('fancybox', get_bloginfo('template_url').'/scripts/fancybox/jquery.fancybox-1.3.4.pack.js', array('jquery'), '1.3.4', true);
 	wp_enqueue_style('fancybox', get_bloginfo('template_url').'/scripts/fancybox/jquery.fancybox-1.3.4.css', false, '1.3.4', 'all' );
 
-	wp_enqueue_style('collapse', get_bloginfo('template_url').'/css/collapse.css', false, '', 'all' );
+	//wp_enqueue_style('collapse', get_bloginfo('template_url').'/css/collapse.css', false, '', 'all' );
 	wp_enqueue_script('collapse', get_bloginfo('template_url').'/scripts/bootstrap.min.js', array('jquery'), '', true);
 
 	wp_enqueue_script('soundcloud-sdk', 'http://connect.soundcloud.com/sdk.js', '', '', true);
@@ -158,74 +158,27 @@ function tia_theme_head() { ?>
 
 
 <?php if(tia_get_option('tia_menuTitles_enabled')) { ?>
-#content #nav li a {
-<?php if(tia_get_option('tia_color_menu_parallax')) : ?>
-	color: #<?php echo(tia_get_option('tia_color_menu_parallax')); ?>;
-<?php endif; ?>
-	background:#ddd;
-	width: 150px;
-	overflow:hidden;
-	display:block;
-	border: 1px solid #aaa;
-	padding: 5px;
-	font-size: 11px;
+    #content #nav li a {
+    <?php if(tia_get_option('tia_color_menu_parallax')) : ?>
+	    color: #<?php echo(tia_get_option('tia_color_menu_parallax')); ?>;
+    <?php endif; ?>
 }
-
-/************************************************************************************
-smaller than 1300
-*************************************************************************************/
-@media screen and (max-width: 1300px) {
-
-#content .story, .inside { margin:0; width:85%; min-width:85% }
-
-#header {margin:5px 45px}
-
-}
-
-/************************************************************************************
-smaller than 1180
-*************************************************************************************/
-@media screen and (max-width: 1180px) {
-#content .story .bg {max-width: 35%}
-}
-
-/************************************************************************************
-smaller than 950
-*************************************************************************************/
-@media screen and (max-width: 950px) {
-#content .story .bg {max-width: 40%}
-}
-
-
-
 <?php } else { ?>
-#content #nav li a {
-<?php if(tia_get_option('tia_color_menu_parallax')) : ?>
-	color: #<?php echo(tia_get_option('tia_color_menu_parallax')); ?>;
-<?php endif; ?>
-	background:#ddd;
-	text-indent: -999em;
-	width: 15px;
-	height: 15px;
-	display:block;
-	border: 1px solid #aaa;
+    #content #nav li a {
+    <?php if(tia_get_option('tia_color_menu_parallax')) : ?>
+	    color: #<?php echo(tia_get_option('tia_color_menu_parallax')); ?>;
+    <?php endif; ?>
 }
-
 <?php } ?>
 
 #content #nav li a:hover, #content #nav li a.active {
 	<?php if(tia_get_option('tia_color_menu_parallax_hover')) { ?>
 		background:#<?php echo(tia_get_option('tia_color_menu_parallax_hover')); ?>;
-	<?php } else { ?>
-		background:#222;
 	<?php } 
 	 if(tia_get_option('tia_color_menu_parallax_text_hover')) { ?>
 		color:#<?php echo(tia_get_option('tia_color_menu_parallax_text_hover')); ?>;
-	<?php } else { ?>
-	color:#999;
 	<?php } ?>	
 }
-
 	<?php echo(tia_get_option('tia_custom_css')); ?>
 </style>
 

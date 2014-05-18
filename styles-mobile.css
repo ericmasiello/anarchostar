@@ -9,12 +9,12 @@ smaller than 1020
 	
 	.storycenter div.bg1[style], .story .center {width:80%; max-width: 80%}
 
-	
-	#header, 
+
+	#header,
 	#footer .main,
-	#footer .secondary, 
+	#footer .secondary,
 	.pagination 	{width:95%}
-	
+
 	#footer .widget_tia_pixelscroll {width:90%}
 
 	#headerBar { position: inherit; }
@@ -63,7 +63,7 @@ smaller than 860
 	.bg1 {display:none}
 	
 	.float-left, .float-right, .story .float-left, .story .float-right {float:none; width:99%; min-width:99%; margin:0}
-	
+
 	#mainNav {
 		font-size: 14px;
 		margin-right: 10px;

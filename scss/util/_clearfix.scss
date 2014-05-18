@@ -13,7 +13,10 @@
   display: inline-block;
 }
 
-html[xmlns] .clearfix {
+html[xmlns],
+#container.clearfix,
+#container .clearfix {
+
   display: block;
 }
 

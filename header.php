@@ -97,44 +97,32 @@ if (!$detect->isMobile() && !tia_get_option('tia_scrollEasing_enabled') ) { ?>
 
 <!--/theme specific-->
 	<?php wp_head(); ?>
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles-mobile.css" type="text/css" media="screen" />
+	<!-- <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles-mobile.css" type="text/css" media="screen" /> -->
 </head>
 <body <?php body_class(tia_get_option('tia_theme_color')." ".tia_get_option('tia_theme_bkg')); ?>>
 <div id="container" class="clearfix">
     <div id="headerBar" class="navbar navbar-default">
         <div id="header" class="navbar-inner navbar-header">
-					<div class="container">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</a>
-							<?php $tia_logo = tia_get_option('tia_logo'); ?>
-							<div id="logo">
-							<?php if($tia_logo) : ?>
-									<a href="<?php bloginfo('url'); ?>"><img src="<?php echo $tia_logo; ?>" alt="<?php bloginfo('name'); ?>" /></a>
-							<?php else : ?>
-									<h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-							<?php endif; ?>
-							</div>
-							<div id="mainNav" class="nav-collapse collapse">
-									<?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
-							</div>
-					</div>
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                    <?php $tia_logo = tia_get_option('tia_logo'); ?>
+                    <div id="logo">
+                    <?php if($tia_logo) : ?>
+                            <a href="<?php bloginfo('url'); ?>"><img src="<?php echo $tia_logo; ?>" alt="<?php bloginfo('name'); ?>" /></a>
+                    <?php else : ?>
+                            <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+                    <?php endif; ?>
+                    </div>
+
+                    <?php include 'includes/parallax-nav.php'; ?>
+
+                    <div id="mainNav" class="nav-collapse collapse">
+                            <?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
+                    </div>
+            </div>
          </div>
-         hello
-         <?php
-
-         $i = 1; while ( have_posts() ) : the_post();
-
-         		echo '<li id="blockLink', $i;
-         		echo '"><a href="#block', $i;
-         		echo '" class="block-link" title="', the_title();
-         		echo '">';
-         		the_title();
-         		echo '</a></li>';
-         		$i++;
-
-         	endwhile;
-         	?>
      </div>
