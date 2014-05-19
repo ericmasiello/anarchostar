@@ -41,6 +41,11 @@
 			<?php } ?>
 
 <?php if (is_home() || is_archive()) {
+
+global $storyMarginTop;
+global $parallaxHeight;
+global $imgMarginTop;
+
 $parallaxHeight=tia_get_option('tia_default_height');
 $imgMarginTop=tia_get_option('tia_scrolling_img_margin_top');
 $storyMarginTop=tia_get_option('tia_story_margin_top');
@@ -57,14 +62,38 @@ if (!$detect->isMobile()) { ?>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.scrollTo-1.4.6-min.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.inview.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function(){
+		$(document).ready( function(){
+
 			function setTopMargin() {
 				var headerHeight = $('#headerBar').height();
 				$('body.home #container').css('margin-top',headerHeight);
 			}
+
+			//debugger;
 			var headerHeightNeg = 0 - $('#headerBar').height();
 			$('#container').localScroll({offset: {left: 0, top: headerHeightNeg}});
-			$('.story .blockText').css('margin-top',storyBump);
+
+/*
+			$('.story').each( function(){
+
+			    var $this = $(this);
+			    $this.css( 'margin-top', storyBump );
+			    var $blockText = $this.find('.blockText');
+			    var $offSet = $this.find('[data-offset-height]');
+			    var offSet = ( ( $offSet.data('offset-height') ) ? $offSet.data('offset-height') : 0 );
+
+			    if( ( offSet - storyBump ) > storyBump ){
+
+			        offSet = offSet - storyBump;
+			    }
+
+                $blockText.css('margin-top', offSet );
+
+			    //var offset = $offSet
+			});
+			*/
+
+			//$('.story .blockText').css('margin-top',storyBump);
 			setTopMargin();
 
 			$(window).resize(function() { setTopMargin(); });

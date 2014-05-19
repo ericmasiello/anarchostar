@@ -297,6 +297,8 @@ function themespectrum_formatter($content) {
 	/* Divide content into pieces */
 	$pieces = preg_split($pattern_full, $content, -1, PREG_SPLIT_DELIM_CAPTURE);
 
+	//print_r( $pieces );
+
 	/* Loop over pieces */
 	foreach ($pieces as $piece) {
 		/* Look for presence of the shortcode */
@@ -472,7 +474,7 @@ if (is_admin()){
   );
 
   $my_meta_side =  new AT_Meta_Box($configSide);
-  
+
   //checkbox field
   $my_meta_side->addCheckbox($prefix.'lb_repeat_value',array('name'=> 'Repeat background image.'));
   
@@ -495,6 +497,9 @@ if (is_admin()){
   );
   
   $my_meta =  new AT_Meta_Box($config);
+
+  $my_meta->addText($prefix.'offset_scrolling_image',array('name'=> 'Top offset scrolling image.'));
+  $my_meta->addText($prefix.'offset_block_text',array('name'=> 'Top offset for text.'));
   
   //radio field
   $my_meta->addRadio($prefix.'post_alignment_value',array('float-left'=>'Align Left','center'=>'Align Center','float-right'=>'Align Right'),array('name'=> 'Choose the alignment of the Parallax text block for this post.', 'std'=> array('float-left')));

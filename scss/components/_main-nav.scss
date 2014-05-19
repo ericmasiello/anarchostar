@@ -2,7 +2,6 @@
 
   display: inline-block;
   float: right;
-  font-size: 21px;
   text-transform: uppercase;
 
   select { display: none; }
@@ -10,7 +9,10 @@
   a {
 
     display: inline-block;
+    font-size: 21px;
+    -webkit-font-smoothing: antialiased;
     line-height: $logoHeight;
+
   }
 
   li {

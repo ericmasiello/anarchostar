@@ -76,12 +76,12 @@ $(document).ready(function() { //when the document is ready...
 	}
 		
 	RepositionNav(); //Reposition the Navigation to center it in the window when the script loads
-	
+
 	$window.resize(function(){ //if the user resizes the window...
 		Move(); //move the background images in relation to the movement of the scrollbar
 		RepositionNav(); //reposition the navigation list so it remains vertically central
-	});		
-	
+	});
+
 	$window.bind('scroll', function(){ //when the user is scrolling...
 		Move(); //move the background images in relation to the movement of the scrollbar
 	});

@@ -5,7 +5,28 @@
   //width: 950px;
 
   .blockText {
-    background-color: rgba( 255, 255, 255, .65 );
+
+    background-color: rgba( 0, 0, 0, .8 );
+    color: #fff;
+    position: relative;
+    z-index: 2;
+
+    @media screen and (min-width: 960px) {
+
+      max-width: 500px;
+      width: 50%;
+    }
+
+    h1 {
+
+      @extend %visually-hidden-accessible;
+    }
+  }
+
+  .bg1 {
+
+    position: absolute;
+    z-index: 1;
   }
 }
 
@@ -24,34 +45,14 @@
 .story
 .float-right,
 .story .center {
+
   padding: 10px;
   position: relative;
-  //width: 350px;
-  line-height: 1em;
-  font-size: 12px;
-}
-
-.story .float-left h1, .inside .float-left h1, .story .float-right h1, .inside .float-right h1, .story .center h1 {
-  font-size:28px;
-  line-height: 28px;
 }
 
 .story .float-right {
-  float:right;
-}
-
-.story .center,
-.storycenter .bg1 {
-  position:absolute;
-
-  margin:0 auto;
-  padding: 10px;
+  float: right;
 }
 
 .story .center { z-index: 100; }
 .storycenter .bg1 { z-index: 90; }
-
-.story .center,
-.storycenter .bg1 {
-  //width:930px;
-}

@@ -1,3 +1,9 @@
+<?php
+global $storyMarginTop;
+global $storyMarginTop;
+global $parallaxHeight;
+global $imgMarginTop;
+?>
 <?php get_header(); ?>
 	<div id="main" class="clearfix">				 
 		<div id="content" class="postshome clearfix">

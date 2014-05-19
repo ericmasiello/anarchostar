@@ -1,105 +1,181 @@
 <?php $postType = 'post'; ?>
-<?php //include 'includes/loop-pagination.php'; ?>
-<?php $i = 1; // Start a counter outside of the loop
-	while (have_posts()) : the_post(); // Start the loop
-		//Grab post options
-    	$lightbox_img = get_post_meta($post->ID, "_tia_lightbox_image_value", true); // to be killed
-    	$alignment = get_post_meta($post->ID, "_tia_align_right_value", true); // to be killed
-    	$postAlignment = get_post_meta($post->ID, "_tia_post_alignment_value", true);
-    	$noTextBackground = get_post_meta($post->ID, "_tia_no_text_background_value", true);
-    	$lb_height = get_post_meta($post->ID, "_tia_lb_height_value_value", true);
-    	$lb_bgcolor = get_post_meta($post->ID, "_tia_lb_bgcolor_value", true);
-    	$blockTextColor = get_post_meta($post->ID, "_tia_block_text_color_value", true);
-    	$overrideAnchorColor = get_post_meta($post->ID, "_tia_override_anchor_color_value", true);
-    	$lb_bgrepeat = get_post_meta($post->ID, "_tia_lb_repeat_value", true);
-    	$bg_alignment = get_post_meta($post->ID, "_tia_bg_alignment_value", true);
-    	$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-    	$setParallaxHeight=tia_get_option('tia_default_height');
-    	$theContentEnabled=tia_get_option('tia_theContent_enabled');
+
+<?php
+
+global $storyMarginTop;
+
+$i = 1; // Start a counter outside of the loop
+
+while ( have_posts() ) : the_post(); // Start the loop
+
+    $cssUnitPattern = '/((px|em|ex|pt|in|pc|mm|cm|\%)?)$/i';
+
+    //Grab post options
+    $lightbox_img = get_post_meta($post->ID, "_tia_lightbox_image_value", true); // to be killed
+    $alignment = get_post_meta($post->ID, "_tia_align_right_value", true); // to be killed
+    $postAlignment = get_post_meta($post->ID, "_tia_post_alignment_value", true);
+    $imgOffset = get_post_meta($post->ID, "_tia_offset_scrolling_image", true);
+    $textOffset = get_post_meta($post->ID, "_tia_offset_block_text", true);
+
+
+    $noTextBackground = get_post_meta($post->ID, "_tia_no_text_background_value", true);
+    $lb_height = get_post_meta($post->ID, "_tia_lb_height_value_value", true);
+    $lb_bgcolor = get_post_meta($post->ID, "_tia_lb_bgcolor_value", true);
+    $blockTextColor = get_post_meta($post->ID, "_tia_block_text_color_value", true);
+    $overrideAnchorColor = get_post_meta($post->ID, "_tia_override_anchor_color_value", true);
+    $lb_bgrepeat = get_post_meta($post->ID, "_tia_lb_repeat_value", true);
+    $bg_alignment = get_post_meta($post->ID, "_tia_bg_alignment_value", true);
+    $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+    $setParallaxHeight=tia_get_option('tia_default_height');
+    $theContentEnabled=tia_get_option('tia_theContent_enabled');
+
+    if( $imgOffset == "" ){
+
+        $imgOffset = "0px";
+    }
+
+    if( $textOffset == "" ){
+
+        $textOffset = "0px";
+    }
+
+    /*
+     * Make sure the image and text block offset values
+     * have an appropriate CSS unit e.g. px, %, etc
+     */
+
+    preg_match_all($cssUnitPattern, $imgOffset, $out );
+
+    if( $out[0][0] == "" ){
+
+        $imgOffset = $imgOffset . "px";
+    }
+
+    preg_match_all($cssUnitPattern, $textOffset, $out );
+
+//    if( $out[0][0] == "" ){
+//
+//        print_r("blank");
+//    }
+
+    //print_r( "hello: " . $out[0][0] );
+
+    if( $out[0][0] == "" ){
+
+        $textOffset = $textOffset . "px";
+    }
+
+    //print_r( "<br/>$textOffset = " . $textOffset );
+
+
                 
-		if ($overrideAnchorColor) { ?> <style>#content #block<?php echo $i; ?> a {color: <?php echo $overrideAnchorColor; ?>;}</style> <?php }
-		if(has_post_thumbnail()) : ?>
+    if ( $overrideAnchorColor ) { ?> <style>#content #block<?php echo $i; ?> a {color: <?php echo $overrideAnchorColor; ?>;}</style> <?php }
+
+	if( has_post_thumbnail() ) : ?>
         
-        <div id="block<?php echo $i; ?>" <?php $i++; ?> <?php post_class('parallax-container'); ?>  style="background-image: url(<?php echo $src[0]; ?>); overflow: hidden; min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?><?php if ($lb_bgrepeat==true){echo " background-repeat:repeat;";} else {echo " background-repeat:no-repeat;";} ?><?php if ($bg_alignment==true){echo " background-position:".$bg_alignment.";";} ?>">
+        <div id="block<?php echo $i; ?>" <?php post_class('parallax-container'); ?>  style="background-image: url(<?php echo $src[0]; ?>); overflow: hidden; min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?><?php if ($lb_bgrepeat==true){echo " background-repeat:repeat;";} else {echo " background-repeat:no-repeat;";} ?><?php if ($bg_alignment==true){echo " background-position:".$bg_alignment.";";} ?>">
 
-        <div class="story story<?php if($postAlignment) { echo $postAlignment; }?>">
-        	<div class="<?php if($postAlignment) { echo $postAlignment; } elseif ($alignment) { echo ' float-right'; } else { echo ' float-left';} ?> blockText" style="<?php if($noTextBackground){echo'background:none;';}  if($blockTextColor){echo ' color:', $blockTextColor;} ?>">									
-            	<h1><?php if(tia_get_option('tia_title_links_disabled')){ ?><?php the_title(); ?><?php } else { ?> <a href="<?php the_permalink() ?>" rel="bookmark" <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?>><?php the_title(); ?></a> <?php } ?></h1>
-				<?php if(!tia_get_option('tia_author_credit_disabled')){ ?>
-					<div class="meta clearfix" <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?>>						
-								Posted by <?php the_author_posts_link();  ?> 
-							</div>
-				<?php } ?>
-				<?php if($theContentEnabled)	{										
-					the_content('',TRUE); 
-    			} else {
-    				the_excerpt('',TRUE);
-    			}
+            <style type="text/css">
+
+                @media screen and (min-width: 960px) {
+                    #block<?php echo $i; ?> .story {
+
+                        margin-top: <?php echo $textOffset; ?>;
+                    }
+
+                    #block<?php echo $i; ?> .bg1 {
+
+                        margin-top: <?php echo $imgOffset; ?>;
+                    }
+                }
+
+            </style>
+
+            <div class="story story<?php if($postAlignment) { echo $postAlignment; }?>">
+
+        	    <?php
+
+                // Loops through each feature image and grabs thumbnail URL
+                if (class_exists('MultiPostThumbnails')) {
+                    $m=1;
+                    while ($m <= 1) {
+
+                        //-'.$m; <- // sets image name as feature-image-1, feature-image-2 etc. place m back in and add the number one in the function later
+                        $image_name = 'extra-scrolling-image';
+
+                        if ( MultiPostThumbnails::has_post_thumbnail( $postType, $image_name ) ) {
+
+                            $image_id = MultiPostThumbnails::get_post_thumbnail_id( $postType, $image_name, $post->ID );  // use the MultiPostThumbnails to get the image ID
+                            //$image_thumb_url = wp_get_attachment_image_src( $image_id,'small-thumb');  // define thumb src based on image ID
+                            $image_feature_url = wp_get_attachment_image_src( $image_id,'extra-scrolling-image' ); // define full size src based on image ID
+                            $attr = array(
+                             'class' => "",      // set custom class
+                             'src' => $image_feature_url[0], // sets the url for the full image size
+                            );
+                            // Use wp_get_attachment_image instead of standard MultiPostThumbnails to be able to tweak attributes
+                            $extraImage = wp_get_attachment_image( $image_id, 'extra-scrolling-image', false, $attr );  ?>
+
+                            <div class="<?php echo 'bg'.$m ?>" style="background-image: url(<?php echo $image_feature_url[0]; ?>); min-height:<?php echo $setParallaxHeight; ?>px; height:<?php echo $setParallaxHeight; ?>px;">
+                                &nbsp;
+                            </div>
+                        <?php } // endif
+                        $m++;
+                    } // end while
+
+                } else {
+
+                    if($lightbox_img) { ?>
+                        <div class="bg" style="background-image: url(<?php echo $lightbox_img; ?>); min-height:<?php echo $setParallaxHeight; ?>px; height:<?php echo $setParallaxHeight; ?>px;">
+                        &nbsp;</div>
+                    <?php }
+                } ?>
+
+        	    <div class="<?php if($postAlignment) { echo $postAlignment; } elseif ($alignment) { echo ' float-right'; } else { echo ' float-left';} ?> blockText">
+            	    <h1><?php if(tia_get_option('tia_title_links_disabled')){ ?><?php the_title(); ?><?php } else { ?> <a href="<?php the_permalink() ?>" rel="bookmark" <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?>><?php the_title(); ?></a> <?php } ?></h1>
+
+				    <?php if(!tia_get_option('tia_author_credit_disabled')){ ?>
+					    <div class="meta clearfix" <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?>>Posted by <?php the_author_posts_link();  ?> </div>
+				    <?php } ?>
+
+				    <?php if($theContentEnabled) {
+					    the_content('',TRUE);
+    			    } else {
+    				    the_excerpt('',TRUE);
+    			    }
+
     				more_link();
-    		  	?>
-                
-                <p class="postmetadata"> <?php bloginfo('name'); ?> | <?php the_category(', ') ?><?php edit_post_link(' | Edit', ''); ?>  </p>			
-            </div>
+    		  	    ?>
 
-			<?php
-                             
-        	// Loops through each feature image and grabs thumbnail URL
-        	if (class_exists('MultiPostThumbnails')) { 
-        		$m=1;
-            	while ($m<=1) {
-                	$image_name = 'extra-scrolling-image'; //-'.$m; <- // sets image name as feature-image-1, feature-image-2 etc. place m back in and add the number one in the function later
-                	if (MultiPostThumbnails::has_post_thumbnail($postType, $image_name)) { 
-                    	$image_id = MultiPostThumbnails::get_post_thumbnail_id( $postType, $image_name, $post->ID );  // use the MultiPostThumbnails to get the image ID
-                    	$image_thumb_url = wp_get_attachment_image_src( $image_id,'small-thumb');  // define thumb src based on image ID
-                    	$image_feature_url = wp_get_attachment_image_src( $image_id,'extra-scrolling-image' ); // define full size src based on image ID
-                    	$attr = array(
-                       	 'class' => "",      // set custom class
-                       	 'src' => $image_feature_url[0], // sets the url for the full image size 
-                    	);                                                                                      
-                    	// Use wp_get_attachment_image instead of standard MultiPostThumbnails to be able to tweak attributes
-                    	$extraImage = wp_get_attachment_image( $image_id, 'extra-scrolling-image', false, $attr );  ?>
-                    <div class="<?php echo 'bg'.$m ?>" style="background-image: url(<?php echo $image_feature_url[0]; ?>); min-height:<?php echo $setParallaxHeight; ?>px; height:<?php echo $setParallaxHeight; ?>px;">
-                    &nbsp;</div> <?php                   
-                	} // endif                        
+                    <!--<p class="postmetadata"> <?php bloginfo('name'); ?> | <?php the_category(', ') ?><?php edit_post_link(' | Edit', ''); ?>  </p>-->
+                </div>
+            </div> <!-- /.story-->
+        </div> <!-- ./block -->
 
-                    $m++;
-                 } // end while
-              
-              } else {
-                
-                 if($lightbox_img) { ?>
-                     <div class="bg" style="background-image: url(<?php echo $lightbox_img; ?>); min-height:<?php echo $setParallaxHeight; ?>px; height:<?php echo $setParallaxHeight; ?>px;">
-                     &nbsp;</div>
-                         <?php } 
-                	
-                 } ?>
-   		</div> <!--.story-->																				
-	</div>	
-                
+        <?php $i++; ?>
+
     <?php else : ?>
-    	<div id="block<?php echo $i; ?>" <?php $i++; ?> <?php post_class('parallax-container'); ?>  style="background-image: url(<?php echo $src[0]; ?>); overflow: hidden; min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?>">
-        	<div class="story">
+
+        <div id="block<?php echo $i; ?>" <?php $i++; ?> <?php post_class('parallax-container'); ?>  style="background-image: url(<?php echo $src[0]; ?>); overflow: hidden; min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?>">
+            <div class="story">
             	<div class="<?php if($postAlignment) { echo $postAlignment; } ?> blank blockText" style="<?php if($noTextBackground){echo'background:none;';}  if($blockTextColor){echo ' color:', $blockTextColor;} ?>">
             		<h1><?php if(tia_get_option('tia_title_links_disabled')){ ?><?php the_title(); ?><?php } else { ?> <a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?> <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?></a> <?php } ?></h1>
 						
-						<?php if(!tia_get_option('tia_author_credit_disabled')){ ?>
-							<div class="meta clearfix">						
-								Posted by <?php the_author_posts_link();  ?> 
-							</div>
-						<?php } 
-						if($theContentEnabled)	{										
-							the_content('',TRUE); 
-							more_link();
-						} else {
-							the_excerpt('',TRUE);
-							more_link();
-						} ?>
-                        
-                        <p class="postmetadata"> <?php bloginfo('name'); ?> | <?php the_category(', ') ?><?php edit_post_link(' | Edit', ''); ?>  </p>
-			    </div>
-			 </div>	
-          </div>
-     <?php endif; ?>		
-   <?php endwhile; 
+                    <?php if(!tia_get_option('tia_author_credit_disabled')){ ?>
+                        <div class="meta clearfix">Posted by <?php the_author_posts_link();  ?> </div>
+                    <?php }
 
-   include( TEMPLATEPATH . '/includes/pagination.php');
+                    if($theContentEnabled)	{
+                        the_content('',TRUE);
+                        more_link();
+                    } else {
+                        the_excerpt('',TRUE);
+                        more_link();
+                    } ?>
+                    <!-- <p class="postmetadata"> <?php bloginfo('name'); ?> | <?php the_category(', ') ?><?php edit_post_link(' | Edit', ''); ?>  </p> -->
+			    </div>
+			 </div> <!-- /.story -->
+          </div> <!-- /.block -->
+    <?php endif; ?>
+<?php endwhile;
+
+include( TEMPLATEPATH . '/includes/pagination.php');
