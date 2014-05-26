@@ -38,8 +38,14 @@
 
   .bg1 {
 
+    display: none;
     position: absolute;
     z-index: 1;
+
+    @media screen and (min-width: 960px) {
+
+      display: block;
+    }
   }
 }
 

@@ -31,6 +31,18 @@ http://www.gnu.org/licenses/gpl.html
 
     $('.parallax-container').bind('inview', function ( event, visible ){
 
+      if( $(this).attr("id") === "block5" ){
+
+        if( visible ){
+
+          console.log("Block5 inview");
+        } else {
+
+          console.log("Block5 NOT inview");
+          $(this).css("backgroundPosition", "");
+        }
+      }
+
       $(this).toggleClass('inview', visible );
     });
 
@@ -71,19 +83,44 @@ http://www.gnu.org/licenses/gpl.html
    */
   Parallax.prototype._newPos = function( x, windowHeight, pos, adjuster, inertia ){
 
-    return x + "% " + (-(( window.PARALLAX.height + pos) - adjuster) * inertia)  + "px";
+    return x + "% " + (-(( windowHeight + pos) - adjuster) * inertia)  + "px";
   };
 
   Parallax.prototype.move = function(){
 
     var pos = $(window).scrollTop(); //position of the scrollbar
-    var firstBlockLink = null;
+    var firstBlockLink;
+    var firstBlockId;
     var that = this;
+    //var backgroundPos;
 
     $('.parallax-container').each( function( i ){
 
       //$('#pixels').html( pos );
       // display the number of pixels scrolled at the bottom of the page
+
+//      backgroundPos = that._newPos( 50, that._windowHeight, pos, ( that._windowHeight * ( i+1 ) ), 0.3 );
+//
+//      if( $(this).hasClass("inview") && $(this).attr("id") === "block5"){
+//
+//        console.log("Block 5\n==============\n");
+//        console.log("winodwHeight = " + that._windowHeight );
+//        console.log("pos = " + pos );
+//        console.log("i = " + i );
+//        console.log("calc = " + ( window.PARALLAX.height * ( i+1 ) ) );
+//        console.log('================');
+//        console.log("backgroundPos = " + backgroundPos );
+//
+//      } else if( $(this).hasClass("inview") && $(this).attr("id") === "block1"){
+//
+//        console.log("Block 1\n==============\n");
+//        console.log("winodwHeight = " + that._windowHeight );
+//        console.log("pos = " + pos );
+//        console.log("i = " + i );
+//        console.log("calc = " + ( window.PARALLAX.height * ( i+1 ) ) );
+//        console.log('================');
+//        console.log("backgroundPos = " + backgroundPos );
+//      }
 
       if( $(this).hasClass("inview") === true ) {
 
@@ -91,15 +128,14 @@ http://www.gnu.org/licenses/gpl.html
 
         $(this).css({
           'minHeight': '0px',
-          'backgroundPosition': that._newPos( 50, this._windowHeight, pos, ( window.PARALLAX.height * ( i+1 ) ), 0.3 )
+          'backgroundPosition': that._newPos( 50, that._windowHeight, pos, ( that._windowHeight * ( i+1 ) ), 0.3 )
         }).find('.bg1').css({
-          'backgroundPosition': that._newPos( 50, this._windowHeight, pos, ( window.PARALLAX.height * ( i+1 ) ) + window.PARALLAX.trainerBump, 0.6 )
+          'backgroundPosition': that._newPos( 50, that._windowHeight, pos, ( that._windowHeight * ( i+1 ) ) + window.PARALLAX.trainerBump, 0.6 )
         });
       }
     });
 
-    var firstBlockId = $('.inview').first().attr('id');
-
+    firstBlockId = $('.inview').first().attr('id');
     firstBlockLink = firstBlockId.replace("block","li#blockLink") + ' a' ;
 
     this._removeActive();
