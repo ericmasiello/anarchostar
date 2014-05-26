@@ -42,7 +42,7 @@
     position: absolute;
     z-index: 1;
 
-    @media screen and (min-width: 960px) {
+    @media screen and (min-height: 900px) and (min-width: 725px) {
 
       display: block;
     }
