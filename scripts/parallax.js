@@ -36,8 +36,8 @@ http://www.gnu.org/licenses/gpl.html
 
     $( window ).resize( function(){ //if the user resizes the window...
 
-      this._windowHeight = $(window).height();
-
+      that._windowHeight = $(window).height();
+      console.log( "Window height: " + that._windowHeight );
       that.resizePanel();
       that.move(); //move the background images in relation to the movement of the scrollbar
 
@@ -57,6 +57,7 @@ http://www.gnu.org/licenses/gpl.html
   Parallax.prototype.resizePanel = function(){
 
     var panelHeight = ( ( this._windowHeight - this._headerHeight ) > window.PARALLAX.height ) ? ( this._windowHeight - this._headerHeight ) : window.PARALLAX.height;
+    console.log( "setting panel to:" + panelHeight );
     $('.parallax-container').height( panelHeight );
   };
 
