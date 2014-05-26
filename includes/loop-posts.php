@@ -191,7 +191,7 @@ while ( have_posts() ) : the_post(); // Start the loop
         //print_r( $soundCloudPost );
         //die();
 
-        ?><div class="sc-container"><a href="<?php echo $soundCloudPost; ?>" class="sc-player"><?php echo $soundCloudPost; ?></a></div><?php
+        ?><!-- <div class="sc-container"><a href="<?php echo $soundCloudPost; ?>" class="sc-player"><?php echo $soundCloudPost; ?></a></div> --><?php
     endif;
 
 endwhile;

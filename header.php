@@ -42,18 +42,25 @@
 
 <?php if (is_home() || is_archive()) {
 
-global $storyMarginTop;
-global $parallaxHeight;
-global $imgMarginTop;
+    global $storyMarginTop;
+    global $parallaxHeight;
+    global $imgMarginTop;
 
-$parallaxHeight=tia_get_option('tia_default_height');
-$imgMarginTop=tia_get_option('tia_scrolling_img_margin_top');
-$storyMarginTop=tia_get_option('tia_story_margin_top');
-echo("<script type='text/javascript'>\n");
-echo("storyBump = $storyMarginTop; \n");
-echo("trainerBump = $imgMarginTop; \n");
-echo("parallaxHeight = $parallaxHeight; \n");
-echo("</script>"); }
+    $parallaxHeight=tia_get_option('tia_default_height');
+    $imgMarginTop=tia_get_option('tia_scrolling_img_margin_top');
+    $storyMarginTop=tia_get_option('tia_story_margin_top');
+} ?>
+
+<script type="text/javascript">
+    window.PARALLAX = {
+        height: <?php echo $parallaxHeight; ?>,
+        storyBump: <?php echo $storyMarginTop; ?>,
+        trainerBump: <?php echo $imgMarginTop; ?>,
+        windowHeight: $(window).height()
+    };
+</script>
+
+<?php
 
 if (!$detect->isMobile()) { ?>
 
