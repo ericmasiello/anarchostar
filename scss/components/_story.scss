@@ -1,8 +1,14 @@
+.post {
+
+  display: table;
+  width: 100%;
+}
+
 .story {
 
   margin: 0 auto;
-  //min-width: 950px;
-  //width: 950px;
+  display: table-cell;
+  vertical-align: middle;
 
   .blockText {
 
@@ -20,6 +26,11 @@
     h1 {
 
       @extend %visually-hidden-accessible;
+    }
+
+    .sc-player {
+
+      margin-top: 25px;
     }
   }
 

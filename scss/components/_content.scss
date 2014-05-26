@@ -3,7 +3,7 @@
 ----------------------------*/
 #pageHead,
 #content .post {
-  margin: 0 0 40px 40px;
+  //margin: 0 0 40px 40px;
 }
 
 .post .meta {
@@ -16,34 +16,31 @@
   padding: 80px;
 }
 
-#content .post .meta a{
-  font-weight: bold;
-}
-
-#content .post .meta a:hover{
-  color: #2c2c2c;
-}
-
 .contentBox {
   float: left;
   position: relative;
   margin: 0 0 30px 40px;
 }
 
-#content a{
-  text-decoration: none;
-  color: #06c;
-}
+#content {
 
-#content a:hover {
-  color: #3896f5;
-  text-decoration: none;
-}
+  a {
 
-#content h1 a, #content h2 a, #content h3 a, #content h4 a, #content h5 a{
-  color: #333;
-}
+    text-decoration: none;
 
-#content h1 a:hover, #content h2 a:hover, #content h3 a:hover, #content h4 a:hover, #content h5 a:hover{
-  color: #999;
+    &:hover {
+
+      text-decoration: none;
+    }
+  }
+
+  h1, h2, h3, h4, h5 {
+
+    a {
+
+      &:hover {
+
+      }
+    }
+  }
 }

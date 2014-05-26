@@ -2,6 +2,11 @@
 02 Global
 ----------------------------*/
 
+*, *:before, *:after {
+
+  box-sizing: border-box;
+}
+
 body {
   background-color: #000 !important;
   font-size: 14px;

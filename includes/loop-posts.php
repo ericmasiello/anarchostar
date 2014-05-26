@@ -29,6 +29,15 @@ while ( have_posts() ) : the_post(); // Start the loop
     $setParallaxHeight=tia_get_option('tia_default_height');
     $theContentEnabled=tia_get_option('tia_theContent_enabled');
 
+    $soundCloudPost = get_post_meta($post->ID, "_sc_post_url", true);
+
+//    if( $soundCloudPost ){
+//
+//        print_r( $soundCloudPost );
+//        die();
+//    }
+
+
     if( $imgOffset == "" ){
 
         $imgOffset = "0px";
@@ -175,7 +184,16 @@ while ( have_posts() ) : the_post(); // Start the loop
 			    </div>
 			 </div> <!-- /.story -->
           </div> <!-- /.block -->
-    <?php endif; ?>
-<?php endwhile;
+    <?php endif;
+
+    if( $soundCloudPost ):
+
+        //print_r( $soundCloudPost );
+        //die();
+
+        ?><div class="sc-container"><a href="<?php echo $soundCloudPost; ?>" class="sc-player"><?php echo $soundCloudPost; ?></a></div><?php
+    endif;
+
+endwhile;
 
 include( TEMPLATEPATH . '/includes/pagination.php');
