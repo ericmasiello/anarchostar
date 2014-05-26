@@ -97,7 +97,6 @@ http://www.gnu.org/licenses/gpl.html
       }
     });
 
-    var scrollPosition = $('body').scrollTop();
     var firstBlockId = $('.inview').first().attr('id');
 
     firstBlockLink = firstBlockId.replace("block","li#blockLink") + ' a' ;
