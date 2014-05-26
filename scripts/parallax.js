@@ -81,18 +81,15 @@ http://www.gnu.org/licenses/gpl.html
 
     $('.parallax-container').each( function( i ){
 
-      //$('#pixels').html( pos ); //display the number of pixels scrolled at the bottom of the page
+      //$('#pixels').html( pos );
+      // display the number of pixels scrolled at the bottom of the page
 
       if( $(this).hasClass("inview") === true ) {
-
-        if( $(this).attr("id") === "block5"){
-
-          console.log( $(this).css('backgroundPosition') );
-        }
 
         //.find('.bg1') represent the extra image added, not the background image
 
         $(this).css({
+          'minHeight': '0px',
           'backgroundPosition': that._newPos( 50, this._windowHeight, pos, ( window.PARALLAX.height * ( i+1 ) ), 0.3 )
         }).find('.bg1').css({
           'backgroundPosition': that._newPos( 50, this._windowHeight, pos, ( window.PARALLAX.height * ( i+1 ) ) + window.PARALLAX.trainerBump, 0.6 )
