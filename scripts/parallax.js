@@ -20,7 +20,14 @@ http://www.gnu.org/licenses/gpl.html
     this._headerHeight = $("#header").height();
     this._windowHeight = $(window).height();
 
-    this._bindEvents();
+    /*
+     * Only bind parallax style events if we're on a non-mobile
+     * device
+     */
+    if( window.PARALLAX.isMobile === false ){
+
+      this._bindEvents();
+    }
 
     this.resizePanel();
   };
