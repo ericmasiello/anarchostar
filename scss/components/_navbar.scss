@@ -43,12 +43,13 @@
   a {
 
     display: inline-block;
-    font-size: 21px;
+    font-size: 15px;
     -webkit-font-smoothing: antialiased;
     line-height: $logoHeight_s;
 
     @media( min-width: $mq_m ){
 
+      font-size: 21px;
       line-height: $logoHeight_m;
     }
 
@@ -56,7 +57,6 @@
 
       line-height: $logoHeight_l;
     }
-
   }
 
   li {
