@@ -8,8 +8,10 @@
 }
 
 body {
+
+  -webkit-font-smoothing: antialiased;
   background-color: #000 !important;
-  font-size: 14px;
+  font-size: 21px;
   font-family: Helvetica, Tahoma, Arial, Sans-Serif;
   width: auto;
   height:auto;
@@ -19,15 +21,23 @@ body {
 }
 
 p {
-  line-height:1.7em;
-  margin: 0 0 20px 0;
+
+  line-height: 1.4em;
+  margin: 20px 0 0;
+
+  &:first-of-type {
+
+    margin-top: 0;
+  }
 }
 
 img {
+
   margin: 0;
 }
 
 a, a:hover {
+
   text-decoration: none;
   outline: none;
 }
@@ -37,24 +47,8 @@ a img {
 }
 
 h1, h2{
-  font-family: 'LeagueGothicRegular', Helvetica, Arial, sans-serif;
-  color: #2c2c2c;
+
   margin: 10px 0;
-}
-
-h1 {
-  font: 32px 'LeagueGothicRegular', Helvetica, Tahoma, Arial, Sans-Serif;
-  line-height:30px;
-  margin-top:10px;
-}
-
-blockquote, address {
-  margin: 0 0 30px 0;
-  padding: 0 30px 0 30px;
-  font-style: italic;
-  font-size: 16px;
-  line-height: 1.6em;
-  color:#777;
 }
 
 .left {
