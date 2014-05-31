@@ -34,25 +34,8 @@
 
 	include 'scripts/Mobile_Detect.php';
 	$detect = new Mobile_Detect();
-
-	if (!is_home() && !$detect->isMobile()) { ?>
-        <script type="text/javascript">
-//            $(document).ready(function(){
-//                function setTopMargin() {
-//                    var headerHeight = $('#headerBar').height();
-//                    $('#container').css('margin-top',headerHeight+60);
-//                }
-//
-//                setTopMargin();
-//                $(window).resize(function() { setTopMargin(); });
-//            });
-        </script>
-    <?php } ?>
-
-    <?php
-        $isMobile = $detect->isMobile();
+    $isMobile = $detect->isMobile();
     ?>
-
     <script type="text/javascript">
         window.PARALLAX = {
             height: <?php echo $parallaxHeight; ?>,

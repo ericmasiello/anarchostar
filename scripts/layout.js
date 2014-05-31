@@ -20,7 +20,7 @@
     this._headerHeight = $("#header").height();
     this._windowHeight = $(window).height();
     this._windowWidth = $(window).width();
-//90 = landscape, 180 = portrait
+    //90 = landscape, 180 = portrait
     this._baseOrientation = ( window.orientation < 0 ) ? window.orientation * -1 : window.orientation;
 
     /*
