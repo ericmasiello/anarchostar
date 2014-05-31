@@ -1,44 +1,40 @@
 /*
-Based on the demo of Recreating the Nikebetterworld.com Parallax Demo by Ian Lunn - http://www.ianlunn.co.uk/demos/recreate-nikebetterworld-parallax/
-Author: David Cable and Jeff Rainey
-Author URL: http://themespectrum.com/
-Demo URL: http://themespectrum.com/parallax-demo
+ Based on the demo of Recreating the Nikebetterworld.com Parallax Demo by Ian Lunn - http://www.ianlunn.co.uk/demos/recreate-nikebetterworld-parallax/
+ Author: David Cable and Jeff Rainey
+ Author URL: http://themespectrum.com/
+ Demo URL: http://themespectrum.com/parallax-demo
 
-License: http://creativecommons.org/licenses/by-sa/3.0/ (Attribution Share Alike). 
+ License: http://creativecommons.org/licenses/by-sa/3.0/ (Attribution Share Alike).
 
-Dual licensed under the MIT and GPL licenses:
-http://www.opensource.org/licenses/mit-license.php
-http://www.gnu.org/licenses/gpl.html
-*/
-
-//$(document).ready( function(){
-//
-//  function setTopMargin() {
-//    var headerHeight = $('#headerBar').height();
-//    $('body.home #container').css('margin-top',headerHeight);
-//  }
-//
-//  //debugger;
-//  var headerHeightNeg = 0 - $('#headerBar').height();
-//  $('#container').localScroll({offset: {left: 0, top: headerHeightNeg}});
-//  setTopMargin();
-//
-//  $(window).resize(function() { setTopMargin(); });
-//});
+ Dual licensed under the MIT and GPL licenses:
+ http://www.opensource.org/licenses/mit-license.php
+ http://www.gnu.org/licenses/gpl.html
+ */
 
 ;(function(){
 
   'use strict';
 
-  var Parallax = function(){
+  var Layout = function(){
 
     this._headerHeight = $("#header").height();
     this._windowHeight = $(window).height();
+    this._windowWidth = $(window).width();
+//90 = landscape, 180 = portrait
+    this._baseOrientation = ( window.orientation < 0 ) ? window.orientation * -1 : window.orientation;
 
     /*
      * Apply top margin to page to make space for the header
      */
     $("#container").css("margin-top", this._headerHeight );
+
+    this._bindEvents();
+    this.resizePanel();
+  };
+
+  Layout.prototype._bindEvents = function(){
+
+    var that = this;
 
     /*
      * Only bind parallax style events if we're on a non-mobile
@@ -46,43 +42,62 @@ http://www.gnu.org/licenses/gpl.html
      */
     if( window.PARALLAX.isMobile === false ){
 
-      this._bindEvents();
+      $('.parallax-container').bind('inview', function ( event, visible ){
+
+        $(this).toggleClass('inview', visible );
+      });
+
+      $( window ).resize( function(){ //if the user resizes the window...
+
+        that._windowHeight = $(window).height();
+        that.resizePanel();
+        that.move(); //move the background images in relation to the movement of the scrollbar
+
+      }).bind('scroll', function(){ //when the user is scrolling...
+
+        that._windowHeight = $(window).height();
+        that.move(); //move the background images in relation to the movement of the scrollbar
+      });
+
+    } else {
+
+      window.addEventListener('orientationchange', this.resizePanel.bind( this ) );
     }
 
-    this.resizePanel();
   };
 
-  Parallax.prototype._bindEvents = function(){
+  Layout.prototype._orientationChange = function(){
 
-    var that = this;
+    if( ( this._baseOrientation === undefined )
+      || ( window.orientation === this._baseOrientation )
+      || ( window.orientation === ( this._baseOrientation * -1 ) )
+      || ( window.orientation === 0 && this._baseOrientation === 180 )
+      || ( window.orientation === 180 && this._baseOrientation === 0 ) ){
 
-    $('.parallax-container').bind('inview', function ( event, visible ){
+      return false;
 
-      $(this).toggleClass('inview', visible );
-    });
+    } else {
 
-    $( window ).resize( function(){ //if the user resizes the window...
-
-      that._windowHeight = $(window).height();
-      that.resizePanel();
-      that.move(); //move the background images in relation to the movement of the scrollbar
-
-    }).bind( 'scroll', function(){ //when the user is scrolling...
-
-      that._windowHeight = $(window).height();
-      that.move(); //move the background images in relation to the movement of the scrollbar
-    });
+      return true;
+    }
   };
 
-  Parallax.prototype._removeActive = function(){
+  Layout.prototype._removeActive = function(){
 
     $("a.block-link.active").removeClass("active");
   };
 
-  Parallax.prototype.resizePanel = function(){
+  Layout.prototype.resizePanel = function(){
 
-    var panelHeight = ( ( this._windowHeight - this._headerHeight ) > window.PARALLAX.height ) ? ( this._windowHeight - this._headerHeight ) : window.PARALLAX.height;
-    $('.parallax-container').height( panelHeight );
+    if( ( window.PARALLAX.isMobile === true )
+      && ( this._orientationChange() === true ) ){
+
+      var temp = this._windowHeight;
+      this._windowHeight = this._windowWidth;
+      this._windowWidth = temp;
+    }
+
+    $('.parallax-container').height( ( ( this._windowHeight - this._headerHeight ) > window.PARALLAX.height ) ? ( this._windowHeight - this._headerHeight ) : window.PARALLAX.height );
   };
 
   //function that is called for every pixel the user scrolls. Determines the position of the background
@@ -93,12 +108,12 @@ http://www.gnu.org/licenses/gpl.html
    adjuster = adjust the position of the background
    inertia = how fast the background moves in relation to scrolling
    */
-  Parallax.prototype._newPos = function( x, windowHeight, pos, adjuster, inertia ){
+  Layout.prototype._newPos = function( x, windowHeight, pos, adjuster, inertia ){
 
     return x + "% " + (-(( windowHeight + pos) - adjuster) * inertia)  + "px";
   };
 
-  Parallax.prototype.move = function(){
+  Layout.prototype.move = function(){
 
     var pos = $(window).scrollTop(); //position of the scrollbar
     var firstBlockLink;
@@ -133,7 +148,7 @@ http://www.gnu.org/licenses/gpl.html
 
   $(document).ready(function(){
 
-    new Parallax();
+    new Layout();
   });
 
 })();
