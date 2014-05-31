@@ -42,7 +42,7 @@
     position: absolute;
     z-index: 1;
 
-    @media screen and (min-height: 900px) and (min-width: 725px) {
+    @media screen and (min-height: 900px) and (min-width: $mq_m) {
 
       display: block;
     }
@@ -50,13 +50,8 @@
 }
 
 .inside {
-  margin: 0 auto;
-  //min-width: 800px;
-  //width: 800px;
-}
 
-.inside {
-  //width:960px
+  margin: 0 auto;
 }
 
 .story
