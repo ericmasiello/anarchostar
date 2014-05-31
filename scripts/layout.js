@@ -11,6 +11,21 @@ http://www.opensource.org/licenses/mit-license.php
 http://www.gnu.org/licenses/gpl.html
 */
 
+//$(document).ready( function(){
+//
+//  function setTopMargin() {
+//    var headerHeight = $('#headerBar').height();
+//    $('body.home #container').css('margin-top',headerHeight);
+//  }
+//
+//  //debugger;
+//  var headerHeightNeg = 0 - $('#headerBar').height();
+//  $('#container').localScroll({offset: {left: 0, top: headerHeightNeg}});
+//  setTopMargin();
+//
+//  $(window).resize(function() { setTopMargin(); });
+//});
+
 ;(function(){
 
   'use strict';
@@ -19,6 +34,11 @@ http://www.gnu.org/licenses/gpl.html
 
     this._headerHeight = $("#header").height();
     this._windowHeight = $(window).height();
+
+    /*
+     * Apply top margin to page to make space for the header
+     */
+    $("#container").css("margin-top", this._headerHeight );
 
     /*
      * Only bind parallax style events if we're on a non-mobile

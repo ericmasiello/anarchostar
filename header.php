@@ -20,124 +20,76 @@
 
 	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-
 	<?php
+
+	if ( is_home() || is_archive() ) {
+
+        global $storyMarginTop;
+        global $parallaxHeight;
+        global $imgMarginTop;
+        $parallaxHeight=tia_get_option('tia_default_height');
+        $imgMarginTop=tia_get_option('tia_scrolling_img_margin_top');
+        $storyMarginTop=tia_get_option('tia_story_margin_top');
+    }
+
 	include 'scripts/Mobile_Detect.php';
 	$detect = new Mobile_Detect();
 
 	if (!is_home() && !$detect->isMobile()) { ?>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			function setTopMargin() {
-				var headerHeight = $('#headerBar').height();
-				$('#container').css('margin-top',headerHeight+60);
-			}
-
-			setTopMargin();
-
-			$(window).resize(function() { setTopMargin(); });
-		});
-	</script>
-			<?php } ?>
-
-<?php if (is_home() || is_archive()) {
-
-    global $storyMarginTop;
-    global $parallaxHeight;
-    global $imgMarginTop;
-
-    $parallaxHeight=tia_get_option('tia_default_height');
-    $imgMarginTop=tia_get_option('tia_scrolling_img_margin_top');
-    $storyMarginTop=tia_get_option('tia_story_margin_top');
-} ?>
-
-<script type="text/javascript">
-    window.PARALLAX = {
-        height: <?php echo $parallaxHeight; ?>,
-        storyBump: <?php echo $storyMarginTop; ?>,
-        trainerBump: <?php echo $imgMarginTop; ?>,
-        windowHeight: $(window).height(),
-        isMobile: ( <?php echo $detect->isMobile(); ?> === 1 ) ? true : false
-    };
-</script>
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/parallax.js"></script>
-
-<?php
+        <script type="text/javascript">
+//            $(document).ready(function(){
+//                function setTopMargin() {
+//                    var headerHeight = $('#headerBar').height();
+//                    $('#container').css('margin-top',headerHeight+60);
+//                }
+//
+//                setTopMargin();
+//                $(window).resize(function() { setTopMargin(); });
+//            });
+        </script>
+    <?php } ?>
 
 
+    <script type="text/javascript">
+        window.PARALLAX = {
+            height: <?php echo $parallaxHeight; ?>,
+            storyBump: <?php echo $storyMarginTop; ?>,
+            trainerBump: <?php echo $imgMarginTop; ?>,
+            windowHeight: $(window).height(),
+            isMobile: <?php if( empty( $detect->isMobile() ) ){ echo 'false'; } else { echo 'true'; } ?>
+        };
+    </script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/layout.js"></script>
 
-if (!$detect->isMobile()) { ?>
+    <?php if (!$detect->isMobile()) { ?>
 
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.localscroll-1.2.9-min.js"></script>
+        <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.localscroll-1.2.9-min.js"></script>
+        <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.scrollTo-1.4.6-min.js"></script>
+        <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.inview.js"></script>
 
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.scrollTo-1.4.6-min.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.inview.js"></script>
-	<script type="text/javascript">
-		$(document).ready( function(){
+    <?php } else { ?>
+        <style type="text/css" media="screen">
+            #nav, .widget_tia_pixelscroll {display: none;}
+            <?php if(tia_get_option('tia_mobile_backgrounds')) { ?>
+            div.parallax-container[style] {background-image: none !important;}
+            <?php } ?>
+            .post, .page {background-attachment:scroll;}
+        </style>
+    <?php }
 
-			function setTopMargin() {
-				var headerHeight = $('#headerBar').height();
-				$('body.home #container').css('margin-top',headerHeight);
-			}
+    if (!$detect->isMobile() && !tia_get_option('tia_scrollEasing_enabled') ) { ?>
+	    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.nicescroll.min.js"></script>
+	    <script type="text/javascript">
+	        var nice = false;
+	        $(document).ready(function(){
+		        nice = $("html").niceScroll();
+   		        var obj = window;
+	        });
+	    </script>
+    <?php } ?>
 
-			//debugger;
-			var headerHeightNeg = 0 - $('#headerBar').height();
-			$('#container').localScroll({offset: {left: 0, top: headerHeightNeg}});
-
-/*
-			$('.story').each( function(){
-
-			    var $this = $(this);
-			    $this.css( 'margin-top', storyBump );
-			    var $blockText = $this.find('.blockText');
-			    var $offSet = $this.find('[data-offset-height]');
-			    var offSet = ( ( $offSet.data('offset-height') ) ? $offSet.data('offset-height') : 0 );
-
-			    if( ( offSet - storyBump ) > storyBump ){
-
-			        offSet = offSet - storyBump;
-			    }
-
-                $blockText.css('margin-top', offSet );
-
-			    //var offset = $offSet
-			});
-			*/
-
-			//$('.story .blockText').css('margin-top',storyBump);
-			setTopMargin();
-
-			$(window).resize(function() { setTopMargin(); });
-		});
-	</script>
-
-<?php } else { ?>
-	<style type="text/css" media="screen">
-		#nav, .widget_tia_pixelscroll {display: none;}
-		<?php if(tia_get_option('tia_mobile_backgrounds')) { ?>
-		div.parallax-container[style] {background-image: none !important;}
-		<?php } ?>
-		.post, .page {background-attachment:scroll;}
-	</style>
-
-<?php }
-
-if (!$detect->isMobile() && !tia_get_option('tia_scrollEasing_enabled') ) { ?>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.nicescroll.min.js"></script>
-	<script type="text/javascript">
-	var nice = false;
-	$(document).ready(function(){
-		nice = $("html").niceScroll();
-   		var obj = window;
-   		console.log(obj.length);
-  		console.log("selector" in obj);
-	});
-	</script>
-<?php } ?>
-
-<!--/theme specific-->
+    <!--/theme specific-->
 	<?php wp_head(); ?>
-	<!-- <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles-mobile.css" type="text/css" media="screen" /> -->
 </head>
 <body <?php body_class(tia_get_option('tia_theme_color')." ".tia_get_option('tia_theme_bkg')); ?>>
 <div id="container" class="clearfix">
