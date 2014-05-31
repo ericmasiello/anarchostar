@@ -37,7 +37,7 @@
     $isMobile = $detect->isMobile();
     ?>
     <script type="text/javascript">
-        window.PARALLAX = {
+        window.ANARCHOSTAR = {
             height: <?php echo $parallaxHeight; ?>,
             storyBump: <?php echo $storyMarginTop; ?>,
             trainerBump: <?php echo $imgMarginTop; ?>,
@@ -52,6 +52,9 @@
         <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.localscroll-1.2.9-min.js"></script>
         <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.scrollTo-1.4.6-min.js"></script>
         <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.inview.js"></script>
+        <script type="text/javascript">
+
+        </script>
 
     <?php } else { ?>
         <style type="text/css" media="screen">

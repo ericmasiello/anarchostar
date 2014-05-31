@@ -40,7 +40,9 @@
      * Only bind parallax style events if we're on a non-mobile
      * device
      */
-    if( window.PARALLAX.isMobile === false ){
+    if( window.ANARCHOSTAR.isMobile === false ){
+
+      $('#container').localScroll({ offset: { left: 0, top: (this._headerHeight * -1) } });
 
       $('.parallax-container').bind('inview', function ( event, visible ){
 
@@ -89,7 +91,7 @@
 
   Layout.prototype.resizePanel = function(){
 
-    if( ( window.PARALLAX.isMobile === true )
+    if( ( window.ANARCHOSTAR.isMobile === true )
       && ( this._orientationChange() === true ) ){
 
       var temp = this._windowHeight;
@@ -97,7 +99,7 @@
       this._windowWidth = temp;
     }
 
-    $('.parallax-container').height( ( ( this._windowHeight - this._headerHeight ) > window.PARALLAX.height ) ? ( this._windowHeight - this._headerHeight ) : window.PARALLAX.height );
+    $('.parallax-container').height( ( ( this._windowHeight - this._headerHeight ) > window.ANARCHOSTAR.height ) ? ( this._windowHeight - this._headerHeight ) : window.ANARCHOSTAR.height );
   };
 
   //function that is called for every pixel the user scrolls. Determines the position of the background
@@ -133,7 +135,7 @@
           'minHeight': '0px',
           'backgroundPosition': that._newPos( 50, that._windowHeight, pos, ( that._windowHeight * ( i+1 ) ), 0.3 )
         }).find('.bg1').css({
-          'backgroundPosition': that._newPos( 50, that._windowHeight, pos, ( that._windowHeight * ( i+1 ) ) + window.PARALLAX.trainerBump, 0.6 )
+          'backgroundPosition': that._newPos( 50, that._windowHeight, pos, ( that._windowHeight * ( i+1 ) ) + window.ANARCHOSTAR.trainerBump, 0.6 )
         });
       }
     });
