@@ -49,6 +49,9 @@
         </script>
     <?php } ?>
 
+    <?php
+        $isMobile = $detect->isMobile();
+    ?>
 
     <script type="text/javascript">
         window.PARALLAX = {
@@ -56,7 +59,7 @@
             storyBump: <?php echo $storyMarginTop; ?>,
             trainerBump: <?php echo $imgMarginTop; ?>,
             windowHeight: $(window).height(),
-            isMobile: <?php if( empty( $detect->isMobile() ) ){ echo 'false'; } else { echo 'true'; } ?>
+            isMobile: <?php if( empty( $isMobile ) ){ echo 'false'; } else { echo 'true'; } ?>
         };
     </script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/layout.js"></script>
