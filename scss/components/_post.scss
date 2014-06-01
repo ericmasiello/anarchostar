@@ -1,19 +1,16 @@
 .post {
 
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: pxToEm( 20px, $fontSize_s );
 
   @media( min-width: $mq_m ){
 
-    padding-left: 75px;
-    padding-right: 75px;
+    padding-left: pxToEm( 75px, $fontSize_m );
+    padding-right: pxToEm( 75px, $fontSize_m );
   }
 
   @media( min-width: $mq_l ){
 
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: pxToEm( 150px, $fontSize_m );
+    padding-right: pxToEm( 150px, $fontSize_m );
   }
 }

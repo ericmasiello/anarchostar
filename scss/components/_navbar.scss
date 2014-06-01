@@ -11,18 +11,18 @@
 
   .container {
 
-    padding: 5px 20px;
+    padding: pxToEm( 5px, $fontSize_s ) pxToEm( 20px, $fontSize_s );
     overflow: hidden;
 
     @media (min-width: $mq_m) {
 
-      padding: 10px 40px;
+      padding: pxToEm( 10px, $fontSize_m ) pxToEm( 40px, $fontSize_m )
     }
   }
 
   a {
 
-    color: #fff;
+    text-decoration: none;
   }
 }
 
@@ -43,12 +43,10 @@
   a {
 
     display: inline-block;
-    font-size: 15px;
     line-height: $logoHeight_s;
 
     @media( min-width: $mq_m ){
 
-      font-size: 21px;
       line-height: $logoHeight_m;
     }
 
@@ -60,7 +58,13 @@
 
   li {
 
-    margin-left: 20px;
+    margin-left: pxToEm( 20px, $fontSize_s );
+
+    @media( min-width: $mq_m ){
+
+      margin-left: pxToEm( 20px, $fontSize_m );
+    }
+
     display: inline-block;
 
     &:first-child {
