@@ -1,3 +1,19 @@
+$bgColor:     #000;
+$fontColor:   #fff;
+$linkColor:   $fontColor;
+
+$fontSize_s:    14px;
+$fontSize_m:    20px;
+
+$microFontSize_s:   14px;
+$microFontSize_m:   16px;
+
+$nanoFontSize_s:   12px;
+$nanoFontSize_m:   14px;
+
+
+$lineHeight:  1.4em;
+
 $mq_s:        500px;
 $mq_m:        768px;
 $mq_l:        1024px;
@@ -8,6 +24,7 @@ $logoHeight_s: 40px;
 $logoHeight_m: 65px;
 $logoHeight_l: 80px;
 
+@import 'util/functions';
 @import 'util/reset';
 
 @import 'base/global';
