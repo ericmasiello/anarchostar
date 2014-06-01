@@ -495,20 +495,22 @@ if (is_admin()){
   
   $my_meta =  new AT_Meta_Box($config);
 
-  $my_meta->addText($prefix.'offset_scrolling_image',array('name'=> 'Top offset scrolling image.'));
-  $my_meta->addText($prefix.'offset_block_text',array('name'=> 'Top offset for text.'));
+  $my_meta->addText($prefix.'offset_x_scrolling_image',array('name'=> 'Left offset scrolling image.'));
+  $my_meta->addText($prefix.'offset_y_scrolling_image',array('name'=> 'Top offset scrolling image.'));
+  $my_meta->addText($prefix.'offset_x_block_text',array('name'=> 'Left offset for text.'));
+  $my_meta->addText($prefix.'offset_y_block_text',array('name'=> 'Top offset for text.'));
   
   //radio field
-  $my_meta->addRadio($prefix.'post_alignment_value',array('float-left'=>'Align Left','center'=>'Align Center','float-right'=>'Align Right'),array('name'=> 'Choose the alignment of the Parallax text block for this post.', 'std'=> array('float-left')));
+  //$my_meta->addRadio($prefix.'post_alignment_value',array('float-left'=>'Align Left','center'=>'Align Center','float-right'=>'Align Right'),array('name'=> 'Choose the alignment of the Parallax text block for this post.', 'std'=> array('float-left')));
 
   //checkbox field
-  $my_meta->addCheckbox($prefix.'no_text_background_value',array('name'=> 'Check this box to hide the background box for this post.'));
+  //$my_meta->addCheckbox($prefix.'no_text_background_value',array('name'=> 'Check this box to hide the background box for this post.'));
   
   //Color field
-  $my_meta->addColor($prefix.'block_text_color_value',array('name'=> 'Change the color of the Parallax text for this post.'));
+  //$my_meta->addColor($prefix.'block_text_color_value',array('name'=> 'Change the color of the Parallax text for this post.'));
   
     //Color field
-  $my_meta->addColor($prefix.'override_anchor_color_value',array('name'=> 'Override the anchor/link color for this post.'));
+  //$my_meta->addColor($prefix.'override_anchor_color_value',array('name'=> 'Override the anchor/link color for this post.'));
 
   //Finish Meta Box Decleration
   $my_meta->Finish();

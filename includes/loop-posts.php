@@ -2,6 +2,31 @@
 
 <?php
 
+function applyDefaultAndUnitToOffsetValues( $val ){
+
+    $cssUnitPattern = '/((px|em|ex|pt|in|pc|mm|cm|\%)?)$/i';
+
+    if( $val == "" ){
+
+        $val = "0px";
+    }
+
+    /*
+     * Make sure the image and text block offset values
+     * have an appropriate CSS unit e.g. px, %, etc
+     */
+
+    preg_match_all($cssUnitPattern, $val, $out );
+
+    if( $out[0][0] == "" ){
+
+        $val = $val . "px";
+    }
+
+    return $val;
+}
+
+
 global $storyMarginTop;
 
 $i = 1; // Start a counter outside of the loop
@@ -14,8 +39,11 @@ while ( have_posts() ) : the_post(); // Start the loop
     $lightbox_img = get_post_meta($post->ID, "_tia_lightbox_image_value", true); // to be killed
     $alignment = get_post_meta($post->ID, "_tia_align_right_value", true); // to be killed
     $postAlignment = get_post_meta($post->ID, "_tia_post_alignment_value", true);
-    $imgOffset = get_post_meta($post->ID, "_tia_offset_scrolling_image", true);
-    $textOffset = get_post_meta($post->ID, "_tia_offset_block_text", true);
+    $imgOffsetY = get_post_meta($post->ID, "_tia_offset_y_scrolling_image", true);
+    $imgOffsetX = get_post_meta($post->ID, "_tia_offset_x_scrolling_image", true);
+
+    $textOffsetY = get_post_meta($post->ID, "_tia_offset_y_block_text", true);
+    $textOffsetX = get_post_meta($post->ID, "_tia_offset_x_block_text", true);
 
 
     $noTextBackground = get_post_meta($post->ID, "_tia_no_text_background_value", true);
@@ -31,51 +59,10 @@ while ( have_posts() ) : the_post(); // Start the loop
 
     $soundCloudPost = get_post_meta($post->ID, "_sc_post_url", true);
 
-//    if( $soundCloudPost ){
-//
-//        print_r( $soundCloudPost );
-//        die();
-//    }
-
-
-    if( $imgOffset == "" ){
-
-        $imgOffset = "0px";
-    }
-
-    if( $textOffset == "" ){
-
-        $textOffset = "0px";
-    }
-
-    /*
-     * Make sure the image and text block offset values
-     * have an appropriate CSS unit e.g. px, %, etc
-     */
-
-    preg_match_all($cssUnitPattern, $imgOffset, $out );
-
-    if( $out[0][0] == "" ){
-
-        $imgOffset = $imgOffset . "px";
-    }
-
-    preg_match_all($cssUnitPattern, $textOffset, $out );
-
-//    if( $out[0][0] == "" ){
-//
-//        print_r("blank");
-//    }
-
-    //print_r( "hello: " . $out[0][0] );
-
-    if( $out[0][0] == "" ){
-
-        $textOffset = $textOffset . "px";
-    }
-
-    //print_r( "<br/>$textOffset = " . $textOffset );
-
+    $imgOffsetY = applyDefaultAndUnitToOffsetValues($imgOffsetY);
+    $imgOffsetX = applyDefaultAndUnitToOffsetValues($imgOffsetX);
+    $textOffsetY = applyDefaultAndUnitToOffsetValues($textOffsetY);
+    $textOffsetX = applyDefaultAndUnitToOffsetValues($textOffsetX);
 
                 
     if ( $overrideAnchorColor ) { ?> <style>#content #block<?php echo $i; ?> a {color: <?php echo $overrideAnchorColor; ?>;}</style> <?php }
@@ -89,12 +76,14 @@ while ( have_posts() ) : the_post(); // Start the loop
                 @media screen and (min-height: 900px) and (min-width: 725px) {
                     #block<?php echo $i; ?> .blockText {
 
-                        margin-top: <?php echo $textOffset; ?>;
+                        margin-left: <?php echo $textOffsetX; ?>;
+                        margin-top: <?php echo $textOffsetY; ?>;
                     }
 
                     #block<?php echo $i; ?> .bg1 {
 
-                        margin-top: <?php echo $imgOffset; ?>;
+                        margin-left: <?php echo $imgOffsetX; ?>;
+                        margin-top: <?php echo $imgOffsetY; ?>;
                     }
                 }
 
