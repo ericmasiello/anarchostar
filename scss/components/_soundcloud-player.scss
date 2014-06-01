@@ -55,6 +55,12 @@
 
     display: table-cell;
     width: 100%;
+    visibility: hidden;
+
+    .playing & {
+
+      visibility: visible;
+    }
   }
 
   .sc-time-span {
