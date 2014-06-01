@@ -23,13 +23,17 @@
     //90 = landscape, 180 = portrait
     this._baseOrientation = ( window.orientation < 0 ) ? window.orientation * -1 : window.orientation;
 
-    /*
-     * Apply top margin to page to make space for the header
-     */
-    $("#container").css("margin-top", this._headerHeight );
-
+    this._setHeaderOffset();
     this._bindEvents();
     this.resizePanel();
+  };
+
+  /*
+   * Apply top margin to page to make space for the header
+   */
+  Layout.prototype._setHeaderOffset = function(){
+
+    $("#container").css("margin-top", this._headerHeight );
   };
 
   Layout.prototype._bindEvents = function(){
@@ -49,15 +53,24 @@
         $(this).toggleClass('inview', visible );
       });
 
-      $( window ).resize( function(){ //if the user resizes the window...
+      $( window ).resize( function anarchoStarResize(){ //if the user resizes the window...
 
+        var tmpHeaderHeight = $("#header").height();
+
+        //that._headerHeight = $("#header").height();
         that._windowHeight = $(window).height();
+
+        if( tmpHeaderHeight !== that._headerHeight ){
+
+          that._headerHeight = tmpHeaderHeight;
+          that._setHeaderOffset();
+        }
+
         that.resizePanel();
         that.move(); //move the background images in relation to the movement of the scrollbar
 
-      }).bind('scroll', function(){ //when the user is scrolling...
+      }).bind('scroll', function anarchoStarScroll(){ //when the user is scrolling...
 
-        that._windowHeight = $(window).height();
         that.move(); //move the background images in relation to the movement of the scrollbar
       });
 
