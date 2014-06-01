@@ -136,13 +136,19 @@ while ( have_posts() ) : the_post(); // Start the loop
 				    <?php } ?>
 
 				    <?php if($theContentEnabled) {
+
 					    the_content('',TRUE);
+
     			    } else {
+
     				    the_excerpt('',TRUE);
     			    }
 
     				more_link();
-    		  	    ?>
+
+    		  	    if( $soundCloudPost ): ?>
+    		  	        <div class="sc-container"><a href="<?php echo $soundCloudPost; ?>" class="sc-player"><?php echo $soundCloudPost; ?></a></div>
+                    <?php endif; ?>
 
                     <!--<p class="postmetadata"> <?php bloginfo('name'); ?> | <?php the_category(', ') ?><?php edit_post_link(' | Edit', ''); ?>  </p>-->
                 </div>

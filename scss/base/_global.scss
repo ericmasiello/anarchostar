@@ -28,7 +28,7 @@ body, h1, h2, h3, h4, h5, h6 {
 
   line-height: $lineHeight;
 
-  @media (min-width: $mq_m){
+  @media screen and (min-width: $mq_m){
 
     font-size: $fontSize_m;
   }
@@ -86,4 +86,24 @@ input[type="text"], textarea {
   background-color: #fefefe;
   border: 1px solid #ddd;
   padding: 5px;
+}
+
+small, .micro {
+
+  font-size: $microFontSize_s;
+
+  @media screen and (min-width: $mq_m){
+
+    font-size: $microFontSize_m;
+  }
+}
+
+.nano {
+
+  font-size: $nanoFontSize_s;
+
+  @media screen and (min-width: $mq_m){
+
+    font-size: $nanoFontSize_m;
+  }
 }
