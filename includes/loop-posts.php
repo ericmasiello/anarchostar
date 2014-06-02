@@ -1,6 +1,6 @@
-<?php $postType = 'post'; ?>
-
 <?php
+
+$postType = 'post';
 
 function applyDefaultAndUnitToOffsetValues( $val ){
 
