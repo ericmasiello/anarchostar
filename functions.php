@@ -8,6 +8,34 @@ require_once (TEMPLATEPATH . '/admin/options.php');
 // Load external file to add support for MultiPostThumbnails. Allows you to set more than one "feature image" per post.
 require_once('admin/multi-post-thumbnails.php');
 
+//add extra fields to category edit form hook
+add_action ( 'edit_category_form_fields', 'extra_category_fields');
+//add extra fields to category edit form callback function
+function extra_category_fields( $tag ) {    //check for existing featured ID
+    $t_id = $tag->term_id;
+    $cat_meta = get_option( "category_$t_id");
+
+    require_once ('includes/admin-category-extra-fields.php');
+}
+
+// save extra category extra fields hook
+add_action ( 'edited_category', 'save_extra_category_fileds');
+   // save extra category extra fields callback function
+function save_extra_category_fileds( $term_id ) {
+    if ( isset( $_POST['Cat_meta'] ) ) {
+        $t_id = $term_id;
+        $cat_meta = get_option( "category_$t_id");
+        $cat_keys = array_keys($_POST['Cat_meta']);
+            foreach ($cat_keys as $key){
+            if (isset($_POST['Cat_meta'][$key])){
+                $cat_meta[$key] = $_POST['Cat_meta'][$key];
+            }
+        }
+        //save the option array
+        update_option( "category_$t_id", $cat_meta );
+    }
+}
+
 
 
 // Define additional "post thumbnails". Relies on MultiPostThumbnails to work
@@ -94,100 +122,15 @@ function tia_scripts() {
 	
 	wp_enqueue_script('fancybox', get_bloginfo('template_url').'/scripts/fancybox/jquery.fancybox-1.3.4.pack.js', array('jquery'), '1.3.4', true);
 	wp_enqueue_style('fancybox', get_bloginfo('template_url').'/scripts/fancybox/jquery.fancybox-1.3.4.css', false, '1.3.4', 'all' );
-
-	//wp_enqueue_style('collapse', get_bloginfo('template_url').'/css/collapse.css', false, '', 'all' );
 	wp_enqueue_script('collapse', get_bloginfo('template_url').'/scripts/bootstrap.min.js', array('jquery'), '', true);
 }
 
-add_action('wp_head','tia_theme_head');
-
-function tia_theme_head() { ?>
-<meta name="generator" content="<?php global $tia_theme, $tia_version; echo $tia_theme.' '.$tia_version; ?>" />
-<?php $heading_font = tia_get_option('tia_header_font'); ?>
-	<?php $button_font = tia_get_option('tia_button_font'); ?>
-	<?php $body_font = tia_get_option('tia_body_font'); ?>
-<style type="text/css" media="screen">
-<?php if(tia_get_option('tia_css')) : echo tia_get_option('tia_css'); endif; ?>
-<?php if(tia_get_option('tia_color_title')) : ?>
-	.black #header h1 a, #header h1 a, #content h1 a {color: #<?php echo(tia_get_option('tia_color_title')); ?>;} 
-<?php endif; ?>
-<?php if(tia_get_option('tia_color_title_shadow')) : ?>
-	#header h1, .black #header h1 {text-shadow: 2px 2px 2px #<?php echo(tia_get_option('tia_color_title_shadow')); ?>;} 
-<?php endif; ?>
-<?php if(tia_get_option('tia_color_title_hover')) : ?>
-	.black #header h1 a:hover, #header h1 a:hover, #content h1 a:hover {color: #<?php echo(tia_get_option('tia_color_title_hover')); ?>;} 
-<?php endif; ?>
-<?php if(tia_get_option('tia_color_menu')) : ?>
-	#mainNav li a, .black #mainNav a {color: #<?php echo(tia_get_option('tia_color_menu')); ?>;} 
-	#mainNav .sf-menu li li a {color: #<?php echo(tia_get_option('tia_color_menu')); ?>;}
-<?php endif; ?>
-<?php if(tia_get_option('tia_color_menu_hover')) : ?>
-	#mainNav li a:hover, .black #mainNav a:hover, #mainNav li.current-menu-item a {color: #<?php echo(tia_get_option('tia_color_menu_hover')); ?>;} 
-	#mainNav .sf-menu li li a:hover {color: #<?php echo(tia_get_option('tia_color_menu_hover')); ?>;}
-<?php endif; ?>
-#content .button, #sidebar .button, #footer .button, #searchsubmit {
-<?php if(tia_get_option('tia_color_content_btn')) : ?>background-color: #<?php echo(tia_get_option('tia_color_content_btn')); ?> !important;}<?php endif; ?>
-<?php if(tia_get_option('tia_color_content_btn_hover')) : ?>.button:hover, #searchsubmit:hover {background-color: #<?php echo(tia_get_option('tia_color_content_btn_hover')); ?> !important;<?php endif; ?> <?php if (tia_get_option('tia_button_font')) { echo 'font-family: \''. $button_font . '\';'; } ?>}
-
-
-<?php if(tia_get_option('tia_color_body_link')) : ?>#content a, #sidebar p a {color: #<?php echo(tia_get_option('tia_color_body_link')); ?>;}<?php endif; ?>
-<?php if(tia_get_option('tia_color_body_link_hover')) : ?>#content a:hover, #sidebar p a:hover {color: #<?php echo(tia_get_option('tia_color_body_link_hover')); ?>;}<?php endif; ?>
-<?php if(tia_get_option('tia_link_color')) : ?>#content a {color:<?php echo(tia_get_option('tia_link_color')); ?> }<?php endif; ?>
-
-<?php if (tia_get_option('tia_header_font')) : ?>
-#header h1, h1, h2, h3, h4, h5, h6, .pixelsscrolled span#pixels { font-family: '<?php echo $heading_font; ?>'; }
-<?php endif; ?>
-
-<?php if (tia_get_option('tia_body_font')) : ?>
-	body, .pixelsscrolled, #mainNav  { font-family: '<?php echo $body_font; ?>'; }
-<?php endif; ?>
-
-</style>
-
-<!--[if IE]>
-<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie.css" type="text/css" media="screen" />
-<![endif]-->
-<!--[if IE 7]>
-<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie7.css" type="text/css" media="screen" />
-<![endif]-->
-
-<style type="text/css" media="screen">
-
-
-<?php if(tia_get_option('tia_menuTitles_enabled')) { ?>
-    #content #nav li a {
-    <?php if(tia_get_option('tia_color_menu_parallax')) : ?>
-	    color: #<?php echo(tia_get_option('tia_color_menu_parallax')); ?>;
-    <?php endif; ?>
-}
-<?php } else { ?>
-    #content #nav li a {
-    <?php if(tia_get_option('tia_color_menu_parallax')) : ?>
-	    color: #<?php echo(tia_get_option('tia_color_menu_parallax')); ?>;
-    <?php endif; ?>
-}
-<?php } ?>
-
-#content #nav li a:hover, #content #nav li a.active {
-	<?php if(tia_get_option('tia_color_menu_parallax_hover')) { ?>
-		background:#<?php echo(tia_get_option('tia_color_menu_parallax_hover')); ?>;
-	<?php } 
-	 if(tia_get_option('tia_color_menu_parallax_text_hover')) { ?>
-		color:#<?php echo(tia_get_option('tia_color_menu_parallax_text_hover')); ?>;
-	<?php } ?>	
-}
-	<?php echo(tia_get_option('tia_custom_css')); ?>
-</style>
-
-<?php echo "\n".tia_get_option('tia_analytics')."\n"; ?>
-
-<?php }
 
 //////////////////////////////////////////////////////////////
 // Custom Background Support
 /////////////////////////////////////////////////////////////
 
-if(function_exists('add_custom_background')) add_custom_background();
+//if(function_exists('add_custom_background')) add_custom_background();
 
 
 

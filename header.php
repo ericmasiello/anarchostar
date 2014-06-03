@@ -27,9 +27,9 @@
         global $storyMarginTop;
         global $parallaxHeight;
         global $imgMarginTop;
-        $parallaxHeight=tia_get_option('tia_default_height');
-        $imgMarginTop=tia_get_option('tia_scrolling_img_margin_top');
-        $storyMarginTop=tia_get_option('tia_story_margin_top');
+        $parallaxHeight = tia_get_option('tia_default_height');
+        $imgMarginTop = tia_get_option('tia_scrolling_img_margin_top');
+        $storyMarginTop = tia_get_option('tia_story_margin_top');
     }
 
 	include 'scripts/Mobile_Detect.php';
