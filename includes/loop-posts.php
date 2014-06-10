@@ -88,7 +88,7 @@ while ( have_posts() ) : the_post(); // Start the loop
 
             <style type="text/css">
 
-                @media screen and (min-height: 900px) and (min-width: 725px) {
+                @media screen and (min-height: 800px) and (min-width: 725px) {
                     #block<?php echo $i; ?> .blockText {
 
                         margin-left: <?php echo $textOffsetX; ?>;
@@ -207,8 +207,10 @@ while ( have_posts() ) : the_post(); // Start the loop
 endwhile;
 
 if ( empty($cat_data['soundcloud-playlist-url']) != true ){ ?>
-    <div class="footer  footer--sticky">
-        <a class="sc-player" href="<?php echo $cat_data['soundcloud-playlist-url']; ?>"></a>
+    <div class="footer">
+        <div class="container">
+            <a class="sc-player" href="<?php echo $cat_data['soundcloud-playlist-url']; ?>"></a>
+        </div>
     </div>
 <?php
 }

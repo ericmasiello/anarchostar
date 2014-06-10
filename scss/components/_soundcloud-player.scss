@@ -1,3 +1,86 @@
+.sc-previous,
+.sc-next {
+
+  display: none;
+
+  .sc-multitrack & {
+
+    display: block;
+  }
+}
+
+.sc-previous {
+
+  margin-right: 5px;
+}
+
+.sc-next {
+
+  margin-left: 5px;
+}
+
+.sc-controls {
+
+  display: table-cell;
+  width: 35px;
+
+  .sc-multitrack & {
+
+    width: 115px;
+  }
+
+  a {
+
+    float: left;
+    width: 35px;
+    height: 35px;
+  }
+
+  svg {
+
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.sc-pause {
+
+  display: none;
+}
+
+.sc-scrubber,
+.sc-trackslist {
+
+  position: absolute;
+  left: 40px;
+  right: 0;
+  margin: 0 !important;
+  padding: 0;
+  top: 0;
+  z-index: 9;
+
+  .sc-multitrack & {
+
+    left: 120px;
+  }
+}
+
+.sc-scrubber {
+
+  visibility: hidden;
+  height: pxToEm( 38px, $fontSize_s );
+
+  @media screen and (min-width: $mq_m) {
+
+    height: pxToEm( 38px, $fontSize_m );
+  }
+
+  .playing & {
+
+    visibility: visible;
+  }
+}
+
 .sc-player {
 
   display: table;
@@ -10,6 +93,7 @@
   }
 
   position: relative;
+
 
   &.playing {
 
@@ -33,57 +117,6 @@
   .sc-artwork-list {
 
     display: none;
-  }
-
-  .sc-controls {
-
-    display: table-cell;
-    width: 35px;
-
-    a {
-      display: block;
-      width: 35px;
-      height: 35px;
-    }
-
-    svg {
-
-      height: 35px;
-      width: 35px;
-    }
-  }
-
-    .sc-pause {
-
-      display: none;
-    }
-
-  .sc-scrubber,
-  .sc-trackslist {
-
-    position: absolute;
-    left: 40px;
-    right: 0;
-    margin: 0 !important;
-    padding: 0;
-    top: 0;
-    z-index: 9;
-  }
-
-  .sc-scrubber {
-
-    visibility: hidden;
-    height: pxToEm( 38px, $fontSize_s );
-
-    @media screen and (min-width: $mq_m) {
-
-      height: pxToEm( 38px, $fontSize_m );
-    }
-
-    .playing & {
-
-      visibility: visible;
-    }
   }
 
   .sc-time-span {
@@ -121,9 +154,15 @@
 
     li {
 
+      display: none;
       list-style: none;
       cursor: pointer;
       margin: 0 !important;
+
+      &.active {
+
+        display: block;
+      }
 
       > a {
 
@@ -168,4 +207,3 @@
 
     display: none;
   }
-

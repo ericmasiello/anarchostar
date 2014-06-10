@@ -7,8 +7,6 @@ global $imgMarginTop;
 <?php get_header(); ?>
 	<div id="main" class="clearfix">				 
 		<div id="content" class="postshome clearfix">
-        	<div id="cover-left">&nbsp;</div>
-        	<div id="cover-right">&nbsp;</div>
 
             <!--end post nav -->
         	<?php $i = 1; //Start a counter outside of the loop

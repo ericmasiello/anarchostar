@@ -2,62 +2,34 @@
 11 Footer
 ----------------------------*/
 
-#footer .main{
-  //width: 938px;
-  clear: both;
-  padding: 35px 0 0 0;
-  margin: 0 auto;
+.footer {
+
+  @extend .navbar;
+  top: initial !important;
+  bottom: 0;
+
+  .container {
+
+    @media (min-width: $mq_m) {
+
+      height: pxToEm( 75px, $fontSize_m );
+    }
+  }
+
+//  background-color: rgba( 0, 0, 0, .85 );
+//  height: pxToEm( 50px, $fontSize_s );
+//
+//  @media (min-width: $mq_m) {
+//
+//    height: pxToEm( 75px, $fontSize_m );
+//  }
 }
 
-#footer .oneThird {
-  //width:260px;
-}
-
-.footerBox{
-  margin: 0 0 25px 40px;
-  float: left;
-  position: relative;
-}
-
-#footer h1, #footer h2, #footer h3, #footer h4{
-  text-shadow: 0 1px 1px rgba(255,255,255,1);
-}
-
-#footer a {
-  color: #06c;
-}
-
-#footer a:hover{
-  color: #595959;
-}
-
-.footerBox p{
-  padding: 0;
-}
-
-.footerBox p img{
-  border-color: #d6d6d6;
-}
-
-#footer .secondary {
-  //width: 960px;
-  margin: 0 auto;
-  color: #656565;
-}
-
-#footer .secondary a {
-  color: #555;
-}
-
-#footer .secondary a:hover {
-  color: #999;
-  text-decoration: none;
-}
-
-#footer .secondary .copyright {
-  float: left;
-}
-
-#footer .secondary .credit {
-  float: right;
-}
+//.footer--sticky {
+//
+//  backface-visibility: hidden;
+//  bottom: 0;
+//  left: 0;
+//  position: fixed;
+//  right: 0;
+//}
