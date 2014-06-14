@@ -110,11 +110,12 @@ global $tia_theme_name, $tia_theme_version, $tia_default_slideshow_speed, $tia_o
 
                     <!-- Default Homepage Category -->
                     <div class="adminModule">
-                    <h3 class="settingsTitle">Default Homepage Cateogry</h3>
+                    <h3 class="settingsTitle">Homepage Cateogry</h3>
                         <div class="smallBottomMargin clearfix">
-                            <label class="singleLine" for="themeCategoryId">Category ID:</label>
-                            <input type="text" maxlength="5" id="themeCategoryId" name="tia_options[tia_theme_defaultCatId]" value="<?php echo $tia_theme_defaultCatId; ?>" />
+                            <?php wp_dropdown_categories('name=tia_options[tia_theme_defaultCatId]&id=themeCategoryId&hierarchical=1&selected=' . $tia_theme_defaultCatId); ?>
+                            <p class="instructions">This is used to set which category is displayed on your home page.</p>
                         </div>
+
                     </div>
 
                     <!-- Background -->
