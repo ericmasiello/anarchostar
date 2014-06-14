@@ -88,7 +88,7 @@ while ( have_posts() ) : the_post(); // Start the loop
 
             <style type="text/css">
 
-                @media screen and (min-height: 800px) and (min-width: 725px) {
+                @media screen and (min-height: 800px) and (min-width: 768px) {
                     #block<?php echo $i; ?> .blockText {
 
                         margin-left: <?php echo $textOffsetX; ?>;
