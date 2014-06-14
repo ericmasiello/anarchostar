@@ -15,8 +15,8 @@
 
     @media (min-width: $mq_m) {
 
-//      padding-bottom: pxToEm( 7.5px, $fontSize_s );
-//      padding-top: pxToEm( 7.5px, $fontSize_s );
+      padding-bottom: pxToEm( 20px, $fontSize_m ) !important;
+      padding-top: pxToEm( 20px, $fontSize_m ) !important;
       height: pxToEm( 75px, $fontSize_m );
     }
   }
