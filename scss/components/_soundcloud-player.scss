@@ -11,7 +11,7 @@
 
 .sc-previous {
 
-  margin-right: pxToEm( 5px, $fontSize_s );
+  margin-right: pxToEm( 10px, $fontSize_s );
 
   @media screen and (min-width: $mq_m) {
 
@@ -21,7 +21,7 @@
 
 .sc-next {
 
-  margin-left: pxToEm( 5px, $fontSize_s );
+  margin-left: pxToEm( 10px, $fontSize_s );
 
   @media screen and (min-width: $mq_m) {
 
@@ -75,7 +75,7 @@ svg {
   //makes space for extra previous/next controls
   .sc-multitrack & {
 
-    width: pxToEm( 85px, $fontSize_s );
+    width: pxToEm( 95px, $fontSize_s );
 
     @media screen and (min-width: $mq_m) {
 
@@ -119,7 +119,7 @@ svg {
   //pushes the content more to the left when there are previous/next controls
   .sc-multitrack & {
 
-    left: pxToEm( 90px, $fontSize_s );
+    left: pxToEm( 105px, $fontSize_s );
 
     @media screen and (min-width: $mq_m) {
 
