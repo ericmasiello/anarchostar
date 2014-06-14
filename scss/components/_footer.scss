@@ -10,26 +10,25 @@
 
   .container {
 
+    padding-bottom: pxToEm( 7.5px, $fontSize_s ) !important;
+    padding-top: pxToEm( 7.5px, $fontSize_s ) !important;
+
     @media (min-width: $mq_m) {
 
+//      padding-bottom: pxToEm( 7.5px, $fontSize_s );
+//      padding-top: pxToEm( 7.5px, $fontSize_s );
       height: pxToEm( 75px, $fontSize_m );
     }
   }
 
-//  background-color: rgba( 0, 0, 0, .85 );
-//  height: pxToEm( 50px, $fontSize_s );
+//  .container {
 //
-//  @media (min-width: $mq_m) {
+//    padding: pxToEm( 5px, $fontSize_s ) pxToEm( 20px, $fontSize_s );
+//    overflow: hidden;
 //
-//    height: pxToEm( 75px, $fontSize_m );
+//    @media (min-width: $mq_m) {
+//
+//      padding: pxToEm( 10px, $fontSize_m ) pxToEm( 40px, $fontSize_m )
+//    }
 //  }
 }
-
-//.footer--sticky {
-//
-//  backface-visibility: hidden;
-//  bottom: 0;
-//  left: 0;
-//  position: fixed;
-//  right: 0;
-//}

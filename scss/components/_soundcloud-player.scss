@@ -11,35 +11,53 @@
 
 .sc-previous {
 
-  margin-right: 5px;
+  margin-right: pxToEm( 5px, $fontSize_s );
+
+  @media screen and (min-width: $mq_m) {
+
+    margin-right: pxToEm( 5px, $fontSize_m );
+  }
 }
 
 .sc-next {
 
-  margin-left: 5px;
+  margin-left: pxToEm( 5px, $fontSize_s );
+
+  @media screen and (min-width: $mq_m) {
+
+    margin-left: pxToEm( 5px, $fontSize_m );
+  }
 }
 
-.sc-controls {
+svg {
 
-  display: table-cell;
-  width: 35px;
+  .sc-play &,
+  .sc-pause & {
 
-  .sc-multitrack & {
+    height: pxToEm( 35px, $fontSize_s );
+    width: pxToEm( 35px, $fontSize_s );
 
-    width: 115px;
+    @media screen and (min-width: $mq_m) {
+
+      height: pxToEm( 35px, $fontSize_m );
+      width: pxToEm( 35px, $fontSize_m );
+    }
   }
 
-  a {
+  .sc-previous &,
+  .sc-next & {
 
-    float: left;
-    width: 35px;
-    height: 35px;
-  }
+    position: relative;
+    height: pxToEm( 18px, $fontSize_s );
+    width: pxToEm( 18px, $fontSize_s );
+    top: pxToEm( 3px, $fontSize_s );
 
-  svg {
+    @media screen and (min-width: $mq_m) {
 
-    height: 35px;
-    width: 35px;
+      height: pxToEm( 18px, $fontSize_m );
+      width: pxToEm( 18px, $fontSize_m );
+      top: pxToEm( 3px, $fontSize_m );
+    }
   }
 }
 
@@ -48,31 +66,76 @@
   display: none;
 }
 
+.sc-controls {
+
+  display: table-cell;
+  //only needs to be wide enough for the play/pause control
+  width: 35px;
+
+  //makes space for extra previous/next controls
+  .sc-multitrack & {
+
+    width: pxToEm( 85px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      width: pxToEm( 85px, $fontSize_m );
+    }
+  }
+
+  a {
+
+    //forces middle vertical alignment of smaller icons
+    line-height: pxToEm( 35px, $fontSize_s );
+    height: pxToEm( 35px, $fontSize_s );
+    float: left;
+
+    @media screen and (min-width: $mq_m) {
+
+      line-height: pxToEm( 35px, $fontSize_m );
+      height: pxToEm( 35px, $fontSize_m );
+    }
+  }
+}
+
 .sc-scrubber,
 .sc-trackslist {
 
   position: absolute;
-  left: 40px;
+  //pushes the content left enough for the controls
+  left: pxToEm( 40px, $fontSize_s );
   right: 0;
   margin: 0 !important;
   padding: 0;
   top: 0;
   z-index: 9;
 
+  @media screen and (min-width: $mq_m) {
+
+    left: pxToEm( 40px, $fontSize_m );
+  }
+
+
+  //pushes the content more to the left when there are previous/next controls
   .sc-multitrack & {
 
-    left: 120px;
+    left: pxToEm( 90px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      left: pxToEm( 90px, $fontSize_m );
+    }
   }
 }
 
 .sc-scrubber {
 
   visibility: hidden;
-  height: pxToEm( 38px, $fontSize_s );
+  height: pxToEm( 35px, $fontSize_s );
 
   @media screen and (min-width: $mq_m) {
 
-    height: pxToEm( 38px, $fontSize_m );
+    height: pxToEm( 35px, $fontSize_m );
   }
 
   .playing & {
@@ -86,14 +149,25 @@
   display: table;
   width: 100%;
   height: pxToEm( 35px, $fontSize_s );
+  position: relative;
 
   @media screen and (min-width: $mq_m) {
 
     height: pxToEm( 35px, $fontSize_m );
   }
 
-  position: relative;
+  &.loading {
 
+    .sc-controls {
+
+      display: none;
+    }
+
+    .sc-trackslist, .sc-scrubber {
+
+      left: 0;
+    }
+  }
 
   &.playing {
 
@@ -122,35 +196,31 @@
   .sc-time-span {
 
     display: none;
-//    height: 30px;
-//    position: relative;
-//
-//    img {
-//
-//      height: 30px;
-//      width: 100%;
-//      background-color: #000;
-//    }
   }
 
   .sc-buffer,
   .sc-played {
 
-    height: 30px;
+    height: pxToEm( 30px, $fontSize_s );
     position: absolute;
     top: 0;
     width: 0;
     transition: width 0.1s linear;
+
+    @media screen and (min-width: $mq_m) {
+
+      height: pxToEm( 30px, $fontSize_m );
+    }
   }
 
   .sc-trackslist {
 
     position: absolute;
-    left: 40px;
     right: 0;
     z-index: 999;
     margin: 0 !important;
     padding:0;
+
 
     li {
 
@@ -167,14 +237,19 @@
       > a {
 
         display: block;
-        line-height: pxToEm( 38px, $fontSize_s );
+        line-height: pxToEm( 35px, $fontSize_s );
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
 
+        &:hover, &:active {
+
+          text-decoration: underline;
+        }
+
         @media screen and (min-width: $mq_m) {
 
-          line-height: pxToEm( 38px, $fontSize_m );
+          line-height: pxToEm( 35px, $fontSize_m );
         }
       }
     }
@@ -184,13 +259,13 @@
   .sc-time-indicators {
 
     @extend .nano;
-    bottom: pxToEm( 37px, $fontSize_s );
+    bottom: pxToEm( 30px, $fontSize_s );
     position: absolute;
     right: 0;
 
     @media screen and (min-width: $mq_m) {
 
-      bottom: pxToEm( 37px, $fontSize_m );
+      bottom: pxToEm( 30px, $fontSize_m );
     }
   }
 
