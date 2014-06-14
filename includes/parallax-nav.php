@@ -1,8 +1,9 @@
 <?php
-if( tia_get_option('tia_reorder_enabled') ) {
+if( tia_get_option('tia_reorder_enabled') && !is_page() ) {
 
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $perPage = get_option('posts_per_page');
+
     if (is_category()) {
         $args = array(
             'post_type' => 'post',
@@ -25,22 +26,24 @@ if( tia_get_option('tia_reorder_enabled') ) {
         );
     }
 
-
     query_posts( $args );
-}
-?>
-<ul id="nav" class="parallax-nav"> <!-- post nav -->
-<?php
-$i = 1; while ( have_posts() ) : the_post();
 
-    echo '<li id="blockLink', $i;
-    echo '"><a href="#block', $i;
-    echo '" class="block-link" title="', the_title();
-    echo '">';
-    the_title();
-    echo '</a></li>';
-    $i++;
+    ?>
 
-endwhile;
-?>
-</ul><!--end post nav -->
+    <ul id="nav" class="parallax-nav"> <!-- post nav -->
+    <?php
+    $i = 1; while ( have_posts() ) : the_post();
+
+        echo '<li id="blockLink', $i;
+        echo '"><a href="#block', $i;
+        echo '" class="block-link" title="', the_title();
+        echo '">';
+        the_title();
+        echo '</a></li>';
+        $i++;
+
+    endwhile;
+    ?>
+    </ul><!--end post nav -->
+
+<?php }?>
