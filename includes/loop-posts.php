@@ -105,7 +105,7 @@ while ( have_posts() ) : the_post(); // Start the loop
             </style>
 
             <div class="story story<?php if($postAlignment) { echo $postAlignment; }?>">
-
+                <div class="story-container">
         	    <?php
 
                 // Loops through each feature image and grabs thumbnail URL
@@ -167,6 +167,7 @@ while ( have_posts() ) : the_post(); // Start the loop
 
                     <!--<p class="postmetadata"> <?php bloginfo('name'); ?> | <?php the_category(', ') ?><?php edit_post_link(' | Edit', ''); ?>  </p>-->
                 </div>
+                </div> <!-- /.story-container -->
             </div> <!-- /.story-->
         </div> <!-- ./block -->
 

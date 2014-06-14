@@ -6,6 +6,17 @@
   width: 100%;
 }
 
+.story-container {
+
+  position: relative;
+  margin-top: pxToEm( ($footer_height_s + 10) * -1, $fontSize_s );
+
+  @media screen and (min-width: $mq_m) {
+
+    margin-top: pxToEm( ($footer_height_m + 10) * -1, $fontSize_m );
+  }
+}
+
 .story {
 
   margin: 0 auto;
