@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 <head profile="http://gmpg.org/xfn/11">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
@@ -27,9 +28,9 @@
         global $storyMarginTop;
         global $parallaxHeight;
         global $imgMarginTop;
-        $parallaxHeight=tia_get_option('tia_default_height');
-        $imgMarginTop=tia_get_option('tia_scrolling_img_margin_top');
-        $storyMarginTop=tia_get_option('tia_story_margin_top');
+        $parallaxHeight = tia_get_option('tia_default_height');
+        $imgMarginTop = tia_get_option('tia_scrolling_img_margin_top');
+        $storyMarginTop = tia_get_option('tia_story_margin_top');
     }
 
 	include 'scripts/Mobile_Detect.php';

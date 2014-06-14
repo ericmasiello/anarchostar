@@ -1,53 +1,10 @@
 /* ---------------------------
 03 Layout
 ----------------------------*/
-#cover-left {
-  //background: transparent url(images/cover-left-white-small.gif) repeat-y right;
-  right:50%;
-  margin-right:830px;
-
-}
-
-#cover-right {
-  //background: transparent url(images/cover-right-white-small.gif) repeat-y;
-  left:50%;
-  margin-left:830px;
-
-}
-
-#cover-right, #cover-left {
-  position:fixed;
-  top:0;
-  height:100%;
-  width:100%;
-  z-index:10;
-}
 
 #container {
   margin: 0 auto;
   width: 100%;
   padding: 0;
   background:transparent;
-}
-
-#main {
-  margin: 0;
-  border-bottom: 1px solid #dbdbdb;
-  padding: 0;
-}
-
-#content {
-  padding: 0;
-  float: left;
-}
-
-#content.full {
-  width: 100%
-}
-
-#sidebar {
-  //width: 300px;
-  float: right;
-  margin: 0 40px 0 0;
-  padding: 0;
 }

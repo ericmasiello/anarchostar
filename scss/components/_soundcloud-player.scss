@@ -1,7 +1,136 @@
-.sc-player {
+.sc-previous,
+.sc-next {
 
-  display: table;
-  width: 100%;
+  display: none;
+
+  .sc-multitrack & {
+
+    display: block;
+  }
+}
+
+.sc-previous {
+
+  margin-right: pxToEm( 10px, $fontSize_s );
+
+  @media screen and (min-width: $mq_m) {
+
+    margin-right: pxToEm( 5px, $fontSize_m );
+  }
+}
+
+.sc-next {
+
+  margin-left: pxToEm( 10px, $fontSize_s );
+
+  @media screen and (min-width: $mq_m) {
+
+    margin-left: pxToEm( 5px, $fontSize_m );
+  }
+}
+
+svg {
+
+  .sc-play &,
+  .sc-pause & {
+
+    height: pxToEm( 35px, $fontSize_s );
+    width: pxToEm( 35px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      height: pxToEm( 35px, $fontSize_m );
+      width: pxToEm( 35px, $fontSize_m );
+    }
+  }
+
+  .sc-previous &,
+  .sc-next & {
+
+    position: relative;
+    height: pxToEm( 18px, $fontSize_s );
+    width: pxToEm( 18px, $fontSize_s );
+    top: pxToEm( 3px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      height: pxToEm( 18px, $fontSize_m );
+      width: pxToEm( 18px, $fontSize_m );
+      top: pxToEm( 3px, $fontSize_m );
+    }
+  }
+}
+
+.sc-pause {
+
+  display: none;
+}
+
+.sc-controls {
+
+  display: table-cell;
+  //only needs to be wide enough for the play/pause control
+  width: 35px;
+
+  //makes space for extra previous/next controls
+  .sc-multitrack & {
+
+    width: pxToEm( 95px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      width: pxToEm( 85px, $fontSize_m );
+    }
+  }
+
+  a {
+
+    //forces middle vertical alignment of smaller icons
+    line-height: pxToEm( 35px, $fontSize_s );
+    height: pxToEm( 35px, $fontSize_s );
+    float: left;
+
+    @media screen and (min-width: $mq_m) {
+
+      line-height: pxToEm( 35px, $fontSize_m );
+      height: pxToEm( 35px, $fontSize_m );
+    }
+  }
+}
+
+.sc-scrubber,
+.sc-trackslist {
+
+  position: absolute;
+  //pushes the content left enough for the controls
+  left: pxToEm( 40px, $fontSize_s );
+  right: 0;
+  margin: 0 !important;
+  padding: 0;
+  top: 0;
+  z-index: 9;
+
+  @media screen and (min-width: $mq_m) {
+
+    left: pxToEm( 40px, $fontSize_m );
+  }
+
+
+  //pushes the content more to the left when there are previous/next controls
+  .sc-multitrack & {
+
+    left: pxToEm( 105px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      left: pxToEm( 90px, $fontSize_m );
+    }
+  }
+}
+
+.sc-scrubber {
+
+  visibility: hidden;
   height: pxToEm( 35px, $fontSize_s );
 
   @media screen and (min-width: $mq_m) {
@@ -9,7 +138,36 @@
     height: pxToEm( 35px, $fontSize_m );
   }
 
+  .playing & {
+
+    visibility: visible;
+  }
+}
+
+.sc-player {
+
+  display: table;
+  width: 100%;
+  height: pxToEm( 35px, $fontSize_s );
   position: relative;
+
+  @media screen and (min-width: $mq_m) {
+
+    height: pxToEm( 35px, $fontSize_m );
+  }
+
+  &.loading {
+
+    .sc-controls {
+
+      display: none;
+    }
+
+    .sc-trackslist, .sc-scrubber {
+
+      left: 0;
+    }
+  }
 
   &.playing {
 
@@ -35,107 +193,63 @@
     display: none;
   }
 
-  .sc-controls {
-
-    display: table-cell;
-    width: 35px;
-
-    a {
-      display: block;
-      width: 35px;
-      height: 35px;
-    }
-
-    svg {
-
-      height: 35px;
-      width: 35px;
-    }
-  }
-
-    .sc-pause {
-
-      display: none;
-    }
-
-  .sc-scrubber,
-  .sc-trackslist {
-
-    position: absolute;
-    left: 40px;
-    right: 0;
-    margin: 0 !important;
-    padding: 0;
-    top: 0;
-    z-index: 9;
-  }
-
-  .sc-scrubber {
-
-    visibility: hidden;
-    height: pxToEm( 38px, $fontSize_s );
-
-    @media screen and (min-width: $mq_m) {
-
-      height: pxToEm( 38px, $fontSize_m );
-    }
-
-    .playing & {
-
-      visibility: visible;
-    }
-  }
-
   .sc-time-span {
 
     display: none;
-//    height: 30px;
-//    position: relative;
-//
-//    img {
-//
-//      height: 30px;
-//      width: 100%;
-//      background-color: #000;
-//    }
   }
 
   .sc-buffer,
   .sc-played {
 
-    height: 30px;
+    height: pxToEm( 30px, $fontSize_s );
     position: absolute;
     top: 0;
     width: 0;
     transition: width 0.1s linear;
+
+    @media screen and (min-width: $mq_m) {
+
+      height: pxToEm( 30px, $fontSize_m );
+    }
   }
 
   .sc-trackslist {
 
     position: absolute;
-    left: 40px;
     right: 0;
     z-index: 999;
     margin: 0 !important;
     padding:0;
 
+
     li {
 
+      display: none;
       list-style: none;
       cursor: pointer;
       margin: 0 !important;
 
+      &.active {
+
+        display: block;
+      }
+
       > a {
 
         display: block;
-        line-height: pxToEm( 38px, $fontSize_s );
+        line-height: pxToEm( 35px, $fontSize_s );
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
 
+        &:hover, &:active {
+
+          text-decoration: underline;
+        }
+
         @media screen and (min-width: $mq_m) {
 
-          line-height: pxToEm( 38px, $fontSize_m );
+          line-height: pxToEm( 35px, $fontSize_m );
         }
       }
     }
@@ -145,13 +259,13 @@
   .sc-time-indicators {
 
     @extend .nano;
-    bottom: pxToEm( 37px, $fontSize_s );
+    bottom: pxToEm( 30px, $fontSize_s );
     position: absolute;
     right: 0;
 
     @media screen and (min-width: $mq_m) {
 
-      bottom: pxToEm( 37px, $fontSize_m );
+      bottom: pxToEm( 30px, $fontSize_m );
     }
   }
 
@@ -168,4 +282,3 @@
 
     display: none;
   }
-

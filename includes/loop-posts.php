@@ -26,6 +26,21 @@ function applyDefaultAndUnitToOffsetValues( $val ){
     return $val;
 }
 
+//first get the current category ID
+$cat_id = get_query_var('cat');
+//then i get the data from the database
+$cat_data = get_option("category_$cat_id");
+//and then i just display my category image if it exists
+if ( empty($cat_data['background-color']) != true ){ ?>
+        <style type="text/css">
+            body {
+
+                background-color: <?php echo $cat_data['background-color']; ?> !important;
+            }
+        </style>
+<?php
+}
+
 
 global $storyMarginTop;
 
@@ -73,7 +88,7 @@ while ( have_posts() ) : the_post(); // Start the loop
 
             <style type="text/css">
 
-                @media screen and (min-height: 900px) and (min-width: 725px) {
+                @media screen and (min-height: 800px) and (min-width: 725px) {
                     #block<?php echo $i; ?> .blockText {
 
                         margin-left: <?php echo $textOffsetX; ?>;
@@ -190,5 +205,14 @@ while ( have_posts() ) : the_post(); // Start the loop
     endif;
 
 endwhile;
+
+if ( empty($cat_data['soundcloud-playlist-url']) != true ){ ?>
+    <div class="footer">
+        <div class="container">
+            <a class="sc-player" href="<?php echo $cat_data['soundcloud-playlist-url']; ?>"></a>
+        </div>
+    </div>
+<?php
+}
 
 include( TEMPLATEPATH . '/includes/pagination.php');
