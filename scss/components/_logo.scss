@@ -1,0 +1,26 @@
+#logo {
+
+  background: url("images/astar.svg") no-repeat 0 0 transparent;
+  background-size: contain;
+  display: block;
+  float: left;
+  height: $logoHeight_s;
+  width: $logoHeight_s;
+
+  @media( min-width: $mq_m ){
+
+    height: $logoHeight_m;
+    width: $logoHeight_m;
+  }
+
+  @media( min-width: $mq_l ){
+
+    height: $logoHeight_l;
+    width: $logoHeight_l;
+  }
+
+  > h1 {
+
+    @extend %visually-hidden-accessible;
+  }
+}

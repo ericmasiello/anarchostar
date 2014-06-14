@@ -50,12 +50,14 @@ global $tia_theme_name, $tia_theme_version, $tia_default_slideshow_speed, $tia_o
 		
 		    <?php
 			settings_fields( 'tia_options_group' ); 
-		    $tia_options = get_option('tia_options'); 
+		    $tia_options = get_option('tia_options');
+		    //print_r( $tia_options );
 			$tia_logo = tia_get_option('tia_logo'); 
 			$tia_main_padding_top = tia_get_option('tia_main_padding_top');
 			$tia_theme_color = tia_get_option('tia_theme_color');
 			$tia_theme_bkg = tia_get_option('tia_theme_bkg');
-			$tia_rss = tia_get_option('tia_rss'); 
+			$tia_rss = tia_get_option('tia_rss');
+			$tia_theme_defaultCatId = tia_get_option('tia_theme_defaultCatId');
 			?>
 		    
 		    <div class="optionsContainer clearfix">	
@@ -66,7 +68,8 @@ global $tia_theme_name, $tia_theme_version, $tia_default_slideshow_speed, $tia_o
 				</div>
 				
 				<div id="option1" class="optionContent">
-					<!-- Logo -->					
+					<!-- Logo -->
+                    <!--
 					<div class="adminModule">
 						<h3 class="logoTitle">Logo</h3>	    			
 				    	
@@ -84,7 +87,8 @@ global $tia_theme_name, $tia_theme_version, $tia_default_slideshow_speed, $tia_o
 						<p class="instructions">Enter a URL of your custom logo. You can use the <a href="<?php bloginfo('url'); ?>/wp-admin/media-new.php">media uploader</a> to get your image. Make sure you copy the URL of the logo before returning here.</p>					
 		 										
 					</div>
-                      				<!-- May incorporate this later			
+					-->
+               <!-- May incorporate this later
 				<div class="adminModule clearfix">
 					<h3 class="settingsTitle">Padding Adjustment</h3>					
 					
@@ -103,9 +107,20 @@ global $tia_theme_name, $tia_theme_version, $tia_default_slideshow_speed, $tia_o
 					</div>					
 					<p class="instructions">After you have uploaded your logo, you may need to move the content down more. Use the slider to set the top padding.</p>									
 				</div>	 -->		
-                    <!-- Background -->
+
+                    <!-- Default Homepage Category -->
                     <div class="adminModule">
-                    <h3 class="settingsTitle">Background</h3>
+                    <h3 class="settingsTitle">Default Homepage Cateogry</h3>
+                        <div class="smallBottomMargin clearfix">
+                            <label class="singleLine" for="themeCategoryId">Category ID:</label>
+                            <input type="text" maxlength="5" id="themeCategoryId" name="tia_options[tia_theme_defaultCatId]" value="<?php echo $tia_theme_defaultCatId; ?>" />
+                        </div>
+                    </div>
+
+                    <!-- Background -->
+                    <!--
+                    <div class="adminModule">
+                        <h3 class="settingsTitle">Background</h3>
                     	<div class="smallBottomMargin clearfix">		
                             <label class="singleLine">Background:</label> 
                             <select name="tia_options[tia_theme_bkg]" id="themeBkg" class="tiaSelect inlineItem">
@@ -114,17 +129,19 @@ global $tia_theme_name, $tia_theme_version, $tia_default_slideshow_speed, $tia_o
                             </select>
 						</div>						
                     </div>
-                    
-                    	
+                    -->
                     
 					<!-- CSS -->
+					<!--
 					<div class="adminModule">
 						<h3 class="settingsTitle">Custom CSS</h3>
 						<textarea name="tia_options[tia_custom_css]" cols=70 rows=6><?php echo $tia_options['tia_custom_css']; ?></textarea>
 						<p class="instructions">Enter custom CSS here. </p>
 					</div>
+					-->
 					
 					<!-- Footer Text -->
+					<!--
 					<div class="adminModule">
 						<h3 class="editTitle">Footer Text</h3>
 						
@@ -135,7 +152,8 @@ global $tia_theme_name, $tia_theme_version, $tia_default_slideshow_speed, $tia_o
 						<h4>Right side:</h4>
 						<textarea name="tia_options[tia_footer_right]" cols=70 rows=6><?php echo $tia_options['tia_footer_right']; ?></textarea>
 						<p class="instructions">This will appear on the right side of the footer.</p>
-					</div>					
+					</div>
+					-->
 					
 				</div>		
 			

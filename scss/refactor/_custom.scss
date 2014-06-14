@@ -1,0 +1,99 @@
+/* ---------------------------
+12 Custom and Override CSS
+----------------------------*/
+
+///* Background */
+//body.black, .black #footer {
+//  color:#FFF;
+//}
+//
+//body.black, .black #footer, .black .pagination-next a, .black .pagination-prev a {
+//  background: #000;
+//}
+//
+//body.black, .black #footer, .black #container {
+//  color:#FFF;
+//}
+//
+//body.black #cover-left {
+//  background: transparent url(images/cover-left-black-small.gif) repeat-y right;
+//}
+//
+//body.black #cover-right {
+//  background: transparent url(images/cover-right-black-small.gif) repeat-y;
+//}
+//
+//
+//
+//.black #main {
+//  border-bottom: none;
+//}
+//
+//.black h1 a, .black h2 a, .black h1, .black h2, .black #content h1 a, .black #content .post .meta a{
+//  color: #fff;
+//}
+//
+//.black .float-left, .black .float-right, .black .center {
+//  background: transparent url(images/postbgblack.png) repeat;
+//}
+//
+//.float-left.blank,
+//.black .float-left.blank,
+//.float-right.blank
+//.black .float-right.blank,
+//.center.blank,
+//.black .center.blank {
+//  background: none;
+//}
+//
+//.black #footer h1, #footer h2, #footer h3, #footer h4{
+//  text-shadow: none;
+//}
+//
+//.black #sidebar ul li, .black #footer ul li, .black #content .contentBox ul li {
+//  border-bottom-color: #333;
+//}
+//
+//.black .pixelsscrolled, .black .textwidget, .black ul li {
+//  color:#777;
+//}
+//
+//.black #mainNav a {
+//  color: #fff;
+//}
+//
+//.black #mainNav a:hover {
+//  color: #ccc;
+//}
+//
+//body.white, .white #footer, .white .pagination-next a, .white .pagination-prev a {
+//  background: #fff;
+//}
+//
+//#footer .widget_tia_pixelscroll {
+//  width: 100%;
+//  clear:both;
+//  text-align:center;
+//}
+//
+//
+//.pixelsscrolled {
+//  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+//  font-size:24px;
+//  letter-spacing: -1px;
+//}
+//
+//.pixelsscrolled span#pixels {
+//  font-family:'LeagueGothicRegular', Arial, Helvetica, sans-serif;
+//  letter-spacing: 1px;
+//  font-size: 30px;
+//}
+
+.bg1 {
+  background-repeat:no-repeat;
+  background-position:right;
+  width: 500px;
+  background-size:100%;
+  overflow: hidden;
+  z-index: 10;
+}

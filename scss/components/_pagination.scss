@@ -1,0 +1,59 @@
+/* ---------------------------
+07 Pagination
+----------------------------*/
+
+.pagination {
+  //width: 980px;
+  padding: 10px 0 0 0;
+  clear: both;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pagination-prev a,
+.pagination-next a,
+.wp-pagenavi a,
+.wp-pagenavi .current,
+.wp-pagenavi .pages,
+.older-comments,
+.newer-comments {
+  line-height: 24px;
+  margin: 0 5px 0 0;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.pagination-prev a:hover,
+.pagination-next a:hover,
+.wp-pagenavi a:hover,
+.wp-pagenavi .current {
+  background: #edf3f9;
+}
+
+.pagination-prev a,
+.pagination-next a {
+  margin: 0px;
+  text-align:center;
+}
+
+.pagination-prev,
+.pagination-next {
+  width: auto;
+  margin: 0 30px;
+  display:inline;
+}
+
+.pagination-next {
+  float:left;
+}
+
+.pagination-prev {
+  float:right;
+}
+
+.wp-pagenavi .pages {
+  float: right;
+  margin: 0px;
+}

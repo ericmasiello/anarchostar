@@ -1,0 +1,34 @@
+/* ---------------------------
+11 Footer
+----------------------------*/
+
+.footer {
+
+  @extend .navbar;
+  top: initial !important;
+  bottom: 0;
+
+  .container {
+
+    padding-bottom: pxToEm( 7.5px, $fontSize_s ) !important;
+    padding-top: pxToEm( 7.5px, $fontSize_s ) !important;
+
+    @media (min-width: $mq_m) {
+
+      padding-bottom: pxToEm( 20px, $fontSize_m ) !important;
+      padding-top: pxToEm( 20px, $fontSize_m ) !important;
+      height: pxToEm( 75px, $fontSize_m );
+    }
+  }
+
+//  .container {
+//
+//    padding: pxToEm( 5px, $fontSize_s ) pxToEm( 20px, $fontSize_s );
+//    overflow: hidden;
+//
+//    @media (min-width: $mq_m) {
+//
+//      padding: pxToEm( 10px, $fontSize_m ) pxToEm( 40px, $fontSize_m )
+//    }
+//  }
+}

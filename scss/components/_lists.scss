@@ -1,0 +1,60 @@
+/*Lists------------------*/
+
+#content ul {
+  margin-bottom: 25px;
+  list-style:disc;
+  list-style-position:inside;
+}
+
+#content ul li {
+  margin: 0 0 10px 0;
+  padding: 0 0 0 20px;
+}
+
+#content ol li {
+  margin: 0 0 10px 0;
+}
+
+#content ol {
+  margin: 0 0 20px 20px;
+}
+
+#content ul ul,
+#content ol ul,
+#content ul ol,
+#content ol ol {
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
+
+.float-left,
+.float-right,
+.center {
+  //background: transparent url(images/postbgwhite.png) repeat;
+}
+
+
+
+@media screen and (min-width: 950px) {
+
+  .float-left {
+
+    float: left;
+    margin-right:7%
+  }
+
+  .float-right {
+
+    float: right;
+    margin-left:7%;
+  }
+}
+
+.post, .page {
+  background-position: 0 50%;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+.post img, .post object {max-width: 100%; height:auto}
