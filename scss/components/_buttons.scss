@@ -1,39 +1,39 @@
 /* ---------------------------
 08 Buttons
 ----------------------------*/
-
-#content .button,
-#sidebar .button,
-#footer .button,
-#searchsubmit  {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  background: #333 url(images/btn_bkg.png) repeat-x;
-  color: #fff!important;
-  display: inline-block;
-  text-decoration: none;
-  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  position: relative;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 4px 15px 5px;
-  margin: 0 5px 0 0;
-  border: 1px solid rgba(0,0,0,.25);
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-
-}
-
-.button.small,
-#searchsubmit {
-  padding: 4px 10px !important;
-  font-size: 11px !important;
-}
-
-#content .button:hover,
-#sidebar .button:hover,
-#footer .button:hover,
-#searchsubmit:hover {
-  background-color: #555;
-}
+//
+//#content .button,
+//#sidebar .button,
+//#footer .button,
+//#searchsubmit  {
+//  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//  font-size: 12px;
+//  background: #333 url(images/btn_bkg.png) repeat-x;
+//  color: #fff!important;
+//  display: inline-block;
+//  text-decoration: none;
+//  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+//  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+//  position: relative;
+//  cursor: pointer;
+//  font-weight: bold;
+//  padding: 4px 15px 5px;
+//  margin: 0 5px 0 0;
+//  border: 1px solid rgba(0,0,0,.25);
+//  -webkit-border-radius: 7px;
+//  -moz-border-radius: 7px;
+//
+//}
+//
+//.button.small,
+//#searchsubmit {
+//  padding: 4px 10px !important;
+//  font-size: 11px !important;
+//}
+//
+//#content .button:hover,
+//#sidebar .button:hover,
+//#footer .button:hover,
+//#searchsubmit:hover {
+//  background-color: #555;
+//}

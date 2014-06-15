@@ -1,0 +1,40 @@
+h1, h2, h3, h4, h5, h6 {
+
+  font-weight: $fontWeight;
+}
+
+h1, h2 {
+
+  margin: .5em 0;
+}
+
+.giga {
+
+  font-size: $gigaFontSize_s;
+  font-weight: $gigaFontWeight;
+
+  @media screen and (min-width: $mq_m){
+
+    font-size: $gigaFontSize_m;
+  }
+}
+
+small, .micro {
+
+  font-size: $microFontSize_s;
+
+  @media screen and (min-width: $mq_m){
+
+    font-size: $microFontSize_m;
+  }
+}
+
+.nano {
+
+  font-size: $nanoFontSize_s;
+
+  @media screen and (min-width: $mq_m){
+
+    font-size: $nanoFontSize_m;
+  }
+}
