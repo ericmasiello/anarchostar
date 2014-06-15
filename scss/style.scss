@@ -1,7 +1,11 @@
 $bgColor:     #000;
 $fontColor:   #fff;
 $linkColor:   $fontColor;
+$buttonColor: #2A4E3D;
 
+
+$fontFamily:  Helvetica, Tahoma, Arial, Sans-Serif;
+$fontWeight:    400;
 $fontSize_s:    14px;
 $fontSize_m:    20px;
 
@@ -31,6 +35,7 @@ $footer_height_m: 75px;
 @import 'util/reset';
 
 @import 'base/global';
+@import 'base/form';
 @import 'refactor/layout';
 
 @import 'components/header';
