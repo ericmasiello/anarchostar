@@ -1,4 +1,4 @@
-#logo {
+#logo a {
 
   background: url("images/astar.svg") no-repeat 0 0 transparent;
   background-size: contain;
@@ -6,6 +6,11 @@
   float: left;
   height: $logoHeight_s;
   width: $logoHeight_s;
+
+  > span {
+
+    @extend %visually-hidden-accessible;
+  }
 
   @media( min-width: $mq_m ){
 
@@ -17,10 +22,5 @@
 
     height: $logoHeight_l;
     width: $logoHeight_l;
-  }
-
-  > h1 {
-
-    @extend %visually-hidden-accessible;
   }
 }

@@ -18,23 +18,18 @@
     </style>
 
     <div <?php post_class('parallax-container'); ?>>
-
         <div class="inside clearfix">
             <div id="content" class="posts clearfix">
-
                 <div class="post">
                     <?php if(!is_front_page()):?>
                         <h1 class="giga"><?php the_title(); ?></h1>
                     <?php endif; ?>
-                        <?php while (have_posts()) : the_post(); ?>
+                    <?php while (have_posts()) : the_post(); ?>
                         <?php the_content(); ?>
                         <?php edit_post_link(' - Edit Page', ''); ?>
-                <?php endwhile; ?>
-                </div>
-            </div>
-            <br class="clearfix" />
-        </div>
-
-
-    </div>
+                    <?php endwhile; ?>
+                </div> <!-- /.post -->
+            </div> <!-- / .posts -->
+        </div> <!-- /.inside -->
+    </div> <!-- /.parallax-container -->
 <?php get_footer(); ?>

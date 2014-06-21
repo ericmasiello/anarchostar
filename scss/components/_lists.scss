@@ -1,32 +1,22 @@
 /*Lists------------------*/
 
-#content ul {
-  margin-bottom: 25px;
-  list-style:disc;
-  list-style-position:inside;
+/*ul*/.list--unstyled {
+
+  list-style-type: none;
 }
 
-#content ul li {
-  margin: 0 0 10px 0;
-  padding: 0 0 0 20px;
-}
+@media screen and (min-width: $mq_m) {
 
-#content ol li {
-  margin: 0 0 10px 0;
-}
+  .list--column-2 {
 
-#content ol {
-  margin: 0 0 20px 20px;
-}
+    column-count: 2;
+  }
 
-#content ul ul,
-#content ol ul,
-#content ul ol,
-#content ol ol {
-  margin-left: 20px;
-  padding-top: 10px;
-}
+  .list--column-3 {
 
+    column-count: 3;
+  }
+}
 
 .float-left,
 .float-right,

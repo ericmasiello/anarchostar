@@ -65,13 +65,21 @@
   margin: 0 auto;
 }
 
+.story {
+
+  .sc-container {
+
+    margin-bottom: 1em;
+  }
+}
+
 .story
 .float-left,
 .story
 .float-right,
 .story .center {
 
-  padding: 2em;
+  padding: 2em 2em 1em;
   position: relative;
 }
 
