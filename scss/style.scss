@@ -1,9 +1,17 @@
 $bgColor:     #000;
 $fontColor:   #fff;
 $linkColor:   $fontColor;
+$buttonColor: #2A4E3D;
 
+
+$fontFamily:  Helvetica, Tahoma, Arial, Sans-Serif;
+$fontWeight:    400;
 $fontSize_s:    14px;
 $fontSize_m:    20px;
+
+$gigaFontSize_s:     58px;
+$gigaFontSize_m:     84px;
+$gigaFontWeight:      200;
 
 $microFontSize_s:   14px;
 $microFontSize_m:   16px;
@@ -31,6 +39,8 @@ $footer_height_m: 75px;
 @import 'util/reset';
 
 @import 'base/global';
+@import 'base/type';
+@import 'base/form';
 @import 'refactor/layout';
 
 @import 'components/header';
@@ -40,7 +50,7 @@ $footer_height_m: 75px;
 @import 'components/post';
 @import 'components/comments';
 @import 'components/pagination';
-@import 'components/buttons';
+//@import 'components/buttons';
 @import 'components/sidebar';
 @import 'components/widgets';
 @import 'refactor/custom';

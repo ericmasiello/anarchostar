@@ -84,7 +84,7 @@ while ( have_posts() ) : the_post(); // Start the loop
 
 	if( has_post_thumbnail() ) : ?>
         
-        <div id="block<?php echo $i; ?>" <?php post_class('parallax-container'); ?>  style="background-image: url(<?php echo $src[0]; ?>); overflow: hidden; min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?><?php if ($lb_bgrepeat==true){echo " background-repeat:repeat;";} else {echo " background-repeat:no-repeat;";} ?><?php if ($bg_alignment==true){echo " background-position:".$bg_alignment.";";} ?>">
+        <div id="block<?php echo $i; ?>" <?php post_class('parallax-container'); ?>  style="background-image: url(<?php echo $src[0]; ?>); min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?><?php if ($lb_bgrepeat==true){echo " background-repeat:repeat;";} else {echo " background-repeat:no-repeat;";} ?><?php if ($bg_alignment==true){echo " background-position:".$bg_alignment.";";} ?>">
 
             <style type="text/css">
 
@@ -175,7 +175,7 @@ while ( have_posts() ) : the_post(); // Start the loop
 
     <?php else : ?>
 
-        <div id="block<?php echo $i; ?>" <?php $i++; ?> <?php post_class('parallax-container'); ?>  style="background-image: url(<?php echo $src[0]; ?>); overflow: hidden; min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?>">
+        <div id="block<?php echo $i; ?>" <?php $i++; ?> <?php post_class('parallax-container'); ?>  style="background-image: url(<?php echo $src[0]; ?>); min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?>">
             <div class="story">
             	<div class="<?php if($postAlignment) { echo $postAlignment; } ?> blank blockText" style="<?php if($noTextBackground){echo'background:none;';}  if($blockTextColor){echo ' color:', $blockTextColor;} ?>">
             		<h1><?php if(tia_get_option('tia_title_links_disabled')){ ?><?php the_title(); ?><?php } else { ?> <a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?> <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?></a> <?php } ?></h1>

@@ -467,14 +467,6 @@ if (class_exists('MultiPostThumbnails')) {
         'post_type' => $pPostType
         )
     );
-//   new MultiPostThumbnails(array(
-//        'label' => 'Extra Scrolling Image 2',
-//        'id' => 'extra-scrolling-image-2',
-//        'post_type' => $pPostType
-//        )
-//    );
-      
- 
 };
 
 //////////////////////////////////////////////////////////////

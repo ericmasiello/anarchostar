@@ -91,20 +91,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                    <?php $tia_logo = tia_get_option('tia_logo'); ?>
-                    <div id="logo">
-                    <?php if($tia_logo) : ?>
-                            <a href="<?php bloginfo('url'); ?>"><img src="<?php echo $tia_logo; ?>" alt="<?php bloginfo('name'); ?>" /></a>
-                    <?php else : ?>
-                            <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-                    <?php endif; ?>
-                    </div>
+                <?php $tia_logo = tia_get_option('tia_logo'); ?>
+                <div id="logo">
+                <?php if($tia_logo) : ?>
+                        <a href="<?php bloginfo('url'); ?>"><img src="<?php echo $tia_logo; ?>" alt="<?php bloginfo('name'); ?>" /></a>
+                <?php else : ?>
+                        <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+                <?php endif; ?>
+                </div>
 
-                    <?php include 'includes/parallax-nav.php'; ?>
+                <?php include 'includes/parallax-nav.php'; ?>
 
-                    <div id="mainNav" class="nav-collapse collapse">
-                            <?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
-                    </div>
+                <div id="mainNav" class="nav-collapse collapse">
+                        <?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
+                </div>
             </div>
          </div>
      </div>

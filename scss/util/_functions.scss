@@ -2,3 +2,12 @@
 
   @return ($px / $base)*1em;
 }
+
+@mixin formFieldPlaceholderText {
+
+  color: $fontColor;
+  font-size: $fontSize_s;
+  font-family: $fontFamily;
+  font-weight: $fontWeight;
+  font-size: 1em;
+}
