@@ -93,11 +93,7 @@
                 </a>
                 <?php $tia_logo = tia_get_option('tia_logo'); ?>
                 <div id="logo">
-                <?php if($tia_logo) : ?>
-                        <a href="<?php bloginfo('url'); ?>"><img src="<?php echo $tia_logo; ?>" alt="<?php bloginfo('name'); ?>" /></a>
-                <?php else : ?>
-                        <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-                <?php endif; ?>
+                    <h1><a href="<?php bloginfo('url'); ?>"><span><?php bloginfo('name'); ?></span></a></h1>
                 </div>
 
                 <?php include 'includes/parallax-nav.php'; ?>
