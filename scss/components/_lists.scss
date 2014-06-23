@@ -5,6 +5,27 @@
   list-style-type: none;
 }
 
+@mixin list--flat {
+
+  list-style-type: none;
+
+  > li {
+
+    float: left;
+    margin-left: .5em;
+
+    &:first-child {
+
+      margin-left: 0;
+    }
+  }
+}
+
+/*ul, ol*/.list--flat {
+
+  @include list--flat;
+}
+
 @media screen and (min-width: $mq_m) {
 
   .list--column-2 {

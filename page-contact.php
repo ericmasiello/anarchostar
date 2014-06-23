@@ -28,6 +28,9 @@
                         <?php the_content(); ?>
                         <?php edit_post_link(' - Edit Page', ''); ?>
                     <?php endwhile; ?>
+
+                    <?php include( TEMPLATEPATH . '/includes/socialNetworks.php'); ?>
+
                 </div> <!-- /.post -->
             </div> <!-- / .posts -->
         </div> <!-- /.inside -->

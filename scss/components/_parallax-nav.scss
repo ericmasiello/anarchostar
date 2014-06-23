@@ -31,7 +31,7 @@
   a {
 
     @extend %visually-hidden;
-    background: url("images/circle-open.svg") no-repeat center center transparent;
+    background: url("images/circle-open.min.svg") no-repeat center center transparent;
     background-size: contain;
     height: $logoHeight_s;
     width: 19px;
@@ -48,7 +48,7 @@
 
     &.active {
 
-      background-image: url("images/circle-closed.svg");
+      background-image: url("images/circle-closed.min.svg");
     }
   }
 }
