@@ -18,7 +18,8 @@ module.exports = function(grunt) {
     compass: require('./grunt/compass.js'),
     autoprefixer: require('./grunt/autoprefixer.js'),
     cssmin: require('./grunt/cssmin.js'),
-    clean: require('./grunt/clean.js')
+    clean: require('./grunt/clean.js'),
+    svgmin: require('./grunt/svgmin.js')
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -29,10 +30,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-svgmin');
 
   // Default task(s).
   grunt.registerTask('style', ['compass', 'autoprefixer', 'cssmin', 'clean:css']);
 
-  grunt.registerTask('default', ['style']);
+  grunt.registerTask('default', ['style', 'svgmin']);
 
 };
