@@ -86,12 +86,6 @@
     <div id="headerBar" class="navbar navbar-default">
         <div id="header" class="navbar-inner navbar-header">
             <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <?php $tia_logo = tia_get_option('tia_logo'); ?>
                 <div id="logo">
                     <h1><a href="<?php bloginfo('url'); ?>"><span><?php bloginfo('name'); ?></span></a></h1>
                 </div>
@@ -99,8 +93,9 @@
                 <?php include 'includes/parallax-nav.php'; ?>
 
                 <div id="mainNav" class="nav-collapse collapse">
-                        <?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
+                    <?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
                 </div>
+                <a href="#footerNav" class="mobile-nav-icon">Jump to Navigation</a>
             </div>
          </div>
      </div>
