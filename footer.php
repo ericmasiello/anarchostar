@@ -24,6 +24,10 @@
 			<p class="right"><?php if($footer_right){echo($footer_right);} else{ ?><a href="http://themespectrum.com" title="Theme Spectrum">Premium Wordpress Theme by Theme Spectrum</a><?php }; ?></p>-->
 		</div><!-- end footer secondary-->
 
+        <div id="footerNav" class="nav-collapse nav--footer">
+		    <?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
+		</div>
+
 	</div><!-- end footer -->	
 </div>
 <?php wp_footer(); ?>
