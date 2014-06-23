@@ -4,6 +4,7 @@
   float: left;
   list-style-type: none;
   margin-left: pxToEm( 30px, $fontSize_s );
+  margin-bottom: 0;
 
   @media( min-width: $mq_m ){
 
