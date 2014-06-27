@@ -19,7 +19,8 @@ module.exports = function(grunt) {
     autoprefixer: require('./grunt/autoprefixer.js'),
     cssmin: require('./grunt/cssmin.js'),
     clean: require('./grunt/clean.js'),
-    svgmin: require('./grunt/svgmin.js')
+    svgmin: require('./grunt/svgmin.js'),
+    stripmq: require('./grunt/stripmq.js')
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -31,9 +32,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-svgmin');
+  grunt.loadNpmTasks('grunt-stripmq');
 
   // Default task(s).
-  grunt.registerTask('style', ['compass', 'autoprefixer', 'cssmin', 'clean:css']);
+  grunt.registerTask('style', ['compass', 'autoprefixer', 'cssmin', 'clean:css', 'stripmq']);
 
   grunt.registerTask('default', ['style', 'svgmin']);
 
