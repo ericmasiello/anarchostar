@@ -1,26 +1,34 @@
-#logo a {
+#logo {
 
-  background: url("images/anarchostar.min.svg") no-repeat 0 0 transparent;
-  background-size: contain;
-  display: block;
-  float: left;
-  height: $logoHeight_s;
-  width: $logoHeight_s;
+  h1 {
 
-  > span {
-
-    @extend %visually-hidden-accessible;
+    margin: 0;
   }
 
-  @media( min-width: $mq_m ){
+  a {
 
-    height: $logoHeight_m;
-    width: $logoHeight_m;
-  }
+    background: url("images/anarchostar.min.svg") no-repeat 0 0 transparent;
+    background-size: contain;
+    display: block;
+    float: left;
+    height: $logoHeight_s;
+    width: $logoHeight_s;
 
-  @media( min-width: $mq_l ){
+    > span {
 
-    height: $logoHeight_l;
-    width: $logoHeight_l;
+      @extend %visually-hidden-accessible;
+    }
+
+    @media( min-width: $mq_m ){
+
+      height: $logoHeight_m;
+      width: $logoHeight_m;
+    }
+
+    @media( min-width: $mq_l ){
+
+      height: $logoHeight_l;
+      width: $logoHeight_l;
+    }
   }
 }

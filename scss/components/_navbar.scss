@@ -14,7 +14,7 @@
     padding: pxToEm( 5px, $fontSize_s ) pxToEm( 20px, $fontSize_s );
     overflow: hidden;
 
-    @media (min-width: $mq_m) {
+    @media (screen and min-width: $mq_m) {
 
       padding: pxToEm( 10px, $fontSize_m ) pxToEm( 40px, $fontSize_m )
     }
@@ -34,9 +34,14 @@
 
 .nav-collapse {
 
-  display: inline-block;
+  display: none;
   float: right;
   text-transform: uppercase;
+
+  @media (screen and min-width: $mq_m) {
+
+    display: inline-block;
+  }
 
   select { display: none; }
 
@@ -81,5 +86,50 @@
     &:hover{
 
     }
+  }
+}
+
+.nav--footer {
+
+  background-color: rgba(0,0,0,.85);
+  display: block;
+  float: none;
+
+  @media (screen and min-width: $mq_m) {
+
+    display: none;
+  }
+
+  .sf-menu {
+
+    > li {
+
+      margin-left: 0;
+      display: block;
+      float: none;
+      text-align: center;
+
+      a {
+
+        text-decoration: none;
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+.mobile-nav-icon {
+
+  background: url("images/menu.min.svg") no-repeat 0 0 transparent;
+  background-size: contain;
+  display: block;
+  float: right;
+  height: $logoHeight_s - 5;
+  width: $logoHeight_s - 5;
+  text-indent: -9999px;
+
+  @media (screen and min-width: $mq_m) {
+
+    display: none;
   }
 }

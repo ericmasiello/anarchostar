@@ -23,6 +23,10 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<?php
 
+	include 'scripts/Mobile_Detect.php';
+    $detect = new Mobile_Detect();
+    $isMobile = $detect->isMobile();
+
 	if ( is_home() || is_archive() ) {
 
         global $storyMarginTop;
@@ -31,21 +35,32 @@
         $parallaxHeight = tia_get_option('tia_default_height');
         $imgMarginTop = tia_get_option('tia_scrolling_img_margin_top');
         $storyMarginTop = tia_get_option('tia_story_margin_top');
-    }
 
-	include 'scripts/Mobile_Detect.php';
-	$detect = new Mobile_Detect();
-    $isMobile = $detect->isMobile();
-    ?>
-    <script type="text/javascript">
+
+        ?>
+        <script type="text/javascript">
+            window.ANARCHOSTAR = {
+                height: <?php echo $parallaxHeight; ?>,
+                storyBump: <?php echo $storyMarginTop; ?>,
+                trainerBump: <?php echo $imgMarginTop; ?>,
+                windowHeight: $(window).height(),
+                isMobile: <?php if( empty( $isMobile ) ){ echo 'false'; } else { echo 'true'; } ?>
+            };
+        </script><?php
+    } else {
+        ?>
+        <script type="text/javascript">
         window.ANARCHOSTAR = {
-            height: <?php echo $parallaxHeight; ?>,
-            storyBump: <?php echo $storyMarginTop; ?>,
-            trainerBump: <?php echo $imgMarginTop; ?>,
+            height: 0,
+            storyBump: 0,
+            trainerBump: 0,
             windowHeight: $(window).height(),
             isMobile: <?php if( empty( $isMobile ) ){ echo 'false'; } else { echo 'true'; } ?>
         };
-    </script>
+        </script><?php
+    }
+
+    ?>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/layout.js"></script>
 
     <?php if (!$detect->isMobile()) { ?>
@@ -86,12 +101,6 @@
     <div id="headerBar" class="navbar navbar-default">
         <div id="header" class="navbar-inner navbar-header">
             <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <?php $tia_logo = tia_get_option('tia_logo'); ?>
                 <div id="logo">
                     <h1><a href="<?php bloginfo('url'); ?>"><span><?php bloginfo('name'); ?></span></a></h1>
                 </div>
@@ -99,8 +108,9 @@
                 <?php include 'includes/parallax-nav.php'; ?>
 
                 <div id="mainNav" class="nav-collapse collapse">
-                        <?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
+                    <?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
                 </div>
+                <a href="#footerNav" class="mobile-nav-icon">Jump to Navigation</a>
             </div>
          </div>
      </div>
