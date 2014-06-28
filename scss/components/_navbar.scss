@@ -89,6 +89,13 @@
   }
 }
 
+$headerHeight_s: 50px;
+$headerHeight_m: 80px;
+$headerHeight_l: 90px;
+
+$footerHeight_s: 50px;
+$footerHeight_m: 75px;
+
 .nav--footer {
 
   background-color: rgba(0,0,0,.85);
@@ -97,9 +104,21 @@
   position: fixed;
   left: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
   z-index: 5;
+  top: $headerHeight_s;
+  bottom: $footerHeight_s;
+
+
+  @media( screen and min-width: $mq_m ){
+
+    top: $headerHeight_m;
+    bottom: $footerHeight_m;
+  }
+
+  @media( screen and min-width: $mq_l ){
+
+    top: $headerHeight_l;
+  }
 
   @media (screen and min-width: $mq_xxl) {
 
@@ -108,38 +127,66 @@
 
   .menu-main-menu-container {
 
-    display: table;
-    table-layout: fixed;
     height: 100%;
     margin: auto;
     width: 100%;
-    max-width: 1000px;
   }
 
   .sf-menu {
 
-    display: table-row;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    max-width: 1000px;
+    max-height: 1000px;
+    margin: auto;
+    justify-content: space-around;
 
     > li {
 
-      margin-left: 0;
-      display: table-cell;
-      float: none;
-      text-align: center;
-      vertical-align: middle;
+      margin: 0;
+      display: table;
+      width: 15em;
+      height: 15em;
+      margin: auto;
 
       a {
 
-        text-decoration: none;
+        display: table-cell;
         font-size: 1.5em;
-        line-height: 10em;
-        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
         border: 1px solid #fff;
-        border-radius: 10em;
-        display: inline-block;
+        border-radius: 100%;
       }
     }
   }
+
+//  .sf-menu {
+//
+//    display: table-row;
+//
+//    > li {
+//
+//      margin-left: 0;
+//      display: table-cell;
+//      float: none;
+//      text-align: center;
+//      vertical-align: middle;
+//
+//      a {
+//
+//        text-decoration: none;
+//        font-size: 1.5em;
+//        line-height: 10em;
+//        width: 100%;
+//        border: 1px solid #fff;
+//        border-radius: 10em;
+//        display: inline-block;
+//      }
+//    }
+//  }
 }
 
 .mobile-nav-icon {

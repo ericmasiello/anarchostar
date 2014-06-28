@@ -65,6 +65,7 @@
 
     ?>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/layout.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/mobile-nav.js"></script>
 
     <?php if (!$detect->isMobile()) { ?>
 
@@ -118,7 +119,7 @@
                 <div id="mainNav" class="nav-collapse collapse">
                     <?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
                 </div>
-                <a href="#footerNav" class="mobile-nav-icon">Jump to Navigation</a>
+                <a href="#footerNav" class="mobile-nav-icon  js-menu-icon">Jump to Navigation</a>
             </div>
          </div>
      </div>
