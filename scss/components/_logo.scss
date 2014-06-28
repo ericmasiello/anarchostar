@@ -4,14 +4,14 @@
 
   h1 {
 
+    display: table;
     margin: 0;
+
   }
 
   a {
 
-    display: block;
-    float: left;
-    text-indent: -99999px;
+    display: table-cell;
   }
 
   .logo {
@@ -21,13 +21,14 @@
     display: block;
     float: left;
     height: $logoHeight_s;
-    width: $logoHeight_s;
+    width: pxToEm($logoHeight_s, $fontSize_s);
   }
 
-  .text, .sep {
+  .text {
 
     display: block;
-    float: left;
+    text-indent: -99999px;
+    margin-left: pxToEm($logoHeight_s + 5, $fontSize_s);
   }
 
   @media( screen and min-width: $mq_m ){
@@ -42,17 +43,9 @@
 
       background: url("images/anarchostar-text.min.svg") no-repeat center center transparent;
       background-size: contain;
-      margin-left: pxToEm(5px, $fontSize_m);
+      margin-left: pxToEm($logoHeight_m + 5, $fontSize_m);
       height: $logoHeight_m;
       width: pxToEm(220px, $fontSize_m);
-    }
-
-    .sep {
-
-      border-left: 1px solid #fff;
-      height: pxToEm($logoHeight_m - 20, $fontSize_m);
-      margin-top: pxToEm(10px, $fontSize_m);
-      margin-left: pxToEm(30px, $fontSize_m);
     }
   }
 
@@ -66,14 +59,8 @@
 
     .text {
 
-      margin-left: pxToEm(10px, $fontSize_m);
+      margin-left: pxToEm($logoHeight_l + 10, $fontSize_m);
       height: $logoHeight_l;
-    }
-
-    .sep {
-
-      /*height: $logoHeight_l - 20;
-      margin-top: 15px;*/
     }
   }
 }
