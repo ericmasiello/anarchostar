@@ -1,5 +1,7 @@
 #logo {
 
+  float: left;
+
   h1 {
 
     margin: 0;
@@ -7,28 +9,71 @@
 
   a {
 
-    background: url("images/anarchostar.min.svg") no-repeat 0 0 transparent;
+    display: block;
+    float: left;
+    text-indent: -99999px;
+  }
+
+  .logo {
+
+    background: url("images/anarchostar.min.svg") no-repeat left center transparent;
     background-size: contain;
     display: block;
     float: left;
     height: $logoHeight_s;
     width: $logoHeight_s;
+  }
 
-    > span {
+  .text, .sep {
 
-      @extend %visually-hidden-accessible;
-    }
+    display: block;
+    float: left;
+  }
 
-    @media( min-width: $mq_m ){
+  @media( screen and min-width: $mq_m ){
+
+    .logo {
 
       height: $logoHeight_m;
       width: $logoHeight_m;
     }
 
-    @media( min-width: $mq_l ){
+    .text {
+
+      background: url("images/anarchostar-text.min.svg") no-repeat center center transparent;
+      background-size: contain;
+      margin-left: pxToEm(5px, $fontSize_m);
+      height: $logoHeight_m;
+      width: pxToEm(220px, $fontSize_m);
+    }
+
+    .sep {
+
+      border-left: 1px solid #fff;
+      height: pxToEm($logoHeight_m - 20, $fontSize_m);
+      margin-top: pxToEm(10px, $fontSize_m);
+      margin-left: pxToEm(30px, $fontSize_m);
+    }
+  }
+
+  @media( screen and min-width: $mq_l ){
+
+    .logo {
 
       height: $logoHeight_l;
       width: $logoHeight_l;
+    }
+
+    .text {
+
+      margin-left: pxToEm(10px, $fontSize_m);
+      height: $logoHeight_l;
+    }
+
+    .sep {
+
+      /*height: $logoHeight_l - 20;
+      margin-top: 15px;*/
     }
   }
 }

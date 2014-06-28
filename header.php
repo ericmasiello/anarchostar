@@ -105,7 +105,12 @@
         <div id="header" class="navbar-inner navbar-header">
             <div class="container">
                 <div id="logo">
-                    <h1><a href="<?php bloginfo('url'); ?>"><span><?php bloginfo('name'); ?></span></a></h1>
+                    <h1><a href="<?php bloginfo('url'); ?>">
+                        <span class="logo"></span>
+                        <span class="text"><?php bloginfo('name'); ?></span>
+                        </a>
+                        <span class="sep"></span>
+                    </h1>
                 </div>
 
                 <?php include 'includes/parallax-nav.php'; ?>

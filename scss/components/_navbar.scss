@@ -38,7 +38,7 @@
   float: right;
   text-transform: uppercase;
 
-  @media (screen and min-width: $mq_m) {
+  @media (screen and min-width: $mq_xxl) {
 
     display: inline-block;
   }
@@ -94,25 +94,49 @@
   background-color: rgba(0,0,0,.85);
   display: block;
   float: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
 
-  @media (screen and min-width: $mq_m) {
+  @media (screen and min-width: $mq_xxl) {
 
     display: none;
   }
 
+  .menu-main-menu-container {
+
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    margin: auto;
+    width: 100%;
+    max-width: 1000px;
+  }
+
   .sf-menu {
+
+    display: table-row;
 
     > li {
 
       margin-left: 0;
-      display: block;
+      display: table-cell;
       float: none;
       text-align: center;
+      vertical-align: middle;
 
       a {
 
         text-decoration: none;
         font-size: 1.5em;
+        line-height: 10em;
+        width: 100%;
+        border: 1px solid #fff;
+        border-radius: 10em;
+        display: inline-block;
       }
     }
   }
@@ -120,15 +144,26 @@
 
 .mobile-nav-icon {
 
-  background: url("images/menu.min.svg") no-repeat 0 0 transparent;
+  background: url("images/menu.min.svg") no-repeat center center transparent;
   background-size: contain;
   display: block;
   float: right;
-  height: $logoHeight_s - 5;
-  width: $logoHeight_s - 5;
+  height: $logoHeight_s;
+  width: $logoHeight_s - 15;
   text-indent: -9999px;
 
-  @media (screen and min-width: $mq_m) {
+  @media( screen and min-width: $mq_m ){
+
+    height: $logoHeight_m;
+    width: $logoHeight_s - 5;
+  }
+
+  @media( screen and min-width: $mq_l ){
+
+    height: $logoHeight_l;
+  }
+
+  @media (screen and min-width: $mq_xxl) {
 
     display: none;
   }
