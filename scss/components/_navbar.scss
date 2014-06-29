@@ -106,13 +106,22 @@ $footerHeight_m: 75px;
   right: 0;
   z-index: 5;
   top: $headerHeight_s;
-  bottom: $footerHeight_s;
+  bottom: 0;
+
+  .home & {
+
+    bottom: $footerHeight_s;
+  }
 
 
   @media( screen and min-width: $mq_m ){
 
     top: $headerHeight_m;
-    bottom: $footerHeight_m;
+
+    .home & {
+
+      bottom: $footerHeight_m;
+    }
   }
 
   @media( screen and min-width: $mq_l ){
@@ -141,6 +150,11 @@ $footerHeight_m: 75px;
     max-height: 1000px;
     margin: auto;
     justify-content: space-around;
+
+    @media( screen and min-width: $mq_m ){
+
+      flex-flow: row;
+    }
 
     > li {
 
