@@ -6,6 +6,7 @@
 
     display: table;
     margin: 0;
+    //font-size: ; //reset the size back to body size
 
   }
 
@@ -20,13 +21,19 @@
     background-size: contain;
     display: block;
     float: left;
-    height: $logoHeight_s;
+    height: pxToEm($logoHeight_s, $fontSize_s);
     width: pxToEm($logoHeight_s, $fontSize_s);
+    left: $logoHeight_s;
+    right: $fontSize_s;
   }
 
   .text {
 
+    background: url("images/anarchostar-text.min.svg") no-repeat center center transparent;
+    background-size: contain;
     display: block;
+    height: pxToEm($logoHeight_s, $fontSize_s);
+    width: pxToEm(200px, $fontSize_s);
     text-indent: -99999px;
     margin-left: pxToEm($logoHeight_s + 5, $fontSize_s);
   }
@@ -35,16 +42,14 @@
 
     .logo {
 
-      height: $logoHeight_m;
-      width: $logoHeight_m;
+      height: pxToEm($logoHeight_m, $fontSize_m);
+      width: pxToEm($logoHeight_m, $fontSize_m);
     }
 
     .text {
 
-      background: url("images/anarchostar-text.min.svg") no-repeat center center transparent;
-      background-size: contain;
       margin-left: pxToEm($logoHeight_m + 5, $fontSize_m);
-      height: $logoHeight_m;
+      height: pxToEm($logoHeight_m, $fontSize_m);
       width: pxToEm(220px, $fontSize_m);
     }
   }
@@ -53,14 +58,14 @@
 
     .logo {
 
-      height: $logoHeight_l;
-      width: $logoHeight_l;
+      height: pxToEm($logoHeight_l, $fontSize_m);
+      width: pxToEm($logoHeight_l, $fontSize_m);
     }
 
     .text {
 
       margin-left: pxToEm($logoHeight_l + 10, $fontSize_m);
-      height: $logoHeight_l;
+      height: pxToEm($logoHeight_l, $fontSize_m);
     }
   }
 }

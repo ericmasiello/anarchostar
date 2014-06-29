@@ -11,12 +11,12 @@
 
   .container {
 
-    padding: pxToEm( 5px, $fontSize_s ) pxToEm( 20px, $fontSize_s );
+    padding: pxToEm( 10px, $fontSize_s ) pxToEm( 20px, $fontSize_s );
     overflow: hidden;
 
     @media (screen and min-width: $mq_m) {
 
-      padding: pxToEm( 10px, $fontSize_m ) pxToEm( 40px, $fontSize_m )
+      padding: pxToEm( 15px, $fontSize_m ) pxToEm( 40px, $fontSize_m )
     }
   }
 
@@ -91,7 +91,7 @@
 
 $headerHeight_s: 50px;
 $headerHeight_m: 80px;
-$headerHeight_l: 90px;
+$headerHeight_l: 100px;
 
 $footerHeight_s: 50px;
 $footerHeight_m: 75px;
