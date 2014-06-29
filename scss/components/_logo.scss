@@ -29,13 +29,21 @@
 
   .text {
 
-    background: url("images/anarchostar-text.min.svg") no-repeat center center transparent;
-    background-size: contain;
-    display: block;
-    height: pxToEm($logoHeight_s, $fontSize_s);
-    width: pxToEm(200px, $fontSize_s);
-    text-indent: -99999px;
-    margin-left: pxToEm($logoHeight_s + 5, $fontSize_s);
+    display: none;
+  }
+
+  @media( screen and min-width: $mq_s ){
+
+    .text {
+
+      background: url("images/anarchostar-text.min.svg") no-repeat center center transparent;
+      background-size: contain;
+      display: block;
+      height: pxToEm($logoHeight_s, $fontSize_s);
+      width: pxToEm(200px, $fontSize_s);
+      text-indent: -99999px;
+      margin-left: pxToEm($logoHeight_s + 5, $fontSize_s);
+    }
   }
 
   @media( screen and min-width: $mq_m ){
