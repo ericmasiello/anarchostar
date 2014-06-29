@@ -108,7 +108,6 @@
     bottom: $footer_height_s;
   }
 
-
   @media( screen and min-width: $mq_m ){
 
     top: $headerHeight_m;
@@ -146,7 +145,7 @@
     margin: auto;
     justify-content: space-around;
 
-    @media( screen and min-width: $mq_m ){
+    @media( screen and min-width: $mq_s ){
 
       flex-flow: row;
     }
@@ -207,6 +206,12 @@
   height: $logoHeight_s;
   width: $logoHeight_s - 15;
   text-indent: -9999px;
+
+  &.is-open {
+
+    background-image: url("images/close.min.svg");
+    background-size: initial;
+  }
 
   @media( screen and min-width: $mq_m ){
 
