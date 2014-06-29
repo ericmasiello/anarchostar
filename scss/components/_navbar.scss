@@ -89,12 +89,7 @@
   }
 }
 
-$headerHeight_s: 50px;
-$headerHeight_m: 80px;
-$headerHeight_l: 100px;
 
-$footerHeight_s: 50px;
-$footerHeight_m: 75px;
 
 .nav--footer {
 
@@ -110,7 +105,7 @@ $footerHeight_m: 75px;
 
   .home & {
 
-    bottom: $footerHeight_s;
+    bottom: $footer_height_s;
   }
 
 
@@ -120,7 +115,7 @@ $footerHeight_m: 75px;
 
     .home & {
 
-      bottom: $footerHeight_m;
+      bottom: $footer_height_m;
     }
   }
 
