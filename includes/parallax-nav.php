@@ -31,6 +31,7 @@ if( tia_get_option('tia_reorder_enabled') && !is_page() ) {
     ?>
 
     <ul id="nav" class="parallax-nav"> <!-- post nav -->
+    <li><span class="sep"></span></li>
     <?php
     $i = 1; while ( have_posts() ) : the_post();
 

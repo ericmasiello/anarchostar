@@ -17,6 +17,7 @@
 
     display: table-cell;
     padding-left: pxToEm( 15px, $fontSize_s );
+    vertical-align: middle;
 
     @media( min-width: $mq_m ) {
 
@@ -26,6 +27,30 @@
     &:first-child {
 
       padding-left: 0;
+      padding-right: pxToEm( 10px, $fontSize_s );
+
+      @media( min-width: $mq_m ) {
+
+        padding-right: pxToEm( 10px, $fontSize_m );
+      }
+    }
+  }
+
+  .sep {
+
+    border-left: 1px solid #fff;
+    display: block;
+
+    height: pxToEm( $logoHeight_s - 30, $fontSize_s);
+
+    @media( min-width: $mq_m ){
+
+      height: pxToEm( $logoHeight_m - 30, $fontSize_m);
+    }
+
+    @media( min-width: $mq_l ){
+
+      height: pxToEm( $logoHeight_l - 30, $fontSize_m);
     }
   }
 
@@ -34,22 +59,24 @@
     @extend %visually-hidden;
     background: url("images/circle-open.min.svg") no-repeat center center transparent;
     background-size: contain;
-    height: $logoHeight_s;
-    width: 19px;
-
-    @media( min-width: $mq_m ){
-
-      height: $logoHeight_m;
-    }
-
-    @media( min-width: $mq_l ){
-
-      height: $logoHeight_l;
-    }
+    width: pxToEm(19px, $fontSize_s);
+    height: pxToEm($logoHeight_s, $fontSize_s);
 
     &.active {
 
       background-image: url("images/circle-closed.min.svg");
+    }
+
+    @media( min-width: $mq_m ){
+
+      width: pxToEm(19px, $fontSize_m);
+      height: pxToEm($logoHeight_m, $fontSize_m);
+    }
+
+    @media( min-width: $mq_l ){
+
+      width: pxToEm(19px, $fontSize_m);
+      height: pxToEm($logoHeight_l, $fontSize_m);
     }
   }
 }

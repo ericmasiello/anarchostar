@@ -6,7 +6,7 @@ $buttonColor: #2A4E3D;
 
 $fontFamily:  Helvetica, Tahoma, Arial, Sans-Serif;
 $fontWeight:    400;
-$fontSize_s:    14px;
+$fontSize_s:    16px;
 $fontSize_m:    20px;
 
 $gigaFontSize_s:     58px;
@@ -22,6 +22,7 @@ $nanoFontSize_m:   14px;
 
 $lineHeight:  1.3em;
 
+$mq_xs:       400px;
 $mq_s:        500px;
 $mq_m:        768px;
 $mq_l:        1024px;
@@ -29,11 +30,16 @@ $mq_xl:       1200px;
 $mq_xxl:      1400px;
 
 $logoHeight_s: 40px;
-$logoHeight_m: 65px;
-$logoHeight_l: 80px;
+$logoHeight_m: 60px;
+$logoHeight_l: 70px;
 
 $footer_height_s: 50px;
 $footer_height_m: 75px;
+
+$headerHeight_s: 50px;
+$headerHeight_m: 80px;
+$headerHeight_l: 100px;
+
 
 @import 'util/functions';
 @import 'util/reset';
