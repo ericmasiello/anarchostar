@@ -58,6 +58,22 @@
       display: block;
     }
   }
+
+  .bg1-image {
+
+    display: block;
+
+    @media screen and (min-width: $mq_m) {
+
+      min-width: pxToEm( 500px, $fontSize_m );
+      width: 50%;
+    }
+
+    @media screen and (min-height: 800px) and (min-width: $mq_m) {
+
+      display: none;
+    }
+  }
 }
 
 .inside {

@@ -57,6 +57,10 @@ while ( have_posts() ) : the_post(); // Start the loop
     $imgOffsetY = get_post_meta($post->ID, "_tia_offset_y_scrolling_image", true);
     $imgOffsetX = get_post_meta($post->ID, "_tia_offset_x_scrolling_image", true);
 
+
+    $textOffsetYSmall = get_post_meta($post->ID, "_tia_offset_y_block_text_small", true);
+    $textOffsetXSmall = get_post_meta($post->ID, "_tia_offset_x_block_text_small", true);
+
     $textOffsetY = get_post_meta($post->ID, "_tia_offset_y_block_text", true);
     $textOffsetX = get_post_meta($post->ID, "_tia_offset_x_block_text", true);
 
@@ -74,6 +78,9 @@ while ( have_posts() ) : the_post(); // Start the loop
 
     $soundCloudPost = get_post_meta($post->ID, "_sc_post_url", true);
 
+    $textOffsetYSmall = applyDefaultAndUnitToOffsetValues($textOffsetYSmall);
+    $textOffsetXSmall = applyDefaultAndUnitToOffsetValues($textOffsetXSmall);
+
     $imgOffsetY = applyDefaultAndUnitToOffsetValues($imgOffsetY);
     $imgOffsetX = applyDefaultAndUnitToOffsetValues($imgOffsetX);
     $textOffsetY = applyDefaultAndUnitToOffsetValues($textOffsetY);
@@ -84,9 +91,15 @@ while ( have_posts() ) : the_post(); // Start the loop
 
 	if( has_post_thumbnail() ) : ?>
         
-        <div id="block<?php echo $i; ?>" <?php post_class('parallax-container'); ?>  style="background-image: url(<?php echo $src[0]; ?>); min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?><?php if ($lb_bgrepeat==true){echo " background-repeat:repeat;";} else {echo " background-repeat:no-repeat;";} ?><?php if ($bg_alignment==true){echo " background-position:".$bg_alignment.";";} ?>">
+        <div id="block<?php echo $i; ?>" <?php post_class('parallax-container'); ?>  style="background-image: url(<?php echo $src[0]; ?>); min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?><?php if ($lb_bgrepeat==true){echo " background-repeat:repeat; background-size: initial";} else {echo " background-repeat:no-repeat;";} ?><?php if ($bg_alignment==true){echo " background-position:".$bg_alignment.";";} ?>">
 
             <style type="text/css">
+
+                #block<?php echo $i; ?> .blockText {
+
+                    margin-left: <?php echo $textOffsetXSmall; ?>;
+                    margin-top: <?php echo $textOffsetYSmall; ?>;
+                }
 
                 @media screen and (min-height: 800px) and (min-width: 768px) {
                     #block<?php echo $i; ?> .blockText {
@@ -131,6 +144,8 @@ while ( have_posts() ) : the_post(); // Start the loop
                             <div class="<?php echo 'bg'.$m ?>" style="background-image: url(<?php echo $image_feature_url[0]; ?>); min-height:<?php echo $setParallaxHeight; ?>px; height:<?php echo $setParallaxHeight; ?>px;">
                                 &nbsp;
                             </div>
+
+                            <img src="<?php echo $image_feature_url[0]; ?>" class="bg1-image" />
                         <?php } // endif
                         $m++;
                     } // end while
@@ -144,6 +159,8 @@ while ( have_posts() ) : the_post(); // Start the loop
                 } ?>
 
         	    <div class="<?php if($postAlignment) { echo $postAlignment; } elseif ($alignment) { echo ' float-right'; } else { echo ' float-left';} ?> blockText">
+
+
             	    <h1><?php if(tia_get_option('tia_title_links_disabled')){ ?><?php the_title(); ?><?php } else { ?> <a href="<?php the_permalink() ?>" rel="bookmark" <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?>><?php the_title(); ?></a> <?php } ?></h1>
 
 				    <?php if(!tia_get_option('tia_author_credit_disabled')){ ?>
