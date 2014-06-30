@@ -156,11 +156,15 @@
     });
 
     firstBlockId = $('.inview').first().attr('id');
-    firstBlockLink = firstBlockId.replace("block","li#blockLink") + ' a' ;
+    if( firstBlockId ){
 
-    this._removeActive();
+      firstBlockLink = firstBlockId.replace("block","li#blockLink") + ' a' ;
 
-    $( firstBlockLink ).addClass("active");
+      this._removeActive();
+
+      $( firstBlockLink ).addClass("active");
+    }
+
   };
 
   $(document).ready(function(){
