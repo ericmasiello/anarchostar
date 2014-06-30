@@ -38,7 +38,7 @@
   float: right;
   text-transform: uppercase;
 
-  @media (screen and min-width: $mq_xxl) {
+  @media (screen and min-width: $mq_xxxl) {
 
     display: inline-block;
   }
@@ -123,7 +123,7 @@
     top: $headerHeight_l;
   }
 
-  @media (screen and min-width: $mq_xxl) {
+  @media (screen and min-width: $mq_xxxl) {
 
     display: none;
   }
@@ -224,7 +224,7 @@
     height: $logoHeight_l;
   }
 
-  @media (screen and min-width: $mq_xxl) {
+  @media (screen and min-width: $mq_xxxl) {
 
     display: none;
   }

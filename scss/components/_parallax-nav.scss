@@ -6,7 +6,7 @@
   margin-left: pxToEm( 30px, $fontSize_s );
   margin-bottom: 0;
 
-  @media( min-width: $mq_m ){
+  @media( min-width: $mq_l ){
 
     margin-left: pxToEm( 30px, $fontSize_m );
     display: table;
@@ -16,23 +16,15 @@
   > li {
 
     display: table-cell;
-    padding-left: pxToEm( 15px, $fontSize_s );
+    padding-left: pxToEm( 15px, $fontSize_m );
     vertical-align: middle;
 
-    @media( min-width: $mq_m ) {
-
-      padding-left: pxToEm( 15px, $fontSize_m );
-    }
 
     &:first-child {
 
       padding-left: 0;
       padding-right: pxToEm( 10px, $fontSize_s );
-
-      @media( min-width: $mq_m ) {
-
-        padding-right: pxToEm( 10px, $fontSize_m );
-      }
+      padding-right: pxToEm( 10px, $fontSize_m );
     }
   }
 
@@ -41,17 +33,7 @@
     border-left: 1px solid #fff;
     display: block;
 
-    height: pxToEm( $logoHeight_s - 30, $fontSize_s);
-
-    @media( min-width: $mq_m ){
-
-      height: pxToEm( $logoHeight_m - 30, $fontSize_m);
-    }
-
-    @media( min-width: $mq_l ){
-
-      height: pxToEm( $logoHeight_l - 30, $fontSize_m);
-    }
+    height: pxToEm( $logoHeight_l - 30, $fontSize_m);
   }
 
   a {
@@ -67,16 +49,7 @@
       background-image: url("images/circle-closed.min.svg");
     }
 
-    @media( min-width: $mq_m ){
-
-      width: pxToEm(19px, $fontSize_m);
-      height: pxToEm($logoHeight_m, $fontSize_m);
-    }
-
-    @media( min-width: $mq_l ){
-
-      width: pxToEm(19px, $fontSize_m);
-      height: pxToEm($logoHeight_l, $fontSize_m);
-    }
+    width: pxToEm(19px, $fontSize_m);
+    height: pxToEm($logoHeight_l, $fontSize_m);
   }
 }
