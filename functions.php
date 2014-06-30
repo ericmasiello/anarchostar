@@ -420,12 +420,29 @@ if (is_admin()){
   $my_meta_side->addColor($prefix.'lb_bgcolor_value',array('name'=> 'Background Color '));
   
   $my_meta_side->Finish();
-   
+
+  $config_small = array(
+      'id' => 'parallax_meta_box_small',          // meta box id, unique per meta box
+      'title' => 'Content Display (Small Screens)',          // meta box title
+      'pages' => array($pPostType),      // post types, accept custom post types as well, default is array('post'); optional
+      'context' => 'normal',            // where the meta box appear: normal (default), advanced, side; optional
+      'priority' => 'high',            // order of meta box: high (default), low; optional
+      'fields' => array(),            // list of meta fields (can be added by field arrays)
+      'local_images' => false,          // Use local or hosted images (meta box images for add/remove)
+      'use_with_theme' => true          //change path if used with theme set to true, false for a plugin or anything else for a custom path(default false).
+    );
+
+  $my_meta_small =  new AT_Meta_Box($config_small);
+
+  $my_meta_small->addText($prefix.'offset_x_block_text_small',array('name'=> 'Left offset for text.'));
+  $my_meta_small->addText($prefix.'offset_y_block_text_small',array('name'=> 'Top offset for text.'));
+
+  $my_meta_small->Finish();
    
    // configure meta box
   $config = array(
     'id' => 'parallax_meta_box',          // meta box id, unique per meta box
-    'title' => 'Parallax Options',          // meta box title
+    'title' => 'Content Display (Minimum Height 800px, Minimum Width: 768px)',          // meta box title
     'pages' => array($pPostType),      // post types, accept custom post types as well, default is array('post'); optional
     'context' => 'normal',            // where the meta box appear: normal (default), advanced, side; optional
     'priority' => 'high',            // order of meta box: high (default), low; optional
@@ -433,29 +450,16 @@ if (is_admin()){
     'local_images' => false,          // Use local or hosted images (meta box images for add/remove)
     'use_with_theme' => true          //change path if used with theme set to true, false for a plugin or anything else for a custom path(default false).
   );
-  
+
   $my_meta =  new AT_Meta_Box($config);
 
   $my_meta->addText($prefix.'offset_x_scrolling_image',array('name'=> 'Left offset scrolling image.'));
   $my_meta->addText($prefix.'offset_y_scrolling_image',array('name'=> 'Top offset scrolling image.'));
   $my_meta->addText($prefix.'offset_x_block_text',array('name'=> 'Left offset for text.'));
   $my_meta->addText($prefix.'offset_y_block_text',array('name'=> 'Top offset for text.'));
-  
-  //radio field
-  //$my_meta->addRadio($prefix.'post_alignment_value',array('float-left'=>'Align Left','center'=>'Align Center','float-right'=>'Align Right'),array('name'=> 'Choose the alignment of the Parallax text block for this post.', 'std'=> array('float-left')));
-
-  //checkbox field
-  //$my_meta->addCheckbox($prefix.'no_text_background_value',array('name'=> 'Check this box to hide the background box for this post.'));
-  
-  //Color field
-  //$my_meta->addColor($prefix.'block_text_color_value',array('name'=> 'Change the color of the Parallax text for this post.'));
-  
-    //Color field
-  //$my_meta->addColor($prefix.'override_anchor_color_value',array('name'=> 'Override the anchor/link color for this post.'));
 
   //Finish Meta Box Decleration
   $my_meta->Finish();
-
 }
 
 if (class_exists('MultiPostThumbnails')) {
