@@ -33,6 +33,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-svgmin');
   grunt.loadNpmTasks('grunt-stripmq');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
 
   // Default task(s).
   grunt.registerTask('style', ['compass', 'autoprefixer', 'cssmin', 'clean:css', 'stripmq']);

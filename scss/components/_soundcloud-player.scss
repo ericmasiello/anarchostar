@@ -68,7 +68,7 @@ svg {
 
 .sc-controls {
 
-  display: table-cell;
+  //display: table-cell;
   //only needs to be wide enough for the play/pause control
   width: 35px;
 
@@ -146,14 +146,16 @@ svg {
 
 .sc-player {
 
-  display: table;
+  //display: table;
   width: 100%;
   height: pxToEm( 35px, $fontSize_s );
+  padding-bottom: pxToEm( 45px, $fontSize_s );
   position: relative;
 
   @media screen and (min-width: $mq_m) {
 
     height: pxToEm( 35px, $fontSize_m );
+    padding-bottom: pxToEm( 45px, $fontSize_m );
   }
 
   &.loading {
@@ -255,30 +257,39 @@ svg {
     }
   }
 
-  .sc-track-duration,
-  .sc-time-indicators {
-
-    @extend .nano;
-    bottom: pxToEm( 30px, $fontSize_s );
-    position: absolute;
-    right: 0;
-
-    @media screen and (min-width: $mq_m) {
-
-      bottom: pxToEm( 30px, $fontSize_m );
-    }
-  }
-
   .sc-track-duration {
 
-    .playing & {
-
-      display: none;
-    }
+    display: none;
   }
 
   .sc-info,
   .sc-info-toggle {
 
     display: none;
+  }
+
+  .sc-timebar {
+
+    .playing & {
+
+      display: block;
+    }
+
+    background-color: rgba(255,255,255,.25);
+    bottom: 0;
+    display: none;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 2px;
+
+    .time {
+
+      background: #fff;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 2px;
+      transition: width .25s;
+    }
   }
