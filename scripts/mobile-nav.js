@@ -51,11 +51,10 @@
       var windowWidth = $(document).width();
       windowWidth = ( windowWidth < MENU_MAX_WIDTH ) ? windowWidth : MENU_MAX_WIDTH;
       var menuLength = this._$mobileNav.find(".menu-item").length;
-      var size = ( windowWidth >= MQ_S ) ? (windowWidth)/menuLength - ( SPACER_SIZE * (menuLength-1) ) : (this._$mobileNav.height())/menuLength  - ( SPACER_SIZE * (menuLength-1) );
+      var size = ( windowWidth >= MQ_S ) ? (windowWidth)/menuLength - ( SPACER_SIZE * (menuLength-1) ) : (windowWidth)/2  - ( SPACER_SIZE * (menuLength-1) );
 
       size = ( windowWidth >= MQ_S && size > MAX_SIZE_M ) ? MAX_SIZE_M : ( windowWidth < MQ_S && size > MAX_SIZE_S ? MAX_SIZE_S : size )
-      //size = ( size > MAX_SIZE_S ) ? MAX_SIZE_S : size;
-      this._$mobileNav.show().find(".menu-item").css({"height": size + 'px', "width": size + 'px'})
+      this._$mobileNav.show().find(".menu-item a").css({"height": size + 'px', "width": size + 'px'})
 
       this._$menuIcon.toggleClass( CSS_OPEN_CLASS );
       e.preventDefault()

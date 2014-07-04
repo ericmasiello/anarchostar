@@ -84,7 +84,7 @@ svg {
 
     @media screen and (min-width: $mq_m) {
 
-      left: pxToEm( 20px, $fontSize_m );
+      left: pxToEm( 40px, $fontSize_m );
       width: pxToEm( 115px, $fontSize_m );
     }
   }
