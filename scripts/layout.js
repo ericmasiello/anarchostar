@@ -35,7 +35,7 @@
   Layout.prototype._setHeaderOffset = function(){
 
     $("#container").css("margin-top", this._headerHeight );
-    $("body").css("padding-bottom", this._footerHeight );
+    $("body").css("padding-bottom", this._footerHeight - 25 );
   };
 
   Layout.prototype._bindEvents = function(){
