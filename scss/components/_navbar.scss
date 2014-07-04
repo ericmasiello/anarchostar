@@ -130,33 +130,46 @@
 
   .menu-main-menu-container {
 
+    display: table;
     height: 100%;
     margin: auto;
     width: 100%;
+
+    @media( screen and min-width: $mq_s ){
+
+      display: block;
+    }
   }
 
   .sf-menu {
 
-    display: flex;
-    flex-flow: column;
+    display: table-cell;
     height: 100%;
     max-width: 1000px;
     max-height: 1000px;
     margin: auto;
-    justify-content: space-around;
+    text-align: center;
+    vertical-align: middle;
 
     @media( screen and min-width: $mq_s ){
 
+      display: flex;
       flex-flow: row;
+      justify-content: space-around;
     }
 
     > li {
 
       margin: 0;
-      display: table;
-      width: 15em;
-      height: 15em;
+      display: inline-block;
       margin: auto;
+      float: none;
+
+      @media( screen and min-width: $mq_s ){
+
+        display: table;
+        float: left;
+      }
 
       a {
 
