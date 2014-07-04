@@ -226,9 +226,9 @@ endwhile;
 
 if ( empty($cat_data['soundcloud-playlist-url']) != true ){ ?>
     <div class="footer">
-        <div class="container">
+        <!--<div class="container">-->
             <a class="sc-player" href="<?php echo $cat_data['soundcloud-playlist-url']; ?>"></a>
-        </div>
+        <!--</div>-->
     </div>
 <?php
 }

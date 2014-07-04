@@ -11,21 +11,21 @@
 
 .sc-previous {
 
-  margin-right: pxToEm( 10px, $fontSize_s );
+  margin-right: pxToEm( 20px, $fontSize_s );
 
   @media screen and (min-width: $mq_m) {
 
-    margin-right: pxToEm( 5px, $fontSize_m );
+    margin-right: pxToEm( 20px, $fontSize_m );
   }
 }
 
 .sc-next {
 
-  margin-left: pxToEm( 10px, $fontSize_s );
+  margin-left: pxToEm( 20px, $fontSize_s );
 
   @media screen and (min-width: $mq_m) {
 
-    margin-left: pxToEm( 5px, $fontSize_m );
+    margin-left: pxToEm( 20px, $fontSize_m );
   }
 }
 
@@ -68,18 +68,20 @@ svg {
 
 .sc-controls {
 
-  display: table-cell;
+  //display: table-cell;
   //only needs to be wide enough for the play/pause control
   width: 35px;
+  position: absolute;
+  top: 0;
 
   //makes space for extra previous/next controls
   .sc-multitrack & {
 
-    width: pxToEm( 95px, $fontSize_s );
+    width: pxToEm( 115px, $fontSize_s );
 
     @media screen and (min-width: $mq_m) {
 
-      width: pxToEm( 85px, $fontSize_m );
+      width: pxToEm( 115px, $fontSize_m );
     }
   }
 
@@ -103,7 +105,7 @@ svg {
 
   position: absolute;
   //pushes the content left enough for the controls
-  left: pxToEm( 40px, $fontSize_s );
+  left: pxToEm( 45px, $fontSize_s );
   right: 0;
   margin: 0 !important;
   padding: 0;
@@ -115,15 +117,14 @@ svg {
     left: pxToEm( 40px, $fontSize_m );
   }
 
-
   //pushes the content more to the left when there are previous/next controls
   .sc-multitrack & {
 
-    left: pxToEm( 105px, $fontSize_s );
+    left: pxToEm( 150px, $fontSize_s );
 
     @media screen and (min-width: $mq_m) {
 
-      left: pxToEm( 90px, $fontSize_m );
+      left: pxToEm( 170px, $fontSize_m );
     }
   }
 }
@@ -146,14 +147,29 @@ svg {
 
 .sc-player {
 
-  display: table;
+  //display: table;
   width: 100%;
-  height: pxToEm( 35px, $fontSize_s );
+  height: pxToEm( 45px, $fontSize_s );
   position: relative;
 
   @media screen and (min-width: $mq_m) {
 
-    height: pxToEm( 35px, $fontSize_m );
+    height: pxToEm( 45px, $fontSize_m );
+  }
+
+  &.sc-multitrack {
+
+    height: pxToEm( 40px, $fontSize_s );
+    margin: pxToEm( 10px, $fontSize_s ) 0 0;
+    padding: 0 pxToEm( 20px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      height: pxToEm( 50px, $fontSize_m );
+      margin: pxToEm( 15px, $fontSize_m ) 0 0;
+      padding: 0 pxToEm( 40px, $fontSize_m );
+    }
+
   }
 
   &.loading {
@@ -255,30 +271,53 @@ svg {
     }
   }
 
-  .sc-track-duration,
-  .sc-time-indicators {
-
-    @extend .nano;
-    bottom: pxToEm( 30px, $fontSize_s );
-    position: absolute;
-    right: 0;
-
-    @media screen and (min-width: $mq_m) {
-
-      bottom: pxToEm( 30px, $fontSize_m );
-    }
-  }
-
   .sc-track-duration {
 
-    .playing & {
-
-      display: none;
-    }
+    display: none;
   }
 
   .sc-info,
   .sc-info-toggle {
 
     display: none;
+  }
+
+  .sc-timebar {
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 2px;
+
+    .sc-multitrack & {
+
+      bottom: initial;
+      top: pxToEm( -10px, $fontSize_s );
+
+      @media screen and (min-width: $mq_m) {
+
+        top: pxToEm( -15px, $fontSize_m );
+      }
+    }
+
+    .time {
+
+      background-color: rgba(255,255,255,.15);
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 2px;
+      transition: width .25s;
+    }
+
+    .playing & {
+
+      background-color: rgba(255,255,255,.15);
+
+      .time {
+
+        background-color: #fff;
+      }
+    }
   }
