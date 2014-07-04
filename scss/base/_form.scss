@@ -64,4 +64,38 @@ button {
 
     margin-bottom: pxToEm(15px, $fontSize_m);
   }
+
+  .fscf-div-error {
+
+    margin-bottom: 0;
+
+    &:before {
+
+      background: url("images/error.min.svg") no-repeat left center transparent;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      margin-right: pxToEm(10px, $fontSize_s);
+      height: pxToEm(20px, $fontSize_s);
+      width: pxToEm(20px, $fontSize_s);
+
+      @media screen and (min-width: $mq_m){
+
+        margin-right: pxToEm(10px, $fontSize_m);
+        height: pxToEm(20px, $fontSize_m);
+        width: pxToEm(20px, $fontSize_m);
+      }
+
+    }
+  }
+}
+
+.fscf-div-error {
+
+  margin-bottom: pxToEm(15px, $fontSize_s);
+
+  @media screen and (min-width: $mq_m) {
+
+    margin-bottom: pxToEm(15px, $fontSize_m);
+  }
 }
