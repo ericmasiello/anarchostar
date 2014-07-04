@@ -15,7 +15,7 @@
 
   @media screen and (min-width: $mq_m) {
 
-    margin-right: pxToEm( 10px, $fontSize_m );
+    margin-right: pxToEm( 20px, $fontSize_m );
   }
 }
 
@@ -25,7 +25,7 @@
 
   @media screen and (min-width: $mq_m) {
 
-    margin-left: pxToEm( 10px, $fontSize_m );
+    margin-left: pxToEm( 20px, $fontSize_m );
   }
 }
 
@@ -81,7 +81,7 @@ svg {
 
     @media screen and (min-width: $mq_m) {
 
-      width: pxToEm( 105px, $fontSize_m );
+      width: pxToEm( 115px, $fontSize_m );
     }
   }
 
@@ -124,7 +124,7 @@ svg {
 
     @media screen and (min-width: $mq_m) {
 
-      left: pxToEm( 140px, $fontSize_m );
+      left: pxToEm( 170px, $fontSize_m );
     }
   }
 }
@@ -165,9 +165,9 @@ svg {
 
     @media screen and (min-width: $mq_m) {
 
-      height: pxToEm( 40px, $fontSize_m );
-      margin: pxToEm( 10px, $fontSize_m ) 0 0;
-      padding: 0 pxToEm( 20px, $fontSize_m );
+      height: pxToEm( 50px, $fontSize_m );
+      margin: pxToEm( 15px, $fontSize_m ) 0 0;
+      padding: 0 pxToEm( 40px, $fontSize_m );
     }
 
   }
@@ -297,7 +297,7 @@ svg {
 
       @media screen and (min-width: $mq_m) {
 
-        top: pxToEm( -10px, $fontSize_m );
+        top: pxToEm( -15px, $fontSize_m );
       }
     }
 
