@@ -182,57 +182,20 @@ global $tia_theme_name, $tia_theme_version, $tia_default_slideshow_speed, $tia_o
 				<div class="adminModule">
 						<h3 class="socialTitle">Social Media</h3>
                         <p class="instructions">Enter full URLs below including http://</p>
-                        <p>LinkedIn:<br />
-						<textarea name="tia_options[tia_linkedin]" cols=70 rows=1><?php echo $tia_options['tia_linkedin']; ?></textarea></p>
-                        
+
                         <p>Twitter:<br />
 						<textarea name="tia_options[tia_twitter]" cols=70 rows=1><?php echo $tia_options['tia_twitter']; ?></textarea></p>
                         
-                        <p>Reddit:<br />
-						<textarea name="tia_options[tia_reddit]" cols=70 rows=1><?php echo $tia_options['tia_reddit']; ?></textarea></p>
-                        
                         <p>Facebook:<br />
 						<textarea name="tia_options[tia_facebook]" cols=70 rows=1><?php echo $tia_options['tia_facebook']; ?></textarea></p>
-						
-						<p>Pinterest:<br />
-						<textarea name="tia_options[tia_pinterest]" cols=70 rows=1><?php echo $tia_options['tia_pinterest']; ?></textarea></p>
 
-                        <p>Flickr:<br />
-						<textarea name="tia_options[tia_flickr]" cols=70 rows=1><?php echo $tia_options['tia_flickr']; ?></textarea></p>
-                        
-                        <p>tumblr:<br />
-						<textarea name="tia_options[tia_tumblr]" cols=70 rows=1><?php echo $tia_options['tia_tumblr']; ?></textarea></p>
-
-                        <p>stumbleupon:<br />
-						<textarea name="tia_options[tia_stumbleupon]" cols=70 rows=1><?php echo $tia_options['tia_stumbleupon']; ?></textarea></p>
-
-                        <p>vimeo:<br />
-						<textarea name="tia_options[tia_vimeo]" cols=70 rows=1><?php echo $tia_options['tia_vimeo']; ?></textarea></p>
-                        
-                        <p>Google Plus:<br />
-						<textarea name="tia_options[tia_google]" cols=70 rows=1><?php echo $tia_options['tia_google']; ?></textarea></p>
-                        
-                        <p>Blogger:<br />
-						<textarea name="tia_options[tia_blogger]" cols=70 rows=1><?php echo $tia_options['tia_blogger']; ?></textarea></p>
                         
                         <p>YouTube:<br />
 						<textarea name="tia_options[tia_youtube]" cols=70 rows=1><?php echo $tia_options['tia_youtube']; ?></textarea></p>
 
-						<p>Instagram:<br />
-                        <textarea name="tia_options[tia_instagram]" cols=70 rows=1><?php echo $tia_options['tia_instagram']; ?></textarea></p>
-
-                        <p>Last.fm:<br />
-                        <textarea name="tia_options[tia_lastfm]" cols=70 rows=1><?php echo $tia_options['tia_lastfm']; ?></textarea></p>
-
-                        <p>Skype:<br />
-                        <textarea name="tia_options[tia_skype]" cols=70 rows=1><?php echo $tia_options['tia_skype']; ?></textarea></p>
-
                         <p>Soundcloud:<br />
                         <textarea name="tia_options[tia_soundcloud]" cols=70 rows=1><?php echo $tia_options['tia_soundcloud']; ?></textarea></p>
 
-                        <p>Vine:<br />
-                        <textarea name="tia_options[tia_vine]" cols=70 rows=1><?php echo $tia_options['tia_vine']; ?></textarea></p>
-						
 					</div>
 	
 			</div>
