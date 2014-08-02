@@ -1,6 +1,7 @@
 .navbar {
 
   background-color: rgba( 0, 0, 0, .85 );
+  color: #fff;
   backface-visibility: hidden;
   color: #fff;
   min-height: 50px;
@@ -22,6 +23,7 @@
 
   a {
 
+    color: #fff;
     text-decoration: none;
   }
 }

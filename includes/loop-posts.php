@@ -63,6 +63,9 @@ while ( have_posts() ) : the_post(); // Start the loop
 
     $textOffsetY = get_post_meta($post->ID, "_tia_offset_y_block_text", true);
     $textOffsetX = get_post_meta($post->ID, "_tia_offset_x_block_text", true);
+    //$includeBorder = get_post_meta($post->ID, "_tia_include_border", true);
+
+    $includeBorder = get_post_meta($post->ID,'_tia_include_border',true);
 
 
     $noTextBackground = get_post_meta($post->ID, "_tia_no_text_background_value", true);
@@ -89,9 +92,17 @@ while ( have_posts() ) : the_post(); // Start the loop
                 
     if ( $overrideAnchorColor ) { ?> <style>#content #block<?php echo $i; ?> a {color: <?php echo $overrideAnchorColor; ?>;}</style> <?php }
 
-	if( has_post_thumbnail() ) : ?>
+	if( has_post_thumbnail() ) :
+
+	    $borderClass = "";
+
+	    if (!empty($includeBorder)) {
+
+	        $borderClass = "has-border";
+
+        } ?>
         
-        <div id="block<?php echo $i; ?>" <?php post_class('parallax-container'); ?>  style="background-image: url(<?php echo $src[0]; ?>); min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?><?php if ($lb_bgrepeat==true){echo " background-repeat:repeat; background-size: initial";} else {echo " background-repeat:no-repeat;";} ?><?php if ($bg_alignment==true){echo " background-position:".$bg_alignment.";";} ?>">
+        <div id="block<?php echo $i; ?>" <?php post_class('parallax-container ' . $borderClass); ?>  style="background-image: url(<?php echo $src[0]; ?>); min-height:<?php echo $setParallaxHeight; ?>px;<?php if ($lb_bgcolor==true){echo " background-color:".$lb_bgcolor.";";} ?><?php if ($lb_bgrepeat==true){echo " background-repeat:repeat; background-size: initial";} else {echo " background-repeat:no-repeat;";} ?><?php if ($bg_alignment==true){echo " background-position:".$bg_alignment.";";} ?>">
 
             <style type="text/css">
 
@@ -102,6 +113,7 @@ while ( have_posts() ) : the_post(); // Start the loop
                 }
 
                 @media screen and (min-height: 800px) and (min-width: 768px) {
+
                     #block<?php echo $i; ?> .blockText {
 
                         margin-left: <?php echo $textOffsetX; ?>;
@@ -158,32 +170,35 @@ while ( have_posts() ) : the_post(); // Start the loop
                     <?php }
                 } ?>
 
-        	    <div class="<?php if($postAlignment) { echo $postAlignment; } elseif ($alignment) { echo ' float-right'; } else { echo ' float-left';} ?> blockText">
+                <?php if($post->post_content != ""){ ?>
+
+                    <div class="<?php if($postAlignment) { echo $postAlignment; } elseif ($alignment) { echo ' float-right'; } else { echo ' float-left';} ?> blockText">
 
 
-            	    <h1><?php if(tia_get_option('tia_title_links_disabled')){ ?><?php the_title(); ?><?php } else { ?> <a href="<?php the_permalink() ?>" rel="bookmark" <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?>><?php the_title(); ?></a> <?php } ?></h1>
+                        <h1><?php if(tia_get_option('tia_title_links_disabled')){ ?><?php the_title(); ?><?php } else { ?> <a href="<?php the_permalink() ?>" rel="bookmark" <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?>><?php the_title(); ?></a> <?php } ?></h1>
 
-				    <?php if(!tia_get_option('tia_author_credit_disabled')){ ?>
-					    <div class="meta clearfix" <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?>>Posted by <?php the_author_posts_link();  ?> </div>
-				    <?php } ?>
+                        <?php if(!tia_get_option('tia_author_credit_disabled')){ ?>
+                            <div class="meta clearfix" <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?>>Posted by <?php the_author_posts_link();  ?> </div>
+                        <?php } ?>
 
-				    <?php if($theContentEnabled) {
+                        <?php if($theContentEnabled) {
 
-					    the_content('',TRUE);
+                            the_content('',TRUE);
 
-    			    } else {
+                        } else {
 
-    				    the_excerpt('',TRUE);
-    			    }
+                            the_excerpt('',TRUE);
+                        }
 
-    				more_link();
+                        more_link();
 
-    		  	    if( $soundCloudPost ): ?>
-    		  	        <div class="sc-container"><a href="<?php echo $soundCloudPost; ?>" class="sc-player"><?php echo $soundCloudPost; ?></a></div>
-                    <?php endif; ?>
+                        if( $soundCloudPost ): ?>
+                            <div class="sc-container"><a href="<?php echo $soundCloudPost; ?>" class="sc-player"><?php echo $soundCloudPost; ?></a></div>
+                        <?php endif; ?>
 
-                    <!--<p class="postmetadata"> <?php bloginfo('name'); ?> | <?php the_category(', ') ?><?php edit_post_link(' | Edit', ''); ?>  </p>-->
-                </div>
+                        <!--<p class="postmetadata"> <?php bloginfo('name'); ?> | <?php the_category(', ') ?><?php edit_post_link(' | Edit', ''); ?>  </p>-->
+                    </div>
+                <?php } ?>
                 </div> <!-- /.story-container -->
             </div> <!-- /.story-->
         </div> <!-- ./block -->
