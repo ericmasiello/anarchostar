@@ -102,6 +102,7 @@
 </head>
 <body <?php body_class(tia_get_option('tia_theme_color')." ".tia_get_option('tia_theme_bkg')); ?>>
 <div id="container" class="clearfix">
+
     <div id="headerBar" class="navbar navbar-default">
         <div id="header" class="navbar-inner navbar-header">
             <div class="container">
@@ -114,12 +115,16 @@
                     </h1>
                 </div>
 
-                <?php include 'includes/parallax-nav.php'; ?>
+                <?php //include 'includes/parallax-nav.php'; ?>
 
                 <div id="mainNav" class="nav-collapse collapse">
                     <?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
                 </div>
-                <a href="#footerNav" class="mobile-nav-icon  js-menu-icon">Jump to Navigation</a>
+                <a href="#footerNav" class="mobile-nav-icon  js-menu-icon">
+                  <span class="accessible-hidden">
+                    Jump to Navigation
+                  </span>
+                </a>
             </div>
          </div>
      </div>

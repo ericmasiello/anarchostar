@@ -9,9 +9,8 @@
   width: 100%;
   z-index: 300;
   transition: background-color .25s linear;
-  //animation: 5s linear 2s infinite alternate; /* Standard syntax */
 
-  &:hover {
+  .nav-is-open &, &:hover {
 
     background-color: rgba( 0, 0, 0, .85 );
   }
@@ -22,6 +21,11 @@
     overflow: hidden;
 
     @media (screen and min-width: $mq_m) {
+
+      padding: pxToEm( 15px, $fontSize_m ) pxToEm( 20px, $fontSize_s );
+    }
+
+    @media (screen and min-width: $mq_l) {
 
       padding: pxToEm( 30px, $fontSize_m );
     }
@@ -46,10 +50,10 @@
   float: right;
   font-weight: $fontWeightThin;
 
-  @media (screen and min-width: $mq_xxxl) {
-
-    display: inline-block;
-  }
+//  @media (screen and min-width: $mq_xxxl) {
+//
+//    display: inline-block;
+//  }
 
   select { display: none; }
 
@@ -111,10 +115,10 @@
     top: $headerHeight_l;
   }
 
-  @media (screen and min-width: $mq_xxxl) {
-
-    display: none;
-  }
+//  @media (screen and min-width: $mq_xxxl) {
+//
+//    display: none;
+//  }
 
   .menu-main-menu-container {
 
@@ -182,33 +186,101 @@
 
 .mobile-nav-icon {
 
-  background: url("images/menu.min.svg") no-repeat center center transparent;
-  background-size: contain;
   display: block;
   float: right;
+  background-color: rgba(0,0,0,.75);
+  border-radius: $logoHeight_s;
   height: $logoHeight_s;
-  width: $logoHeight_s - 15;
-  text-indent: -9999px;
-
-  &.is-open {
-
-    background-image: url("images/close.min.svg");
-    background-size: initial;
-  }
+  width: $logoHeight_s;
 
   @media( screen and min-width: $mq_m ){
 
     height: $logoHeight_m;
-    width: $logoHeight_s - 5;
+    width: $logoHeight_m;
   }
 
   @media( screen and min-width: $mq_l ){
 
     height: $logoHeight_l;
+    width: $logoHeight_l;
   }
 
-  @media (screen and min-width: $mq_xxxl) {
+  &:before {
 
-    display: none;
+    background: url("images/menu.min.svg") no-repeat center center transparent;
+    background-size: contain;
+    content: '';
+    display: block;
+    height: $logoHeight_s;
+    width: $logoHeight_s - 20;
+    margin-left: 10px; //nudges into center
+
+    @media( screen and min-width: $mq_m ){
+
+      height: $logoHeight_m;
+      margin-left: 20px;
+    }
+
+    @media( screen and min-width: $mq_l ){
+
+      height: $logoHeight_l;
+      margin-left: 25px;
+    }
   }
+
+  .nav-is-open &:before {
+
+    background-image: url("images/close.min.svg");
+  }
+
+
+//  background-color: rgba(0,0,0,.85);
+//  border-radius: $logoHeight_s;
+//  height: $logoHeight_s;
+//  width: $logoHeight_s;
+//  display: block;
+//  float: right;
+//
+//  @media( screen and min-width: $mq_m ){
+//
+//    height: $logoHeight_m;
+//    width: $logoHeight_m;
+//  }
+//
+//  @media( screen and min-width: $mq_l ){
+//
+//    height: $logoHeight_l;
+//    width: $logoHeight_l;
+//  }
+//
+//  svg {
+//
+//    width: 30px;
+//  }
+//
+//  .close {
+//
+//    display: none;
+//  }
+//
+//  &.is-open {
+//
+//    .menu {
+//
+//      display: none;
+//    }
+//
+//    .close {
+//
+//      display: inline;
+//    }
+//  }
+
+
+
+
+//  @media (screen and min-width: $mq_xxxl) {
+//
+//    display: none;
+//  }
 }

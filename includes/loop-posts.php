@@ -1,6 +1,38 @@
-<?php $postType = 'post'; ?>
-
 <?php
+
+/*
+ * All this code is necessary to let the index page know it should
+ * act like a category page
+ */
+$postType = 'post';
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$perPage = get_option('posts_per_page');
+
+if (is_category()) {
+
+    $args = array(
+        'post_type' => 'post',
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'cat' => get_query_var('cat'),
+        'posts_per_page' => $perPage,
+        'paged' => $paged
+    );
+
+} else {
+
+    $args = array(
+        'post_type' => 'post',
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'posts_per_page' => $perPage,
+        'paged' => $paged,
+        'cat' => tia_get_option('tia_theme_defaultCatId'),
+    );
+}
+
+query_posts( $args );
+
 
 function applyDefaultAndUnitToOffsetValues( $val ){
 
@@ -30,6 +62,10 @@ function applyDefaultAndUnitToOffsetValues( $val ){
 $cat_id = get_query_var('cat');
 //then i get the data from the database
 $cat_data = get_option("category_$cat_id");
+
+//print_r($cat_data);
+//die();
+
 //and then i just display my category image if it exists
 if ( empty($cat_data['background-color']) != true ){ ?>
         <style type="text/css">
@@ -45,6 +81,9 @@ if ( empty($cat_data['background-color']) != true ){ ?>
 global $storyMarginTop;
 
 $i = 1; // Start a counter outside of the loop
+
+//Makes posts display in chronological order instead of reverse chronological
+//query_posts($query_string . '&order=ASC');
 
 while ( have_posts() ) : the_post(); // Start the loop
 
