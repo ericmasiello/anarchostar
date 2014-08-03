@@ -15,12 +15,12 @@
 
   'use strict';
 
-  var MAX_SIZE_S = 225;
-  var MAX_SIZE_M = 300;
-  var MQ_S = 500;
-  var SPACER_SIZE = 10;
+//  var MAX_SIZE_S = 225;
+//  var MAX_SIZE_M = 300;
+//  var MQ_S = 500;
+//  var SPACER_SIZE = 10;
   var CSS_OPEN_CLASS = "is-open";
-  var MENU_MAX_WIDTH = 1000;
+  //var MENU_MAX_WIDTH = 1000;
 
   var MobileNav = function(){
 
@@ -48,13 +48,13 @@
 
     } else if( e.type === "click" ) {
 
-      var windowWidth = $(document).width();
-      windowWidth = ( windowWidth < MENU_MAX_WIDTH ) ? windowWidth : MENU_MAX_WIDTH;
-      var menuLength = this._$mobileNav.find(".menu-item").length;
-      var size = ( windowWidth >= MQ_S ) ? (windowWidth)/menuLength - ( SPACER_SIZE * (menuLength-1) ) : (windowWidth)/2  - ( SPACER_SIZE * (menuLength-1) );
-
-      size = ( windowWidth >= MQ_S && size > MAX_SIZE_M ) ? MAX_SIZE_M : ( windowWidth < MQ_S && size > MAX_SIZE_S ? MAX_SIZE_S : size )
-      this._$mobileNav.show().find(".menu-item a").css({"height": size + 'px', "width": size + 'px'})
+//      var windowWidth = $(document).width();
+//      windowWidth = ( windowWidth < MENU_MAX_WIDTH ) ? windowWidth : MENU_MAX_WIDTH;
+//      var menuLength = this._$mobileNav.find(".menu-item").length;
+//      var size = ( windowWidth >= MQ_S ) ? (windowWidth)/menuLength - ( SPACER_SIZE * (menuLength-1) ) : (windowWidth)/2  - ( SPACER_SIZE * (menuLength-1) );
+//
+//      size = ( windowWidth >= MQ_S && size > MAX_SIZE_M ) ? MAX_SIZE_M : ( windowWidth < MQ_S && size > MAX_SIZE_S ? MAX_SIZE_S : size )
+      this._$mobileNav.show();//.find(".menu-item a").css({"height": size + 'px', "width": size + 'px'})
 
       this._$menuIcon.toggleClass( CSS_OPEN_CLASS );
       e.preventDefault()

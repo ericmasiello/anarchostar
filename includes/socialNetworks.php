@@ -1,73 +1,28 @@
 <ul class="social-media">
     <?php if(tia_get_option('tia_facebook')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_facebook'); ?>" title="on facebook"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-facebook.min.svg" alt="facebook" /></a></li>
+        <li>
+          <a href="<?php echo tia_get_option('tia_facebook'); ?>" title="on facebook">
+						<svg viewBox="0 0 42 40" style="background-color:#ffffff00" xmlns="http://www.w3.org/2000/svg" width="42" height="40"><path d="M38.933 0H2.745C1.505 0 .5.988.5 2.208v35.584C.5 39.012 1.505 40 2.745 40h19.482V24.51h-5.3v-6.037h5.3V14.02c0-5.165 3.21-7.98 7.896-7.98 2.245 0 4.175.166 4.737.24v5.398l-3.25.002c-2.55 0-3.043 1.19-3.043 2.94v3.853h6.08l-.792 6.037h-5.288V40h10.366c1.24 0 2.245-.99 2.245-2.208V2.208C41.178.988 40.173 0 38.933 0z" fill="#fff"/></svg>
+          </a>
+				</li>
     <?php endif; ?>
     <?php if(tia_get_option('tia_twitter')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_twitter'); ?>" title="on twitter"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-twitter.min.svg" alt="facebook" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_pinterest')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_pinterest'); ?>" title="on Pinterest" id="pinterest"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-pinterest.min.svg" alt="pinterest" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_flickr')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_flickr'); ?>" title="on flickr"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-flickr.min.svg" alt="flickr" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_tumblr')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_tumblr'); ?>" title="on tumblr"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-tumblr.min.svg" alt="tumblr" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_linkedin')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_linkedin'); ?>" title="on linkedin"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-linkedin.min.svg" alt="linkedin" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_reddit')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_reddit'); ?>" title="on reddit"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-reddit.min.svg" alt="reddit" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_delicious')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_delicious'); ?>" title="on delicious"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-delicious.min.svg" alt="delicious" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_digg')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_digg'); ?>" title="on digg"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-digg.min.svg" alt="digg" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_friendfeed')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_friendfeed'); ?>" title="on friendfeed"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-friendfeed.min.svg" alt="friendfeed" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_stumbleupon')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_stumbleupon'); ?>" title="on stumbleupon"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-stumbleupon.min.svg" alt="stumbleupon" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_vimeo')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_vimeo'); ?>" title="on vimeo"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-vimeo.min.svg" alt="vimeo" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_designfloat')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_designfloat'); ?>" title="on designfloat"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-designfloat.min.svg" alt="designfloat" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_blogger')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_blogger'); ?>" title="on blogger"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-blogger.min.svg" alt="blogger" /></a></li>
-    <?php endif; ?>
-    <?php if(tia_get_option('tia_google')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_google'); ?>" title="on Google Plus"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-googleplus.min.svg" alt="Google Plus" /></a></li>
+        <li>
+          <a href="<?php echo tia_get_option('tia_twitter'); ?>" title="on twitter">
+            <svg viewBox="0 0 52 40" style="background-color:#ffffff00" xmlns="http://www.w3.org/2000/svg" width="52" height="40"><path d="M51.347 4.735c-1.855.803-3.85 1.346-5.943 1.59 2.136-1.25 3.777-3.23 4.55-5.587-2 1.158-4.214 1.998-6.572 2.45C41.495 1.227 38.806 0 35.83 0c-5.716 0-10.35 4.52-10.35 10.098 0 .79.092 1.562.268 2.3-8.6-.42-16.226-4.44-21.33-10.55-.89 1.492-1.4 3.226-1.4 5.077 0 3.503 1.826 6.594 4.603 8.405-1.695-.052-3.29-.507-4.686-1.263v.127c0 4.892 3.566 8.974 8.3 9.902-.868.23-1.783.354-2.726.354-.667 0-1.316-.064-1.947-.182 1.317 4.012 5.14 6.932 9.667 7.013-3.54 2.71-8.003 4.324-12.851 4.324-.836 0-1.66-.048-2.47-.14C5.487 38.327 10.927 40 16.77 40c19.035 0 29.444-15.387 29.444-28.73 0-.44-.01-.875-.03-1.307 2.022-1.424 3.776-3.203 5.163-5.228z" fill="#fff"/></svg>
+					</a>
+				</li>
     <?php endif; ?>
     <?php if(tia_get_option('tia_youtube')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_youtube'); ?>" title="on youtube"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-youtube.min.svg" alt="youtube" /></a></li>
+        <li><a href="<?php echo tia_get_option('tia_youtube'); ?>" title="on youtube">
+            <svg viewBox="0 0 57 40" style="background-color:#ffffff00" xmlns="http://www.w3.org/2000/svg" width="57" height="40"><path opacity=".118" d="M22.346 11.398l13.302 8.998 1.866-.98-15.168-8.018z"/><path d="M55.65 8.63s-.547-3.92-2.23-5.646C51.285.72 48.892.708 47.795.574 39.94 0 28.155 0 28.155 0h-.023S16.35 0 8.492.575C7.397.708 5.005.72 2.87 2.985 1.185 4.71.64 8.628.64 8.628s-.562 4.6-.562 9.204v4.314c0 4.602.562 9.205.562 9.205s.547 3.92 2.23 5.645c2.136 2.265 4.94 2.193 6.19 2.43 4.49.437 19.086.572 19.086.572s11.796-.018 19.65-.593c1.098-.133 3.49-.144 5.626-2.41 1.682-1.725 2.23-5.644 2.23-5.644s.562-4.603.562-9.205v-4.314c0-4.603-.56-9.205-.56-9.205zm-33.3 18.747l-.004-15.98 15.168 8.018-15.165 7.962z" fill="#fff"/></svg>
+        </a></li>
     <?php endif; ?>
-
-    <?php if(tia_get_option('tia_instagram')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_instagram'); ?>" title="on instagram"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-instagram.min.svg" alt="instagram" /></a></li>
-    <?php endif; ?>
-
-    <?php if(tia_get_option('tia_lastfm')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_lastfm'); ?>" title="on last.fm"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-lastfm.min.svg" alt="last.fm" /></a></li>
-    <?php endif; ?>
-
-    <?php if(tia_get_option('tia_skype')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_skype'); ?>" title="on skype"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-skype.min.svg" alt="skype" /></a></li>
-    <?php endif; ?>
-
     <?php if(tia_get_option('tia_soundcloud')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_soundcloud'); ?>" title="on soundcloud"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-soundcloud.min.svg" alt="soundcloud" /></a></li>
+        <li><a href="<?php echo tia_get_option('tia_soundcloud'); ?>" title="on soundcloud">
+            <svg viewBox="0 0 94 40" style="background-color:#ffffff00" xmlns="http://www.w3.org/2000/svg" width="94" height="40"><g fill="#fff"><path d="M5.233 20.756c-.197 0-.36.157-.385.373l-.912 8.27.912 8.09c.026.216.188.372.385.372.196 0 .354-.152.385-.37L6.656 29.4 5.618 21.13c-.03-.222-.19-.373-.385-.373zM1.804 23.924c-.193 0-.346.15-.372.36L.754 29.4l.678 5.028c.026.212.18.36.372.36.188 0 .34-.147.37-.358l.805-5.03-.805-5.117c-.03-.21-.183-.36-.37-.36zM8.877 19.134c-.245 0-.44.19-.465.453L7.546 29.4l.866 9.457c.024.263.22.452.465.452.24 0 .435-.19.464-.45l.985-9.46-.983-9.813c-.03-.263-.225-.453-.465-.453zM12.55 18.788c-.287 0-.52.228-.544.53l-.818 10.085.818 9.756c.023.3.257.53.545.53.284 0 .518-.23.544-.53l.93-9.757-.93-10.086c-.026-.3-.26-.53-.543-.53zM16.877 39.24zM16.876 20.046c-.024-.345-.29-.607-.623-.607-.334 0-.602.26-.622.61l-.772 9.354.773 9.836c.02.346.29.61.623.61.33 0 .6-.264.623-.61l.875-9.836-.874-9.358zM19.987 13.498c-.375 0-.683.304-.702.69l-.726 15.22.725 9.835c.018.383.327.687.702.687.37 0 .68-.303.702-.69v.003l.82-9.835-.82-15.22c-.023-.387-.332-.69-.703-.69zM23.692 9.992c-.42 0-.764.337-.782.77l-.678 18.7.68 9.773c.016.428.36.765.78.765.418 0 .76-.337.78-.77v.007l.768-9.777-.767-18.7c-.02-.43-.363-.768-.78-.768zM27.542 8.302c-.466 0-.844.373-.86.85l-.632 20.26.632 9.673c.016.47.394.843.86.843.464 0 .842-.37.86-.847v.007l.713-9.676-.712-20.26c-.02-.475-.397-.848-.86-.848zM32.304 8.47c-.016-.52-.43-.928-.94-.928s-.924.408-.94.928l-.583 20.943.585 9.613c.015.515.428.922.94.922.51 0 .923-.407.94-.926l.658-9.608-.66-20.945zM32.304 39.02v.007-.006zM35.218 8c-.56 0-1.006.442-1.02 1.006l-.537 20.41.54 9.52c.012.56.46 1.002 1.018 1.002.556 0 1.003-.443 1.018-1.007v.008l.605-9.523-.604-20.41C36.221 8.44 35.774 8 35.218 8zM39.1 8.666c-.604 0-1.086.477-1.098 1.086l-.49 19.664.49 9.46c.012.604.494 1.08 1.098 1.08.602 0 1.085-.476 1.098-1.086v.01l.55-9.463-.55-19.666c-.014-.607-.496-1.084-1.098-1.084zM43.663 5.052c-.187-.125-.41-.2-.65-.2-.233 0-.45.07-.635.19-.32.21-.536.568-.543.976l-.004.22-.44 23.173.446 9.407c0 .014 0 .027.002.04.014.263.114.504.274.695.217.258.54.423.9.423.32 0 .61-.13.824-.342.213-.21.348-.5.354-.82l.05-.93.445-8.465-.495-23.4c-.008-.402-.216-.756-.527-.966zM44.19 38.818v-.003.003-.007.008zM47.547 2.833c-.188-.112-.406-.18-.64-.18-.298.002-.575.108-.792.286-.28.228-.46.573-.464.96l-.002.127-.513 25.393.262 4.695.254 4.568c.01.676.573 1.234 1.258 1.234.682 0 1.245-.558 1.255-1.244v.01l.56-9.263-.56-25.523c-.006-.45-.253-.846-.616-1.064zM82.093 17.34c-1.563 0-3.055.314-4.413.88C76.773 8.01 68.152 0 57.635 0c-2.574 0-5.082.502-7.298 1.354-.86.33-1.09.67-1.098 1.332v35.957c.01.694.55 1.233 1.232 1.3.03.003 31.62 0 31.62 0 6.3 0 11.408-5.015 11.408-11.273s-5.107-11.33-11.407-11.33z"/></g></svg>
+        </a></li>
     <?php endif; ?>
-
-    <?php if(tia_get_option('tia_vine')) : ?>
-        <li><a href="<?php echo tia_get_option('tia_vine'); ?>" title="on vine"><img src="<?php bloginfo('template_url'); ?>/images/icons/socialmediasvg/webicon-vine.min.svg" alt="vine" /></a></li>
-    <?php endif; ?>
-
 
 	<!--
 	<?php $tia_rss = tia_get_option('tia_rss'); ?>

@@ -1,13 +1,21 @@
+//$bgColor:     #fff;
+//$fontColor:   #152B17;
+//$linkColor:   $fontColor;
+//$buttonColor: #2A4E3D;
+
 $bgColor:     #000;
 $fontColor:   #fff;
 $linkColor:   $fontColor;
 $buttonColor: #2A4E3D;
+$postFontColor: #152B17;
+$postLinkColor: $postFontColor;
 
 
 $fontFamily:  Helvetica, Tahoma, Arial, Sans-Serif;
 $fontWeight:    400;
 $fontSize_s:    16px;
 $fontSize_m:    20px;
+$fontWeightThin: 200;
 
 $gigaFontSize_s:     58px;
 $gigaFontSize_m:     84px;
@@ -58,7 +66,6 @@ $headerHeight_l: 100px;
 @import 'components/comments';
 @import 'components/pagination';
 @import 'components/sidebar';
-//@import 'components/widgets';
 @import 'refactor/custom';
 @import 'components/grid';
 @import 'components/footer';
