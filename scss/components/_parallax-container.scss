@@ -7,6 +7,11 @@
   width: 100%;
 }
 
+.has-border {
+
+  border: 30px solid #fff;
+}
+
 .story-container {
 
   position: relative;
@@ -26,9 +31,15 @@
 
   .blockText {
 
-    background-color: rgba( 0, 0, 0, .8 );
+    background-color: rgba( 255, 255, 255, .9 );
+    color: $postFontColor;
     position: relative;
     z-index: 2;
+
+    a {
+
+      color: $postLinkColor;
+    }
 
     @media screen and (min-width: $mq_m) {
 

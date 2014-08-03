@@ -457,6 +457,10 @@ if (is_admin()){
   $my_meta->addText($prefix.'offset_y_scrolling_image',array('name'=> 'Top offset scrolling image.'));
   $my_meta->addText($prefix.'offset_x_block_text',array('name'=> 'Left offset for text.'));
   $my_meta->addText($prefix.'offset_y_block_text',array('name'=> 'Top offset for text.'));
+  $my_meta->addCheckbox($prefix.'include_border',array('name'=> 'Include Border'));
+
+
+
 
   //Finish Meta Box Decleration
   $my_meta->Finish();

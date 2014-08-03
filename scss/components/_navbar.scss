@@ -1,6 +1,7 @@
 .navbar {
 
   background-color: rgba( 0, 0, 0, .85 );
+  color: #fff;
   backface-visibility: hidden;
   color: #fff;
   min-height: 50px;
@@ -22,6 +23,7 @@
 
   a {
 
+    color: #fff;
     text-decoration: none;
   }
 }
@@ -36,7 +38,7 @@
 
   display: none;
   float: right;
-  text-transform: uppercase;
+  font-weight: $fontWeightThin;
 
   @media (screen and min-width: $mq_xxxl) {
 
@@ -99,23 +101,13 @@
   position: fixed;
   left: 0;
   right: 0;
-  z-index: 5;
+  z-index: 99999;
   top: $headerHeight_s;
   bottom: 0;
-
-  .home & {
-
-    bottom: $footer_height_s;
-  }
 
   @media( screen and min-width: $mq_m ){
 
     top: $headerHeight_m;
-
-    .home & {
-
-      bottom: $footer_height_m;
-    }
   }
 
   @media( screen and min-width: $mq_l ){
@@ -130,9 +122,8 @@
 
   .menu-main-menu-container {
 
-    display: table;
-    height: 100%;
     margin: auto;
+    overflow: auto;
     width: 100%;
 
     @media( screen and min-width: $mq_s ){
@@ -143,7 +134,6 @@
 
   .sf-menu {
 
-    display: table-cell;
     height: 100%;
     max-width: 1000px;
     max-height: 1000px;
@@ -151,67 +141,47 @@
     text-align: center;
     vertical-align: middle;
 
-    @media( screen and min-width: $mq_s ){
-
-      display: flex;
-      flex-flow: row;
-      justify-content: space-around;
-    }
-
     > li {
 
       margin: 0;
-      display: inline-block;
+      display: block;
       margin: auto;
       float: none;
 
-      @media( screen and min-width: $mq_s ){
-
-        display: table;
-        float: left;
-      }
-
       a {
 
-        display: table-cell;
         text-align: center;
         text-decoration: none;
         vertical-align: middle;
-        border: 1px solid #fff;
-        border-radius: 100%;
+        font-size: pxToEm( 32px, $fontSize_s);
+        line-height: pxToEm( 75px, 32px);
 
-        @media( min-width: $mq_m ){
+        @media screen and (min-width: $mq_m) {
 
-          font-size: 1.5em;
+          font-size: pxToEm( 52px, $fontSize_m);
+          //line-height: pxToEm( 100px, $fontSize_m);
         }
       }
     }
   }
+}
 
-//  .sf-menu {
-//
-//    display: table-row;
-//
-//    > li {
-//
-//      margin-left: 0;
-//      display: table-cell;
-//      float: none;
-//      text-align: center;
-//      vertical-align: middle;
-//
-//      a {
-//
-//        text-decoration: none;
-//        font-size: 1.5em;
-//        line-height: 10em;
-//        width: 100%;
-//        border: 1px solid #fff;
-//        border-radius: 10em;
-//        display: inline-block;
-//      }
-//    }
-//  }
+.nav-collapse__content {
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  .social-media {
+
+    margin: 0;
+
+    li {
+
+      float: none;
+    }
+  }
 }
 
 .mobile-nav-icon {
