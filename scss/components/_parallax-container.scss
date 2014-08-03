@@ -48,15 +48,9 @@
 
   .blockText {
 
-    background-color: rgba( 255, 255, 255, .9 );
-    color: $postFontColor;
+    @extend %content-area;
     position: relative;
     z-index: 2;
-
-    a {
-
-      color: $postLinkColor;
-    }
 
     @media screen and (min-width: $mq_m) {
 
@@ -123,7 +117,7 @@
 .float-right,
 .story .center {
 
-  padding: 2em 2em 1em;
+  //padding: 2em 2em 1em;
   position: relative;
 }
 

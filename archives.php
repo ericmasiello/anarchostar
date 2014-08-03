@@ -28,7 +28,7 @@ get_header(); ?>
                     <?php the_post(); ?>
                     <h1 class="giga"><?php the_title(); ?></h1>
                     <?php the_content(); ?>
-                    <ul class="list--unstyled  list--column-3">
+                    <ul class="list--unstyled">
                         <?php wp_list_categories('use_desc_for_title=0&title_li='); ?>
                     </ul>
 

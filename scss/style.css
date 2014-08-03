@@ -1,3 +1,42 @@
+.inside .post, .story .blockText {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #152b17;
+  padding: 2.5em 2.5em 1.25em 2.5em; }
+  @media screen and (min-width: 768px) {
+    .inside .post, .story .blockText {
+      padding: 2em 2em 1em 2em; } }
+  .inside .post a, .story .blockText a {
+    color: #152b17; }
+  .inside .post input, .story .blockText input,
+  .inside .post textarea,
+  .story .blockText textarea,
+  .inside .post select,
+  .story .blockText select {
+    border-color: #152b17; }
+  .inside .post ::-webkit-input-placeholder, .story .blockText ::-webkit-input-placeholder {
+    color: #152b17; }
+  .inside .post :-moz-placeholder, .story .blockText :-moz-placeholder {
+    /* Firefox 18- */
+    color: #152b17; }
+  .inside .post ::-moz-placeholder, .story .blockText ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #152b17; }
+  .inside .post :-ms-input-placeholder, .story .blockText :-ms-input-placeholder {
+    color: #152b17; }
+  .inside .post input[type="button"], .story .blockText input[type="button"],
+  .inside .post input[type="submit"],
+  .story .blockText input[type="submit"],
+  .inside .post input[type="reset"],
+  .story .blockText input[type="reset"],
+  .inside .post input[type="file"],
+  .story .blockText input[type="file"],
+  .inside .post button,
+  .story .blockText button {
+    background-color: #152b17;
+    color: #fff; }
+  .inside .post svg, .story .blockText svg, .inside .post svg path, .story .blockText svg path {
+    fill: #152B17; }
+
 /* ---------------------------
 01 Style Reset
 ----------------------------*/
@@ -107,11 +146,11 @@ h1, h2 {
   margin: .5em 0; }
 
 .giga {
-  font-size: 58px;
+  font-size: 34px;
   font-weight: 200; }
   @media screen and (min-width: 768px) {
     .giga {
-      font-size: 84px; } }
+      font-size: 52px; } }
 
 small, .micro {
   font-size: 14px; }
@@ -221,6 +260,14 @@ button {
   width: 100%;
   padding: 0;
   background: transparent; }
+  body.page #container {
+    margin-top: 3.75em; }
+    @media (min-width: 768px) {
+      body.page #container {
+        margin-top: 4.5em; } }
+    @media (min-width: 1024px) {
+      body.page #container {
+        margin-top: 6.5em; } }
 
 /* ---------------------------
 04 Header
@@ -331,6 +378,23 @@ button {
 .post img, .post object {
   max-width: 100%;
   height: auto; }
+
+/*body*/
+.page .page {
+  padding: 1.25em; }
+  @media screen and (min-width: 768px) {
+    .page .page {
+      padding: 1.25em; } }
+  @media screen and (min-width: 1024px) {
+    .page .page {
+      padding: 1.5em; } }
+
+@media screen and (min-width: 768px) {
+  .inside .post {
+    float: left;
+    min-width: 32.5em; } }
+.inside .post h1:first-child {
+  margin-top: 0; }
 
 /* ---------------------------
 06 Comments
@@ -812,38 +876,6 @@ ol#commentslist {
   .nav-is-open .mobile-nav-icon:before {
     background-image: url("images/close.min.svg"); }
 
-.parallax-nav {
-  display: none;
-  float: left;
-  list-style-type: none;
-  margin-left: 1.875em;
-  margin-bottom: 0; }
-  @media (min-width: 1024px) {
-    .parallax-nav {
-      margin-left: 1.5em;
-      display: table; } }
-  .parallax-nav > li {
-    display: table-cell;
-    padding-left: 0.75em;
-    vertical-align: middle; }
-    .parallax-nav > li:first-child {
-      padding-left: 0;
-      padding-right: 0.625em;
-      padding-right: 0.5em; }
-  .parallax-nav .sep {
-    border-left: 1px solid #fff;
-    display: block;
-    height: 2em; }
-  .parallax-nav a {
-    background: url("images/circle-open.min.svg") no-repeat center center transparent;
-    background-size: contain;
-    width: 1.1875em;
-    height: 2.5em;
-    width: 0.95em;
-    height: 3.5em; }
-    .parallax-nav a.active {
-      background-image: url("images/circle-closed.min.svg"); }
-
 .parallax-container {
   display: table;
   background-position: top center;
@@ -876,12 +908,8 @@ ol#commentslist {
       padding-left: 7.5em;
       padding-right: 7.5em; } }
   .story .blockText {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #152b17;
     position: relative;
     z-index: 2; }
-    .story .blockText a {
-      color: #152b17; }
     @media screen and (min-width: 768px) {
       .story .blockText {
         min-width: 25em;
@@ -916,7 +944,6 @@ ol#commentslist {
 .story
 .float-right,
 .story .center {
-  padding: 2em 2em 1em;
   position: relative; }
 
 .story .float-right {
@@ -1184,7 +1211,3 @@ label, .story .blockText h1, .accessible-hidden {
   clip: rect(1px 1px 1px 1px);
   /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px); }
-
-.parallax-nav a {
-  display: inline-block;
-  text-indent: -99999px; }
