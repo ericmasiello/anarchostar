@@ -17,14 +17,16 @@
 
   var Layout = function(){
 
-    this._headerHeight = $("#header").height();
-    this._footerHeight = $(".footer").height();
     this._windowHeight = $(window).height();
     this._windowWidth = $(window).width();
     //90 = landscape, 180 = portrait
     this._baseOrientation = ( window.orientation < 0 ) ? window.orientation * -1 : window.orientation;
+		this._isPage = $("body").hasClass("page");
 
-    this._setHeaderOffset();
+		if( this._isPage === true ){
+
+			this._setHeaderOffset();
+		}
     this._bindEvents();
     this.resizePanel();
   };
@@ -34,8 +36,7 @@
    */
   Layout.prototype._setHeaderOffset = function(){
 
-    $("#container").css("margin-top", this._headerHeight );
-    $("body").css("padding-bottom", this._footerHeight - 25 );
+		$("#container").css("margin-top", $("#header").height() );
   };
 
   Layout.prototype._bindEvents = function(){
@@ -48,7 +49,7 @@
      */
     if( window.ANARCHOSTAR.isMobile === false ){
 
-      $('#container').localScroll({ offset: { left: 0, top: (this._headerHeight * -1) } });
+      $('#container').localScroll({ offset: { left: 0 } });
 
       $('.parallax-container').bind('inview', function ( event, visible ){
 
@@ -57,16 +58,12 @@
 
       $( window ).resize( function anarchoStarResize(){ //if the user resizes the window...
 
-        var tmpHeaderHeight = $("#header").height();
-
-        //that._headerHeight = $("#header").height();
         that._windowHeight = $(window).height();
 
-        if( tmpHeaderHeight !== that._headerHeight ){
+				if( that._isPage === true ) {
 
-          that._headerHeight = tmpHeaderHeight;
-          that._setHeaderOffset();
-        }
+					that._setHeaderOffset();
+				}
 
         that.resizePanel();
         that.move(); //move the background images in relation to the movement of the scrollbar
@@ -114,7 +111,7 @@
       this._windowWidth = temp;
     }
 
-    $('.parallax-container').height( ( ( this._windowHeight - this._headerHeight ) > window.ANARCHOSTAR.height ) ? ( this._windowHeight - this._headerHeight ) : window.ANARCHOSTAR.height );
+    $('.parallax-container').height( ( ( this._windowHeight ) > window.ANARCHOSTAR.height ) ? ( this._windowHeight ) : window.ANARCHOSTAR.height );
   };
 
   //function that is called for every pixel the user scrolls. Determines the position of the background

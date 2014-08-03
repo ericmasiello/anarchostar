@@ -180,34 +180,22 @@ svg {
 
   //display: table;
   width: 100%;
-  height: pxToEm( 45px, $fontSize_s );
   position: relative;
+  height: pxToEm( $soundCloudPlayerHeight_s, $fontSize_s );
+  margin: pxToEm( 10px, $fontSize_s ) 0;
+  //padding: 0 pxToEm( 20px, $fontSize_s );
 
   @media screen and (min-width: $mq_m) {
 
-    height: pxToEm( 45px, $fontSize_m );
+    height: pxToEm( $soundCloudPlayerHeight_m, $fontSize_m );
+    margin: pxToEm( 15px, $fontSize_m ) 0;
+    //padding: 0 pxToEm( 40px, $fontSize_m );
   }
 
-  &.sc-multitrack,
-  .footer & {
+  @media screen and (min-width: $mq_l) {
 
-    height: pxToEm( $soundCloudPlayerHeight_s, $fontSize_s );
-    margin: pxToEm( 10px, $fontSize_s ) 0 0;
-    padding: 0 pxToEm( 20px, $fontSize_s );
-
-    @media screen and (min-width: $mq_m) {
-
-      height: pxToEm( $soundCloudPlayerHeight_m, $fontSize_m );
-      margin: pxToEm( 15px, $fontSize_m ) 0 0;
-      padding: 0 pxToEm( 40px, $fontSize_m );
-    }
-
-    @media screen and (min-width: $mq_l) {
-
-      height: pxToEm( $soundCloudPlayerHeight_l, $fontSize_m );
-      margin-top: pxToEm( 10px, $fontSize_m );
-    }
-
+    height: pxToEm( $soundCloudPlayerHeight_l, $fontSize_m );
+    margin: pxToEm( 10px, $fontSize_m ) 0;
   }
 
   &.loading {
@@ -340,7 +328,18 @@ svg {
 
   .sc-timebar {
 
-    bottom: 0;
+    bottom: pxToEm( -10px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      bottom: pxToEm( -15px, $fontSize_m );
+    }
+
+    @media screen and (min-width: $mq_l) {
+
+      bottom: pxToEm( -10px, $fontSize_m );
+    }
+
     left: 0;
     right: 0;
     position: absolute;
@@ -370,7 +369,7 @@ svg {
       left: 0;
       top: 0;
       height: 2px;
-      transition: width .25s;
+      //transition: width .25s;
     }
 
     .playing & {

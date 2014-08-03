@@ -13,3 +13,8 @@
   display: inline-block;
   text-indent: -99999px;
 }
+
+.accessible-hidden {
+
+  @extend %visually-hidden-accessible;
+}

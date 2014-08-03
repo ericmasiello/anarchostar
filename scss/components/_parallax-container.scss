@@ -9,7 +9,15 @@
 
 .has-border {
 
-  border: 30px solid #fff;
+  .story {
+
+    border: 10px solid #fff;
+
+    @media screen and (min-width: $mq_m) {
+
+      border-width: 20px;
+    }
+  }
 }
 
 .story-container {
@@ -28,18 +36,26 @@
   margin: 0 auto;
   display: table-cell;
   vertical-align: middle;
+  padding: pxToEm( 20px, $fontSize_s );
+
+  @media screen and ( min-width: $mq_m ){
+
+    padding: pxToEm( 20px, $fontSize_m );
+    padding-left: pxToEm( 75px, $fontSize_m );
+    padding-right: pxToEm( 75px, $fontSize_m );
+  }
+
+  @media screen and ( min-width: $mq_l ){
+
+    padding-left: pxToEm( 150px, $fontSize_m );
+    padding-right: pxToEm( 150px, $fontSize_m );
+  }
 
   .blockText {
 
-    background-color: rgba( 255, 255, 255, .9 );
-    color: $postFontColor;
+    @extend %content-area;
     position: relative;
     z-index: 2;
-
-    a {
-
-      color: $postLinkColor;
-    }
 
     @media screen and (min-width: $mq_m) {
 
@@ -106,7 +122,7 @@
 .float-right,
 .story .center {
 
-  padding: 2em 2em 1em;
+  //padding: 2em 2em 1em;
   position: relative;
 }
 

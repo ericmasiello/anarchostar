@@ -1,16 +1,8 @@
 .post {
 
-  padding: pxToEm( 20px, $fontSize_s );
+  //padding: pxToEm( 20px, $fontSize_s );
 
-  @media( min-width: $mq_m ){
 
-    padding-left: pxToEm( 75px, $fontSize_m );
-    padding-right: pxToEm( 75px, $fontSize_m );
-  }
 
-  @media( min-width: $mq_l ){
 
-    padding-left: pxToEm( 150px, $fontSize_m );
-    padding-right: pxToEm( 150px, $fontSize_m );
-  }
 }
