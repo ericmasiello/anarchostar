@@ -1,6 +1,5 @@
 .navbar {
 
-  background-color: rgba( 0, 0, 0, .85 );
   color: #fff;
   backface-visibility: hidden;
   color: #fff;
@@ -9,6 +8,13 @@
   top: 0;
   width: 100%;
   z-index: 300;
+  transition: background-color .25s linear;
+  //animation: 5s linear 2s infinite alternate; /* Standard syntax */
+
+  &:hover {
+
+    background-color: rgba( 0, 0, 0, .85 );
+  }
 
   .container {
 
@@ -17,7 +23,7 @@
 
     @media (screen and min-width: $mq_m) {
 
-      padding: pxToEm( 15px, $fontSize_m ) pxToEm( 40px, $fontSize_m )
+      padding: pxToEm( 30px, $fontSize_m );
     }
   }
 
@@ -77,16 +83,6 @@
     &:first-child {
 
       margin-left: 0;
-    }
-
-    &.current,
-    &.current-cat,
-    &.current_page_item,
-    &.current-menu-item,
-    &.current-post-ancestor,
-    &.current_page_parent,
-    &:hover{
-
     }
   }
 }

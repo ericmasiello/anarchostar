@@ -2,27 +2,13 @@
 11 Footer
 ----------------------------*/
 
-.footer {
+.footer.footer {
 
   @extend .navbar;
-  top: initial !important;
+  background-color: rgba( 0, 0, 0, .85 );
+  top: initial;
   bottom: 0;
-  min-height: 45px !important;
-
-//  .container {
-//
-//    padding: 0 !important;
-//    //padding-bottom: pxToEm( 7.5px, $fontSize_s ) !important;
-//    //padding-top: pxToEm( 7.5px, $fontSize_s ) !important;
-//    height: pxToEm( $footer_height_s, $fontSize_s );
-//
-//    @media screen and (min-width: $mq_m) {
-//
-//      //padding-bottom: pxToEm( 20px, $fontSize_m ) !important;
-//      //padding-top: pxToEm( 20px, $fontSize_m ) !important;
-//      height: pxToEm( $footer_height_m, $fontSize_m );
-//    }
-//  }
+  min-height: 45px;
 }
 
 #footer {

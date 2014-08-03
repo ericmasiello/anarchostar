@@ -17,7 +17,6 @@
 
   var Layout = function(){
 
-    this._headerHeight = $("#header").height();
     this._footerHeight = $(".footer").height();
     this._windowHeight = $(window).height();
     this._windowWidth = $(window).width();
@@ -34,7 +33,6 @@
    */
   Layout.prototype._setHeaderOffset = function(){
 
-    $("#container").css("margin-top", this._headerHeight );
     $("body").css("padding-bottom", this._footerHeight - 25 );
   };
 
@@ -48,7 +46,7 @@
      */
     if( window.ANARCHOSTAR.isMobile === false ){
 
-      $('#container').localScroll({ offset: { left: 0, top: (this._headerHeight * -1) } });
+      $('#container').localScroll({ offset: { left: 0 } });
 
       $('.parallax-container').bind('inview', function ( event, visible ){
 
@@ -114,7 +112,7 @@
       this._windowWidth = temp;
     }
 
-    $('.parallax-container').height( ( ( this._windowHeight - this._headerHeight ) > window.ANARCHOSTAR.height ) ? ( this._windowHeight - this._headerHeight ) : window.ANARCHOSTAR.height );
+    $('.parallax-container').height( ( ( this._windowHeight ) > window.ANARCHOSTAR.height ) ? ( this._windowHeight ) : window.ANARCHOSTAR.height );
   };
 
   //function that is called for every pixel the user scrolls. Determines the position of the background

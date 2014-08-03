@@ -9,7 +9,10 @@
 
 .has-border {
 
-  border: 30px solid #fff;
+  .story {
+
+    border: 20px solid #fff;
+  }
 }
 
 .story-container {
@@ -28,6 +31,20 @@
   margin: 0 auto;
   display: table-cell;
   vertical-align: middle;
+  padding: pxToEm( 20px, $fontSize_s );
+
+  @media screen and ( min-width: $mq_m ){
+
+    padding: pxToEm( 20px, $fontSize_m );
+    padding-left: pxToEm( 75px, $fontSize_m );
+    padding-right: pxToEm( 75px, $fontSize_m );
+  }
+
+  @media screen and ( min-width: $mq_l ){
+
+    padding-left: pxToEm( 150px, $fontSize_m );
+    padding-right: pxToEm( 150px, $fontSize_m );
+  }
 
   .blockText {
 
