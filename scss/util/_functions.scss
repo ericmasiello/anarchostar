@@ -16,11 +16,11 @@
 
   background-color: rgba( 255, 255, 255, .9 );
   color: $postFontColor;
-  padding: pxToEm(40px, $fontSize_s) pxToEm(40px, $fontSize_s) pxToEm(20px, $fontSize_s) pxToEm(40px, $fontSize_s);
+  padding: pxToEm(30px, $fontSize_s) pxToEm(30px, $fontSize_s) pxToEm(20px, $fontSize_s) pxToEm(30px, $fontSize_s);
 
   @media screen and (min-width: $mq_m) {
 
-    padding: pxToEm(40px, $fontSize_m) pxToEm(40px, $fontSize_m) pxToEm(20px, $fontSize_m) pxToEm(40px, $fontSize_m);
+    padding: pxToEm(30px, $fontSize_m) pxToEm(30px, $fontSize_m) pxToEm(20px, $fontSize_m) pxToEm(30px, $fontSize_m);
   }
 
   a {
@@ -33,6 +33,7 @@
   select {
 
     border-color: $postFontColor;
+    color: $postFontColor;
   }
 
   ::-webkit-input-placeholder {

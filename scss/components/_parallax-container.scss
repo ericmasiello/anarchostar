@@ -11,7 +11,12 @@
 
   .story {
 
-    border: 20px solid #fff;
+    border: 10px solid #fff;
+
+    @media screen and (min-width: $mq_m) {
+
+      border-width: 20px;
+    }
   }
 }
 

@@ -9,20 +9,21 @@ textarea,
 select {
 
   color: $fontColor;
-  font-size: $fontSize_s;
+  font-size: 1em;
+  //font-size: $fontSize_s;
   font-family: $fontFamily;
   font-weight: $fontWeight;
   background-color: transparent;
   border: 1px solid #fff;
   padding: pxToEm( 10px, $fontSize_s);
   width: 100%;
-  font-size: pxToEm( 24px, $fontSize_s);
+  //font-size: pxToEm( 24px, $fontSize_s);
   max-width: pxToEm( 500px, $fontSize_s);
 
   @media screen and (min-width: $mq_m) {
 
     padding: pxToEm( 10px, $fontSize_m);
-    font-size: pxToEm( 24px, $fontSize_m);
+    //font-size: pxToEm( 24px, $fontSize_m);
     max-width: pxToEm( 500px, $fontSize_m);
   }
 }
@@ -62,7 +63,7 @@ button {
 
   @media screen and (min-width: $mq_m) {
 
-    margin-bottom: pxToEm(15px, $fontSize_m);
+    margin-bottom: pxToEm(20px, $fontSize_m);
   }
 
   .fscf-div-error {
@@ -71,7 +72,7 @@ button {
 
     &:before {
 
-      background: url("images/error.min.svg") no-repeat left center transparent;
+      background: url("images/error2.min.svg") no-repeat left center transparent;
       background-size: contain;
       content: "";
       display: inline-block;
@@ -92,6 +93,7 @@ button {
 
 .fscf-div-error {
 
+  color: $errorFontColor;
   margin-bottom: pxToEm(15px, $fontSize_s);
 
   @media screen and (min-width: $mq_m) {
