@@ -84,10 +84,6 @@
             <?php } ?>
             .post, .page {background-attachment:scroll;}
         </style>
-    <?php }
-
-    if (!$detect->isMobile() && !tia_get_option('tia_scrollEasing_enabled') ) { ?>
-
     <?php } ?>
 
     <!--/theme specific-->
