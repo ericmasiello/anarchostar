@@ -32,7 +32,6 @@
    */
   Layout.prototype._setHeaderOffset = function(){
 
-
   };
 
   Layout.prototype._bindEvents = function(){
