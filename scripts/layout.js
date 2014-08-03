@@ -17,7 +17,6 @@
 
   var Layout = function(){
 
-    this._footerHeight = $(".footer").height();
     this._windowHeight = $(window).height();
     this._windowWidth = $(window).width();
     //90 = landscape, 180 = portrait
@@ -33,7 +32,7 @@
    */
   Layout.prototype._setHeaderOffset = function(){
 
-    //$("body").css("padding-bottom", this._footerHeight - 25 );
+
   };
 
   Layout.prototype._bindEvents = function(){
