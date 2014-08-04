@@ -84,17 +84,6 @@
             <?php } ?>
             .post, .page {background-attachment:scroll;}
         </style>
-    <?php }
-
-    if (!$detect->isMobile() && !tia_get_option('tia_scrollEasing_enabled') ) { ?>
-	    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/jquery.nicescroll.min.js"></script>
-	    <script type="text/javascript">
-	        var nice = false;
-	        $(document).ready(function(){
-		        nice = $("html").niceScroll();
-   		        var obj = window;
-	        });
-	    </script>
     <?php } ?>
 
     <!--/theme specific-->
