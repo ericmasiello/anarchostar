@@ -15,7 +15,7 @@
 
     @media screen and (min-width: $mq_m) {
 
-      border-width: 20px;
+      border-width: 15px;
     }
   }
 }
@@ -59,7 +59,8 @@
 
     @media screen and (min-width: $mq_m) {
 
-      min-width: pxToEm( 500px, $fontSize_m );
+      min-width: pxToEm( 450px, $fontSize_m );
+      max-width: pxToEm( 550px, $fontSize_m );
       width: 50%;
     }
 
