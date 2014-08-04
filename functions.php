@@ -458,6 +458,9 @@ if (is_admin()){
   $my_meta->addText($prefix.'offset_x_block_text',array('name'=> 'Left offset for text.'));
   $my_meta->addText($prefix.'offset_y_block_text',array('name'=> 'Top offset for text.'));
   $my_meta->addCheckbox($prefix.'include_border',array('name'=> 'Include Border'));
+  //$my_meta->addCheckbox($prefix.'include_border',array('name'=> 'Include Border'));
+
+  $my_meta->addRadio($prefix.'direction', array('left'=>'Left','right'=>'Right'), array('name'=> 'Align Content', 'std'=> array('left')));
 
 
 
