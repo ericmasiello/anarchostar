@@ -239,7 +239,17 @@ while ( have_posts() ) : the_post(); // Start the loop
                         <!--<p class="postmetadata"> <?php bloginfo('name'); ?> | <?php the_category(', ') ?><?php edit_post_link(' | Edit', ''); ?>  </p>-->
                     </div>
                 <?php } ?>
+
                 </div> <!-- /.story-container -->
+
+                <?php if ($i == 1): ?>
+                  <a href="#block<?php echo $i + 1; ?>" class="next-arrow">
+                    <span class="accessible-hidden">
+                      Next
+                    </span>
+                  </a>
+                <?php endif; ?>
+
             </div> <!-- /.story-->
         </div> <!-- ./block -->
 

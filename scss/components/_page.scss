@@ -22,8 +22,7 @@
 
   @media screen and (min-width: $mq_m) {
 
-    float: left;
-    min-width: pxToEm(650px, $fontSize_m);
+    max-width: pxToEm(650px, $fontSize_m);
   }
 
   h1:first-child {

@@ -22,7 +22,7 @@
 
     @media (screen and min-width: $mq_m) {
 
-      padding: pxToEm( 15px, $fontSize_m ) pxToEm( 20px, $fontSize_s );
+      padding: pxToEm( 15px, $fontSize_m ) pxToEm( 20px, $fontSize_m );
     }
 
     @media (screen and min-width: $mq_l) {
@@ -49,11 +49,6 @@
   display: none;
   float: right;
   font-weight: $fontWeightThin;
-
-//  @media (screen and min-width: $mq_xxxl) {
-//
-//    display: inline-block;
-//  }
 
   select { display: none; }
 
@@ -114,11 +109,6 @@
 
     top: $headerHeight_l;
   }
-
-//  @media (screen and min-width: $mq_xxxl) {
-//
-//    display: none;
-//  }
 
   .menu-main-menu-container {
 
@@ -186,9 +176,9 @@
 
 .mobile-nav-icon {
 
+  background-color: rgba(0,0,0,.75);
   display: block;
   float: right;
-  background-color: rgba(0,0,0,.75);
   border-radius: $logoHeight_s;
   height: $logoHeight_s;
   width: $logoHeight_s;
@@ -232,55 +222,32 @@
 
     background-image: url("images/close.min.svg");
   }
+}
 
+$animationOffset: .5em;
 
-//  background-color: rgba(0,0,0,.85);
-//  border-radius: $logoHeight_s;
-//  height: $logoHeight_s;
-//  width: $logoHeight_s;
-//  display: block;
-//  float: right;
-//
-//  @media( screen and min-width: $mq_m ){
-//
-//    height: $logoHeight_m;
-//    width: $logoHeight_m;
-//  }
-//
-//  @media( screen and min-width: $mq_l ){
-//
-//    height: $logoHeight_l;
-//    width: $logoHeight_l;
-//  }
-//
-//  svg {
-//
-//    width: 30px;
-//  }
-//
-//  .close {
-//
-//    display: none;
-//  }
-//
-//  &.is-open {
-//
-//    .menu {
-//
-//      display: none;
-//    }
-//
-//    .close {
-//
-//      display: inline;
-//    }
-//  }
+.next-arrow {
 
+  @extend .mobile-nav-icon;
+  transform: translateY($animationOffset);
+  animation: bounce 2.5s infinite;
+  animation-timing-function: ease;
+  animation-delay: 2s;
+  transition: background-color .25s linear;
 
+  &:hover {
 
+    background-color: rgba(0,0,0,1);
+  }
 
-//  @media (screen and min-width: $mq_xxxl) {
-//
-//    display: none;
-//  }
+  &:before {
+
+    background-image: url("images/down-arrow.min.svg");
+  }
+}
+
+@keyframes bounce {
+  0%   {transform: translateY($animationOffset);}
+  50%  {transform: translateY($animationOffset * -1);}
+  100%  {transform: translateY($animationOffset);}
 }
