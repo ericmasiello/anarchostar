@@ -1,10 +1,11 @@
 .social-media {
 
   text-align: center;
+  overflow: hidden;
 
   > li {
 
-    display: inline;
+    display: inline-block;
   }
 
   svg {
@@ -14,15 +15,15 @@
     max-width: pxToEm(60px, $fontSize_s);
   }
 
-  @media screen and (min-width: $mq_m) {
-
-    @include list--flat;
-
-    > li {
-
-      margin-left: pxToEm(10px, $fontSize_m);
-    }
-  }
+//  @media screen and (min-width: $mq_m) {
+//
+//    @include list--flat;
+//
+//    > li {
+//
+//      margin-left: pxToEm(10px, $fontSize_m);
+//    }
+//  }
 
   a {
 

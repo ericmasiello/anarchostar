@@ -393,8 +393,7 @@ button {
 
 @media screen and (min-width: 768px) {
   .inside .post {
-    float: left;
-    min-width: 40.625em; } }
+    max-width: 40.625em; } }
 .inside .post h1:first-child {
   margin-top: 0; }
 
@@ -671,23 +670,14 @@ ol#commentslist {
       padding: 0.9375em 2.5em; } }
 
 .social-media {
-  text-align: center; }
+  text-align: center;
+  overflow: hidden; }
   .social-media > li {
-    display: inline; }
+    display: inline-block; }
   .social-media svg {
     fill: #fff;
     max-height: 4.28571em;
     max-width: 4.28571em; }
-  @media screen and (min-width: 768px) {
-    .social-media {
-      list-style-type: none; }
-      .social-media > li {
-        float: left;
-        margin-left: .5em; }
-        .social-media > li:first-child {
-          margin-left: 0; }
-      .social-media > li {
-        margin-left: 0.625em; } }
   .social-media a {
     display: block; }
   .social-media svg {
@@ -754,7 +744,7 @@ ol#commentslist {
     overflow: hidden; }
     @media (min-width: 768px) {
       .navbar .container, .footer .container {
-        padding: 0.9375em 1.42857em; } }
+        padding: 0.9375em 1.25em; } }
     @media (min-width: 1024px) {
       .navbar .container, .footer .container {
         padding: 1.875em; } }
@@ -844,22 +834,22 @@ ol#commentslist {
     .nav-collapse__content .social-media li {
       float: none; }
 
-.mobile-nav-icon {
+.mobile-nav-icon, .next-arrow {
+  background-color: rgba(0, 0, 0, 0.75);
   display: block;
   float: right;
-  background-color: rgba(0, 0, 0, 0.75);
   border-radius: 40px;
   height: 40px;
   width: 40px; }
   @media (min-width: 768px) {
-    .mobile-nav-icon {
+    .mobile-nav-icon, .next-arrow {
       height: 60px;
       width: 60px; } }
   @media (min-width: 1024px) {
-    .mobile-nav-icon {
+    .mobile-nav-icon, .next-arrow {
       height: 70px;
       width: 70px; } }
-  .mobile-nav-icon:before {
+  .mobile-nav-icon:before, .next-arrow:before {
     background: url("images/menu.min.svg") no-repeat center center transparent;
     background-size: contain;
     content: '';
@@ -868,15 +858,36 @@ ol#commentslist {
     width: 20px;
     margin-left: 10px; }
     @media (min-width: 768px) {
-      .mobile-nav-icon:before {
+      .mobile-nav-icon:before, .next-arrow:before {
         height: 60px;
         margin-left: 20px; } }
     @media (min-width: 1024px) {
-      .mobile-nav-icon:before {
+      .mobile-nav-icon:before, .next-arrow:before {
         height: 70px;
         margin-left: 25px; } }
-  .nav-is-open .mobile-nav-icon:before {
+  .nav-is-open .mobile-nav-icon:before, .nav-is-open .next-arrow:before {
     background-image: url("images/close.min.svg"); }
+
+.next-arrow {
+  transform: translateY(0.5em);
+  animation: bounce 2.5s infinite;
+  animation-timing-function: ease;
+  animation-delay: 2s;
+  transition: background-color .25s linear; }
+  .next-arrow:hover {
+    background-color: black; }
+  .next-arrow:before {
+    background-image: url("images/down-arrow.min.svg"); }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0.5em); }
+
+  50% {
+    transform: translateY(-0.5em); }
+
+  100% {
+    transform: translateY(0.5em); } }
 
 .parallax-container {
   display: table;
@@ -906,6 +917,10 @@ ol#commentslist {
   @media screen and (min-width: 768px) {
     .story {
       padding: 1.25em;
+      padding-left: 1.25em;
+      padding-right: 1.25em; } }
+  @media screen and (min-width: 1024px) {
+    .story {
       padding-left: 1.875em;
       padding-right: 1.875em; } }
   .story .blockText {
