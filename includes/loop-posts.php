@@ -105,6 +105,7 @@ while ( have_posts() ) : the_post(); // Start the loop
     //$includeBorder = get_post_meta($post->ID, "_tia_include_border", true);
 
     $includeBorder = get_post_meta($post->ID,'_tia_include_border',true);
+    $direction = get_post_meta($post->ID,'_tia_direction',true);
 
 
     $noTextBackground = get_post_meta($post->ID, "_tia_no_text_background_value", true);
@@ -211,7 +212,7 @@ while ( have_posts() ) : the_post(); // Start the loop
 
                 <?php if($post->post_content != ""){ ?>
 
-                    <div class="<?php if($postAlignment) { echo $postAlignment; } elseif ($alignment) { echo ' float-right'; } else { echo ' float-left';} ?> blockText">
+                    <div class="<?php if( empty($direction) || $direction == 'left' ) { echo ' float-left'; } else { echo ' float-right';} ?> blockText">
 
 
                         <h1><?php if(tia_get_option('tia_title_links_disabled')){ ?><?php the_title(); ?><?php } else { ?> <a href="<?php the_permalink() ?>" rel="bookmark" <?php if($noTextBackground){echo'style="color:', $blockTextColor, '"';} ?>><?php the_title(); ?></a> <?php } ?></h1>

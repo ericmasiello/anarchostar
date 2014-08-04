@@ -41,15 +41,15 @@
   @media screen and ( min-width: $mq_m ){
 
     padding: pxToEm( 20px, $fontSize_m );
-    padding-left: pxToEm( 75px, $fontSize_m );
-    padding-right: pxToEm( 75px, $fontSize_m );
+    padding-left: pxToEm( 30px, $fontSize_m );
+    padding-right: pxToEm( 30px, $fontSize_m );
   }
 
-  @media screen and ( min-width: $mq_l ){
-
-    padding-left: pxToEm( 150px, $fontSize_m );
-    padding-right: pxToEm( 150px, $fontSize_m );
-  }
+//  @media screen and ( min-width: $mq_l ){
+//
+//    padding-left: pxToEm( 150px, $fontSize_m );
+//    padding-right: pxToEm( 150px, $fontSize_m );
+//  }
 
   .blockText {
 
