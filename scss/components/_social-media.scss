@@ -1,0 +1,38 @@
+.social-media {
+
+  text-align: center;
+  overflow: hidden;
+
+  > li {
+
+    display: inline-block;
+  }
+
+  svg {
+
+    fill: #fff;
+    max-height: pxToEm(60px, $fontSize_s);
+    max-width: pxToEm(60px, $fontSize_s);
+  }
+
+//  @media screen and (min-width: $mq_m) {
+//
+//    @include list--flat;
+//
+//    > li {
+//
+//      margin-left: pxToEm(10px, $fontSize_m);
+//    }
+//  }
+
+  a {
+
+    display: block;
+  }
+
+  svg {
+
+    max-height: pxToEm(60px, $fontSize_m);
+    max-width: pxToEm(60px, $fontSize_m);
+  }
+}

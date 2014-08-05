@@ -1,0 +1,401 @@
+.sc-previous,
+.sc-next {
+
+  display: none;
+
+  .sc-multitrack &/*,
+  .footer &*/ {
+
+    display: block;
+  }
+}
+
+.sc-previous {
+
+  margin-right: pxToEm( 20px, $fontSize_s );
+
+  @media screen and (min-width: $mq_m) {
+
+    margin-right: pxToEm( 20px, $fontSize_m );
+  }
+}
+
+.sc-next {
+
+  margin-left: pxToEm( 20px, $fontSize_s );
+
+  @media screen and (min-width: $mq_m) {
+
+    margin-left: pxToEm( 20px, $fontSize_m );
+  }
+}
+
+svg {
+
+  .sc-play &,
+  .sc-pause & {
+
+    height: pxToEm( $soundCloudControls_s, $fontSize_s );
+    width: pxToEm( $soundCloudControls_s, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      height: pxToEm( $soundCloudControls_s, $fontSize_m );
+      width: pxToEm( $soundCloudControls_s, $fontSize_m );
+    }
+
+    @media screen and (min-width: $mq_l) {
+
+      height: pxToEm( $soundCloudControls_l, $fontSize_m );
+      width: pxToEm( $soundCloudControls_l, $fontSize_m );
+    }
+  }
+
+  .sc-previous &,
+  .sc-next & {
+
+    position: relative;
+    height: pxToEm( 18px, $fontSize_s );
+    width: pxToEm( 18px, $fontSize_s );
+    top: pxToEm( 3px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      height: pxToEm( 18px, $fontSize_m );
+      width: pxToEm( 18px, $fontSize_m );
+      top: pxToEm( 3px, $fontSize_m );
+    }
+  }
+}
+
+.sc-pause {
+
+  display: none;
+}
+
+.sc-controls {
+
+  //only needs to be wide enough for the play/pause control
+  width: pxToEm( $soundCloudControls_s, $fontSize_s );
+  position: absolute;
+  top: 0;
+
+  @media screen and (min-width: $mq_m) {
+
+    width: pxToEm( $soundCloudControls_s, $fontSize_m );
+  }
+
+  @media screen and (min-width: $mq_l) {
+
+    width: pxToEm( $soundCloudControls_l, $fontSize_m );
+  }
+
+  //makes space for extra previous/next controls
+  .sc-multitrack &,
+  .footer & {
+
+    left: pxToEm( 20px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      left: pxToEm( 40px, $fontSize_m );
+    }
+  }
+
+  .sc-multitrack & {
+
+    width: pxToEm( 115px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      width: pxToEm( 115px, $fontSize_m );
+    }
+  }
+
+  a {
+
+    //forces middle vertical alignment of smaller icons
+    line-height: pxToEm( $soundCloudControls_s, $fontSize_s );
+    height: pxToEm( $soundCloudControls_s, $fontSize_s );
+    float: left;
+
+    @media screen and (min-width: $mq_m) {
+
+      line-height: pxToEm( $soundCloudControls_s, $fontSize_m );
+      height: pxToEm( $soundCloudControls_s, $fontSize_m );
+    }
+
+    @media screen and (min-width: $mq_l) {
+
+      line-height: pxToEm( $soundCloudControls_l, $fontSize_m );
+      height: pxToEm( $soundCloudControls_l, $fontSize_m );
+    }
+  }
+}
+
+.sc-scrubber,
+.sc-trackslist {
+
+  position: absolute;
+  //pushes the content left enough for the controls
+  left: pxToEm( 45px, $fontSize_s );
+  right: 0;
+  margin: 0 !important;
+  padding: 0;
+  top: 0;
+  z-index: 9;
+
+  @media screen and (min-width: $mq_m) {
+
+    left: pxToEm( 40px, $fontSize_m );
+  }
+
+  .footer & {
+
+    left: pxToEm( 65px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      left: pxToEm( 85px, $fontSize_m );
+    }
+  }
+
+  //pushes the content more to the left when there are previous/next controls
+  .sc-multitrack & {
+
+    left: pxToEm( 150px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      left: pxToEm( 170px, $fontSize_m );
+    }
+  }
+}
+
+.sc-scrubber {
+
+  visibility: hidden;
+  height: pxToEm( $soundCloudControls_s, $fontSize_s );
+
+  @media screen and (min-width: $mq_m) {
+
+    height: pxToEm( $soundCloudControls_s, $fontSize_m );
+  }
+
+  @media screen and (min-width: $mq_l) {
+
+    height: pxToEm( $soundCloudControls_l, $fontSize_m );
+  }
+
+  .playing & {
+
+    visibility: visible;
+  }
+}
+
+.sc-player {
+
+  //display: table;
+  width: 100%;
+  position: relative;
+  height: pxToEm( $soundCloudPlayerHeight_s, $fontSize_s );
+  margin: pxToEm( 10px, $fontSize_s ) 0;
+  //padding: 0 pxToEm( 20px, $fontSize_s );
+
+  @media screen and (min-width: $mq_m) {
+
+    height: pxToEm( $soundCloudPlayerHeight_m, $fontSize_m );
+    margin: pxToEm( 15px, $fontSize_m ) 0;
+    //padding: 0 pxToEm( 40px, $fontSize_m );
+  }
+
+  @media screen and (min-width: $mq_l) {
+
+    height: pxToEm( $soundCloudPlayerHeight_l, $fontSize_m );
+    margin: pxToEm( 10px, $fontSize_m ) 0;
+  }
+
+  &.loading {
+
+    .sc-controls {
+
+      display: none;
+    }
+
+    .sc-trackslist, .sc-scrubber {
+
+      left: 0;
+    }
+
+    .footer & {
+
+      .sc-trackslist, .sc-scrubber {
+
+        left: pxToEm( 20px, $fontSize_s );
+
+        @media screen and (min-width: $mq_m) {
+
+          left: pxToEm( 40px, $fontSize_m );
+        }
+      }
+    }
+  }
+
+  &.playing {
+
+    .sc-play {
+
+      display: none;
+    }
+
+    .sc-pause {
+
+      display: block;
+    }
+  }
+
+  .hidden {
+
+    display: none;
+  }
+}
+
+  .sc-artwork-list {
+
+    display: none;
+  }
+
+  .sc-time-span {
+
+    display: none;
+  }
+
+  .sc-buffer,
+  .sc-played {
+
+    height: pxToEm( 30px, $fontSize_s );
+    position: absolute;
+    top: 0;
+    width: 0;
+    transition: width 0.1s linear;
+
+    @media screen and (min-width: $mq_m) {
+
+      height: pxToEm( 30px, $fontSize_m );
+    }
+  }
+
+  .sc-trackslist {
+
+    position: absolute;
+    right: 0;
+    z-index: 999;
+    margin: 0 !important;
+    padding:0;
+
+    li {
+
+      display: none;
+      list-style: none;
+      cursor: pointer;
+      margin: 0 !important;
+
+      &.active {
+
+        display: block;
+      }
+
+      > a {
+
+        display: block;
+        line-height: pxToEm( $soundCloudControls_s, $fontSize_s );
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:hover, &:active {
+
+          text-decoration: underline;
+        }
+
+        @media screen and (min-width: $mq_m) {
+
+          line-height: pxToEm( $soundCloudControls_s, $fontSize_m );
+        }
+
+        @media screen and (min-width: $mq_l) {
+
+          font-size: pxToEm( $fontSize_s, $fontSize_m);
+          line-height: pxToEm( $soundCloudControls_l, $fontSize_s );
+        }
+      }
+    }
+  }
+
+  .sc-track-duration {
+
+    display: none;
+  }
+
+  .sc-info,
+  .sc-info-toggle {
+
+    display: none;
+  }
+
+  .sc-timebar {
+
+    bottom: pxToEm( -10px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      bottom: pxToEm( -15px, $fontSize_m );
+    }
+
+    @media screen and (min-width: $mq_l) {
+
+      bottom: pxToEm( -10px, $fontSize_m );
+    }
+
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 2px;
+
+    .sc-multitrack &,
+    .footer & {
+
+      bottom: initial;
+      top: pxToEm( -10px, $fontSize_s );
+
+      @media screen and (min-width: $mq_m) {
+
+        top: pxToEm( -15px, $fontSize_m );
+      }
+
+      @media screen and (min-width: $mq_l) {
+
+        top: pxToEm( -10px, $fontSize_m );
+      }
+    }
+
+    .time {
+
+      background-color: rgba(255,255,255,.15);
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 2px;
+      //transition: width .25s;
+    }
+
+    .playing & {
+
+      background-color: rgba(255,255,255,.15);
+
+      .time {
+
+        background-color: #fff;
+      }
+    }
+  }

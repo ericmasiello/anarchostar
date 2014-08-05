@@ -1,0 +1,32 @@
+/*body*/.page {
+
+  .page {
+
+    padding: pxToEm(60px, $fontSize_s) pxToEm(20px, $fontSize_s);
+
+    @media screen and (min-width: $mq_m) {
+
+      padding: pxToEm(75px, $fontSize_m) pxToEm(25px, $fontSize_m);
+    }
+
+    @media screen and (min-width: $mq_l) {
+
+      padding: pxToEm(70px, $fontSize_m) pxToEm(30px, $fontSize_m);
+    }
+  }
+}
+
+.inside .post {
+
+  @extend %content-area;
+
+  @media screen and (min-width: $mq_m) {
+
+    max-width: pxToEm(650px, $fontSize_m);
+  }
+
+  h1:first-child {
+
+    margin-top: 0;
+  }
+}

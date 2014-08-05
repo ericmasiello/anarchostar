@@ -1,0 +1,55 @@
+.parallax-nav {
+
+  display: none;
+  float: left;
+  list-style-type: none;
+  margin-left: pxToEm( 30px, $fontSize_s );
+  margin-bottom: 0;
+
+  @media( min-width: $mq_l ){
+
+    margin-left: pxToEm( 30px, $fontSize_m );
+    display: table;
+  }
+
+
+  > li {
+
+    display: table-cell;
+    padding-left: pxToEm( 15px, $fontSize_m );
+    vertical-align: middle;
+
+
+    &:first-child {
+
+      padding-left: 0;
+      padding-right: pxToEm( 10px, $fontSize_s );
+      padding-right: pxToEm( 10px, $fontSize_m );
+    }
+  }
+
+  .sep {
+
+    border-left: 1px solid #fff;
+    display: block;
+
+    height: pxToEm( $logoHeight_l - 30, $fontSize_m);
+  }
+
+  a {
+
+    @extend %visually-hidden;
+    background: url("images/circle-open.min.svg") no-repeat center center transparent;
+    background-size: contain;
+    width: pxToEm(19px, $fontSize_s);
+    height: pxToEm($logoHeight_s, $fontSize_s);
+
+    &.active {
+
+      background-image: url("images/circle-closed.min.svg");
+    }
+
+    width: pxToEm(19px, $fontSize_m);
+    height: pxToEm($logoHeight_l, $fontSize_m);
+  }
+}

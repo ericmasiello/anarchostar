@@ -1,0 +1,72 @@
+/*Lists------------------*/
+
+/*ul*/.list--unstyled {
+
+  list-style-type: none;
+}
+
+@mixin list--flat {
+
+  list-style-type: none;
+
+  > li {
+
+    float: left;
+    margin-left: .5em;
+
+    &:first-child {
+
+      margin-left: 0;
+    }
+  }
+}
+
+/*ul, ol*/.list--flat {
+
+  @include list--flat;
+}
+
+@media screen and (min-width: $mq_m) {
+
+  .list--column-2 {
+
+    column-count: 2;
+  }
+
+  .list--column-3 {
+
+    column-count: 3;
+  }
+}
+
+.float-left,
+.float-right,
+.center {
+  //background: transparent url(images/postbgwhite.png) repeat;
+}
+
+
+
+@media screen and (min-width: $mq_m) {
+
+  .float-left {
+
+    float: left;
+    margin-right:7%
+  }
+
+  .float-right {
+
+    float: right;
+    margin-left:7%;
+  }
+}
+
+.post, .page {
+
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.post img, .post object {max-width: 100%; height:auto}

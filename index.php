@@ -1,16 +1,21 @@
+<?php
+global $storyMarginTop;
+global $storyMarginTop;
+global $parallaxHeight;
+global $imgMarginTop;
+?>
 <?php get_header(); ?>
 	<div id="main" class="clearfix">				 
 		<div id="content" class="postshome clearfix">
-        	<div id="cover-left">&nbsp;</div>
-        	<div id="cover-right">&nbsp;</div>
 
             <!--end post nav -->
         	<?php $i = 1; //Start a counter outside of the loop
+
         	if(tia_get_option('tia_pages_enabled'))	{
         		include( TEMPLATEPATH . '/includes/loop-pages.php');
         	} else {
-						include( TEMPLATEPATH . '/includes/loop-posts.php');
-					}
+				include( TEMPLATEPATH . '/includes/loop-posts.php');
+			}
 
 			wp_reset_postdata(); ?>
 

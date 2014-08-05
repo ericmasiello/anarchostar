@@ -1,0 +1,93 @@
+/* ---------------------------
+02 Global
+----------------------------*/
+
+*, *:before, *:after {
+
+  box-sizing: border-box;
+}
+
+html {
+
+  font-size: $fontSize_s;
+  font-family: $fontFamily;
+  height: 100%;
+}
+
+body {
+
+  -webkit-font-smoothing: antialiased;
+  background-color: $bgColor;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  color: $fontColor;
+  font-weight: $fontWeight;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+
+  line-height: $lineHeight;
+
+  @media screen and (min-width: $mq_m){
+
+    font-size: $fontSize_m;
+  }
+}
+
+p {
+
+  margin: 0 0 1em;
+
+//  &:first-of-type {
+//
+//    margin-top: 0;
+//  }
+}
+
+ul, ol, dl {
+
+  margin: 0 0 1em;
+}
+
+li {
+
+  margin: 0 0 .5em;
+}
+
+img {
+
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+
+  color: $linkColor;
+  text-decoration: underline;
+
+  > img {
+
+    border: none;
+  }
+}
+
+
+
+.left {
+
+  float: left;
+}
+
+.right {
+
+  float: right;
+}
+
+.moreLink {
+
+  font-weight: bold;
+}
+

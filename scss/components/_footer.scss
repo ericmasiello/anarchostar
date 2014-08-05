@@ -1,0 +1,26 @@
+/* ---------------------------
+11 Footer
+----------------------------*/
+
+.footer.footer {
+
+  @extend .navbar;
+  background-color: rgba( 0, 0, 0, .85 );
+  top: initial;
+  bottom: 0;
+  min-height: 45px;
+}
+
+#footer {
+
+  .main {
+
+    padding: pxToEm( 10px, $fontSize_s ) pxToEm( 20px, $fontSize_s );
+    overflow: hidden;
+
+    @media (screen and min-width: $mq_m) {
+
+      padding: pxToEm( 15px, $fontSize_m ) pxToEm( 40px, $fontSize_m )
+    }
+  }
+}

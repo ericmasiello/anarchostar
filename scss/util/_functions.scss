@@ -1,0 +1,78 @@
+@function pxToEm( $px, $base: $fontSize_s ){
+
+  @return ($px / $base)*1em;
+}
+
+@mixin formFieldPlaceholderText {
+
+  color: $fontColor;
+  font-size: $fontSize_s;
+  font-family: $fontFamily;
+  font-weight: $fontWeight;
+  font-size: 1em;
+}
+
+%content-area {
+
+  background-color: rgba( 255, 255, 255, .85 );
+  color: $postFontColor;
+  padding: pxToEm(30px, $fontSize_s) pxToEm(30px, $fontSize_s) pxToEm(20px, $fontSize_s) pxToEm(30px, $fontSize_s);
+
+  @media screen and (min-width: $mq_m) {
+
+    padding: pxToEm(30px, $fontSize_m) pxToEm(30px, $fontSize_m) pxToEm(20px, $fontSize_m) pxToEm(30px, $fontSize_m);
+  }
+
+  a {
+
+    color: $postLinkColor;
+  }
+
+  input,
+  textarea,
+  select {
+
+    border-color: $postFontColor;
+    color: $postFontColor;
+  }
+
+  ::-webkit-input-placeholder {
+    color: $postLinkColor;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    color: $postLinkColor;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: $postLinkColor;
+  }
+
+  :-ms-input-placeholder {
+    color: $postLinkColor;
+  }
+
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="file"],
+  button {
+
+    background-color: $postLinkColor;
+    color: #fff;
+  }
+
+  svg {
+
+    &, path {
+
+      fill: #152B17;
+    }
+  }
+
+  .playing .sc-timebar .time {
+
+    background-color: $postFontColor;
+  }
+
+}

@@ -1,0 +1,103 @@
+label {
+
+  @extend %visually-hidden-accessible;
+}
+
+
+input,
+textarea,
+select {
+
+  color: $fontColor;
+  font-size: 1em;
+  //font-size: $fontSize_s;
+  font-family: $fontFamily;
+  font-weight: $fontWeight;
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding: pxToEm( 10px, $fontSize_s);
+  width: 100%;
+  //font-size: pxToEm( 24px, $fontSize_s);
+  max-width: pxToEm( 500px, $fontSize_s);
+
+  @media screen and (min-width: $mq_m) {
+
+    padding: pxToEm( 10px, $fontSize_m);
+    //font-size: pxToEm( 24px, $fontSize_m);
+    max-width: pxToEm( 500px, $fontSize_m);
+  }
+}
+
+::-webkit-input-placeholder {
+
+  @include formFieldPlaceholderText;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  @include formFieldPlaceholderText;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  @include formFieldPlaceholderText;
+}
+
+:-ms-input-placeholder {
+  @include formFieldPlaceholderText;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="file"],
+button {
+
+  border: none;
+  background-color: $fontColor;
+  color: $buttonColor;
+  cursor: pointer;
+}
+
+.fscf-div-clear {
+
+  margin-bottom: pxToEm(15px, $fontSize_s);
+
+  @media screen and (min-width: $mq_m) {
+
+    margin-bottom: pxToEm(20px, $fontSize_m);
+  }
+
+  .fscf-div-error {
+
+    margin-bottom: 0;
+
+    &:before {
+
+      background: url("images/error2.min.svg") no-repeat left center transparent;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      margin-right: pxToEm(10px, $fontSize_s);
+      height: pxToEm(20px, $fontSize_s);
+      width: pxToEm(20px, $fontSize_s);
+
+      @media screen and (min-width: $mq_m){
+
+        margin-right: pxToEm(10px, $fontSize_m);
+        height: pxToEm(20px, $fontSize_m);
+        width: pxToEm(20px, $fontSize_m);
+      }
+
+    }
+  }
+}
+
+.fscf-div-error {
+
+  color: $errorFontColor;
+  margin-bottom: pxToEm(15px, $fontSize_s);
+
+  @media screen and (min-width: $mq_m) {
+
+    margin-bottom: pxToEm(15px, $fontSize_m);
+  }
+}

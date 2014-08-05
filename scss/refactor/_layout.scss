@@ -1,0 +1,26 @@
+/* ---------------------------
+03 Layout
+----------------------------*/
+
+#container {
+
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+
+  body.page & {
+
+    margin-top: pxToEm($headerHeight_s, $fontSize_s);
+
+    @media (screen and min-width: $mq_m) {
+
+      margin-top: pxToEm($headerHeight_m, $fontSize_m);
+    }
+
+    @media (screen and min-width: $mq_l) {
+
+      margin-top: pxToEm($headerHeight_l, $fontSize_m);
+    }
+  }
+}

@@ -1,0 +1,135 @@
+.parallax-container {
+
+  display: table;
+  background-position: top center;
+  background-size: cover;
+  overflow: hidden;
+  width: 100%;
+}
+
+.has-border {
+
+  .story {
+
+    border: 10px solid #fff;
+
+    @media screen and (min-width: $mq_m) {
+
+      border-width: 15px;
+    }
+  }
+}
+
+.story-container {
+
+  position: relative;
+  margin-top: pxToEm( ($footer_height_s + 10) * -1, $fontSize_s );
+
+  @media screen and (min-width: $mq_m) {
+
+    margin-top: pxToEm( ($footer_height_m + 10) * -1, $fontSize_m );
+  }
+}
+
+.story {
+
+  margin: 0 auto;
+  display: table-cell;
+  vertical-align: middle;
+  padding: pxToEm( 20px, $fontSize_s );
+
+  @media screen and ( min-width: $mq_m ){
+
+    padding: pxToEm( 20px, $fontSize_m );
+    padding-left: pxToEm( 20px, $fontSize_m );
+    padding-right: pxToEm( 20px, $fontSize_m );
+  }
+
+  @media screen and ( min-width: $mq_l ){
+
+    padding-left: pxToEm( 30px, $fontSize_m );
+    padding-right: pxToEm( 30px, $fontSize_m );
+  }
+
+  .blockText {
+
+    @extend %content-area;
+    position: relative;
+    z-index: 2;
+
+    @media screen and (min-width: $mq_m) {
+
+      min-width: pxToEm( 450px, $fontSize_m );
+      max-width: pxToEm( 550px, $fontSize_m );
+      width: 50%;
+    }
+
+    h1 {
+
+      @extend %visually-hidden-accessible;
+    }
+
+    .sc-player {
+
+      margin-top: 1.1em;
+    }
+  }
+
+  .bg1 {
+
+    display: none;
+    position: absolute;
+    z-index: 1;
+
+    @media screen and (min-height: 800px) and (min-width: $mq_m) {
+
+      display: block;
+    }
+  }
+
+  .bg1-image {
+
+    display: block;
+
+    @media screen and (min-width: $mq_m) {
+
+      min-width: pxToEm( 500px, $fontSize_m );
+      width: 50%;
+    }
+
+    @media screen and (min-height: 800px) and (min-width: $mq_m) {
+
+      display: none;
+    }
+  }
+}
+
+.inside {
+
+  margin: 0 auto;
+}
+
+.story {
+
+  .sc-container {
+
+    margin-bottom: 1em;
+  }
+}
+
+.story
+.float-left,
+.story
+.float-right,
+.story .center {
+
+  //padding: 2em 2em 1em;
+  position: relative;
+}
+
+.story .float-right {
+  float: right;
+}
+
+.story .center { z-index: 100; }
+.storycenter .bg1 { z-index: 90; }

@@ -1,0 +1,253 @@
+.navbar {
+
+  color: #fff;
+  backface-visibility: hidden;
+  color: #fff;
+  min-height: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 300;
+  transition: background-color .25s linear;
+
+  .nav-is-open &, &:hover {
+
+    background-color: rgba( 0, 0, 0, .85 );
+  }
+
+  .container {
+
+    padding: pxToEm( 10px, $fontSize_s ) pxToEm( 20px, $fontSize_s );
+    overflow: hidden;
+
+    @media (screen and min-width: $mq_m) {
+
+      padding: pxToEm( 15px, $fontSize_m ) pxToEm( 20px, $fontSize_m );
+    }
+
+    @media (screen and min-width: $mq_l) {
+
+      padding: pxToEm( 30px, $fontSize_m );
+    }
+  }
+
+  a {
+
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.btn-navbar {
+
+  display: none;
+}
+
+
+.nav-collapse {
+
+  display: none;
+  float: right;
+  font-weight: $fontWeightThin;
+
+  select { display: none; }
+
+  a {
+
+    display: inline-block;
+    line-height: $logoHeight_s;
+
+    @media( min-width: $mq_m ){
+
+      line-height: $logoHeight_m;
+    }
+
+    @media( min-width: $mq_l ){
+
+      line-height: $logoHeight_l;
+    }
+  }
+
+  li {
+
+    margin-left: pxToEm( 20px, $fontSize_s );
+
+    @media( min-width: $mq_m ){
+
+      margin-left: pxToEm( 20px, $fontSize_m );
+    }
+
+    display: inline-block;
+
+    &:first-child {
+
+      margin-left: 0;
+    }
+  }
+}
+
+
+
+.nav--footer {
+
+  background-color: rgba(0,0,0,.85);
+  display: none;
+  float: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  top: $headerHeight_s;
+  bottom: 0;
+
+  @media( screen and min-width: $mq_m ){
+
+    top: $headerHeight_m;
+  }
+
+  @media( screen and min-width: $mq_l ){
+
+    top: $headerHeight_l;
+  }
+
+  .menu-main-menu-container {
+
+    margin: auto;
+    overflow: auto;
+    width: 100%;
+
+    @media( screen and min-width: $mq_s ){
+
+      display: block;
+    }
+  }
+
+  .sf-menu {
+
+    height: 100%;
+    max-width: 1000px;
+    max-height: 1000px;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+
+    > li {
+
+      margin: 0;
+      display: block;
+      margin: auto;
+      float: none;
+
+      a {
+
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        font-size: pxToEm( 32px, $fontSize_s);
+        line-height: pxToEm( 75px, 32px);
+
+        @media screen and (min-width: $mq_m) {
+
+          font-size: pxToEm( 52px, $fontSize_m);
+          //line-height: pxToEm( 100px, $fontSize_m);
+        }
+      }
+    }
+  }
+}
+
+.nav-collapse__content {
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  .social-media {
+
+    margin: 0;
+
+    li {
+
+      float: none;
+    }
+  }
+}
+
+.mobile-nav-icon {
+
+  background-color: rgba(0,0,0,.75);
+  display: block;
+  float: right;
+  border-radius: $logoHeight_s;
+  height: $logoHeight_s;
+  width: $logoHeight_s;
+
+  @media( screen and min-width: $mq_m ){
+
+    height: $logoHeight_m;
+    width: $logoHeight_m;
+  }
+
+  @media( screen and min-width: $mq_l ){
+
+    height: $logoHeight_l;
+    width: $logoHeight_l;
+  }
+
+  &:before {
+
+    background: url("images/menu.min.svg") no-repeat center center transparent;
+    background-size: contain;
+    content: '';
+    display: block;
+    height: $logoHeight_s;
+    width: $logoHeight_s - 20;
+    margin-left: 10px; //nudges into center
+
+    @media( screen and min-width: $mq_m ){
+
+      height: $logoHeight_m;
+      margin-left: 20px;
+    }
+
+    @media( screen and min-width: $mq_l ){
+
+      height: $logoHeight_l;
+      margin-left: 25px;
+    }
+  }
+
+  .nav-is-open &:before {
+
+    background-image: url("images/close.min.svg");
+  }
+}
+
+$animationOffset: .5em;
+
+.next-arrow {
+
+  @extend .mobile-nav-icon;
+  transform: translateY($animationOffset);
+  animation: bounce 2.5s infinite;
+  animation-timing-function: ease;
+  animation-delay: 2s;
+  transition: background-color .25s linear;
+
+  &:hover {
+
+    background-color: rgba(0,0,0,1);
+  }
+
+  &:before {
+
+    background-image: url("images/down-arrow.min.svg");
+  }
+}
+
+@keyframes bounce {
+  0%   {transform: translateY($animationOffset);}
+  50%  {transform: translateY($animationOffset * -1);}
+  100%  {transform: translateY($animationOffset);}
+}

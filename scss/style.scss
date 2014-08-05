@@ -1,0 +1,90 @@
+//$bgColor:     #fff;
+//$fontColor:   #152B17;
+//$linkColor:   $fontColor;
+//$buttonColor: #2A4E3D;
+
+$bgColor:     #000;
+$fontColor:   #fff;
+$linkColor:   $fontColor;
+$buttonColor: #2A4E3D;
+$postFontColor: #152B17;
+$postLinkColor: $postFontColor;
+$errorFontColor: #EC1C24;
+
+
+$fontFamily:  Helvetica, Tahoma, Arial, Sans-Serif;
+$fontWeight:    400;
+$fontSize_s:    14px;
+$fontSize_m:    16px;
+$fontWeightThin: 200;
+
+$gigaFontSize_s:     34px;
+$gigaFontSize_m:     52px;
+$gigaFontWeight:      200;
+
+$microFontSize_s:   12px;
+$microFontSize_m:   14px;
+
+$nanoFontSize_s:   11px;
+$nanoFontSize_m:   12px;
+
+
+$lineHeight:  1.3em;
+
+$mq_xs:       400px;
+$mq_s:        500px;
+$mq_m:        768px;
+$mq_l:        1024px;
+$mq_xl:       1200px;
+$mq_xxl:      1400px;
+$mq_xxxl:     1650px;
+
+$logoHeight_s: 40px;
+$logoHeight_m: 60px;
+$logoHeight_l: 70px;
+
+$footer_height_s: 55px;
+$footer_height_m: 65px;
+
+$headerHeight_s: 60px;
+$headerHeight_m: 90px;
+$headerHeight_l: 130px;
+
+$soundCloudControls_s:  35px;
+$soundCloudControls_l:  25px;
+
+$soundCloudPlayerHeight_s: 35px;
+$soundCloudPlayerHeight_m: 35px;
+$soundCloudPlayerHeight_l: 25px;
+
+
+@import 'util/functions';
+@import 'util/reset';
+
+@import 'base/global';
+@import 'base/type';
+@import 'base/form';
+@import 'refactor/layout';
+
+@import 'components/header';
+@import 'components/content';
+@import 'components/images';
+@import 'components/lists';
+//@import 'components/post';
+@import 'components/page';
+@import 'components/comments';
+@import 'components/pagination';
+@import 'components/sidebar';
+@import 'refactor/custom';
+@import 'components/grid';
+@import 'components/footer';
+@import 'components/social-media';
+
+@import 'components/logo';
+@import 'components/navbar';
+//@import 'components/parallax-nav';
+@import 'components/parallax-container';
+@import 'components/soundcloud-player';
+
+@import 'util/clearfix';
+@import 'util/text';

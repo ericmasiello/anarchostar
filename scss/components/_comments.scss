@@ -1,0 +1,143 @@
+/* ---------------------------
+06 Comments
+----------------------------*/
+
+#comments {
+  position: relative;
+  margin: 30px 0 30px 40px;
+}
+
+#comment {
+
+  display:block;
+}
+
+#trackbacks {
+  margin: 30px 0 0 40px;
+}
+
+ol#commentslist {
+  margin: 0 0 0 0px;
+  list-style: none;
+  padding: none;
+  padding: 0;
+}
+
+#commentslist .children li {
+  padding: 15px 0 0 40px;
+  background: transparent url(images/comment_marker.gif) no-repeat 0px 40px;
+  border-left: 1px solid #cbcbcb;
+  margin: 0;
+}
+
+.comment {
+  position: relative;
+  margin: 0 0 0 0;
+  padding: 0 0 20px 0;
+}
+
+.comment .avatar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #e4e4e4;
+}
+
+.comment h5 {
+  font-size: 16px;
+  margin: 0 0 0 110px;
+  padding: 0;
+}
+
+.comment .date {
+  margin: 0 0 10px 110px;
+  display: block;
+}
+
+.comment p {
+  margin: 0 0 10px 110px;
+}
+
+.comment-reply-link,
+.comment-reply-login {
+  margin: 0 0 0 110px;
+}
+
+.comment-reply {
+  display: inline-block!important;
+  padding: 0 0 0 10px;
+}
+
+#comment-add {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+}
+
+.moderation {
+  margin: 0px;
+  padding: 0 0 10px 25px;
+}
+
+#comment-navigation {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.older-comments,
+.newer-comments {
+  display: block;
+  float: left;
+  width: auto;
+  height: 24px;
+  line-height: 24px;
+  margin: 0px;
+  padding: 0 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.newer-comments {
+  float: right;
+  margin: 0 0 0 10px;
+}
+
+#trackbacks ul {
+  margin: -5px 0 15px;
+}
+
+#trackbacks ul li {
+  padding: 5px 0 5px 20px;
+}
+
+/* Comment Form */
+
+#commentForm {
+  position: relative;
+  margin: 0 0 30px 40px;
+}
+
+#comments #respond {
+  position: relative;
+  padding: 0 0 0;
+  margin: 0;
+}
+
+#respond .form-allowed-tags {
+  display: none;
+}
+
+
+#respond form {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.cancel-comment-reply {
+  float: right;
+  margin: 5px 90px 0 0;
+}
