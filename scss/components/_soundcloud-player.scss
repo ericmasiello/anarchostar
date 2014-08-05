@@ -3,8 +3,8 @@
 
   display: none;
 
-  .sc-multitrack &,
-  .footer & {
+  .sc-multitrack &/*,
+  .footer &*/ {
 
     display: block;
   }
@@ -95,11 +95,19 @@ svg {
   .footer & {
 
     left: pxToEm( 20px, $fontSize_s );
-    width: pxToEm( 115px, $fontSize_s );
 
     @media screen and (min-width: $mq_m) {
 
       left: pxToEm( 40px, $fontSize_m );
+    }
+  }
+
+  .sc-multitrack & {
+
+    width: pxToEm( 115px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
       width: pxToEm( 115px, $fontSize_m );
     }
   }
@@ -142,9 +150,18 @@ svg {
     left: pxToEm( 40px, $fontSize_m );
   }
 
-  //pushes the content more to the left when there are previous/next controls
-  .sc-multitrack &,
   .footer & {
+
+    left: pxToEm( 65px, $fontSize_s );
+
+    @media screen and (min-width: $mq_m) {
+
+      left: pxToEm( 85px, $fontSize_m );
+    }
+  }
+
+  //pushes the content more to the left when there are previous/next controls
+  .sc-multitrack & {
 
     left: pxToEm( 150px, $fontSize_s );
 
